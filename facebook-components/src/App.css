@@ -1,0 +1,56 @@
+/* * {
+    margin: 0;
+}
+.app-wrap {
+  position:relative;
+}
+.App-header {
+    width: 100%;
+    height: 43px;
+    background: #4267b2;
+    border-bottom: 1px solid #3a5381;
+    box-sizing: border-box;
+}
+.App-header-wrap {
+    width: 100%;
+    max-width: 1012px;
+    padding: 0 8px;
+    margin: 0 auto;
+}
+.cont-wrap {
+  position:absolute;
+  left: 0;
+  top: 43px;
+} */
+* {
+    margin: 0;
+}
+.App-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 43px;
+    background: #4267b2;
+    border-bottom: 1px solid #3a5381;
+    box-sizing: border-box;
+    font-family: BlinkMacSystemFont;
+}
+.App-header-wrap {
+    width: 1012px;
+    max-width: 100%;
+    padding: 0 8px;
+    margin: 0 auto;
+}
+{/* 추가 , 메뉴 수정시 width값 변경으로 깨지는 부분 고민.. */}
+.side-menu-wrap {
+    float: right;
+    width: 439px;
+    min-width: 200px;
+}
+@media only screen and (max-width: 750px) {
+    .App-header-wrap {
+        width: 750px;
+        max-width: 750px;
+    }
+}
