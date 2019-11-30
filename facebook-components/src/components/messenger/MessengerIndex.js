@@ -13,5 +13,4 @@ class MessengerIndex extends Component {
     )
   }
 }
-
 export default MessengerIndex
