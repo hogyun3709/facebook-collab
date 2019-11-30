@@ -1,4 +1,4 @@
-/* logo */
+/* logo CSS */
 .logo {
     position: relative;
     float: left;
@@ -11,11 +11,10 @@
     top: 9px;
     width: 24px;
     height: 24px;
-    background: url(../images/logo.png) no-repeat 0 / 24px;
+    background: url(../images/ico_logo.png) no-repeat 0 / 24px;
 }
-/* search bar */
-/* 수정 */
-.form {
+/* SearchBar CSS */
+.SearchForm-wrap {
     position: relative;
     float: left;
     max-width: 35%;
@@ -25,49 +24,4 @@
     border: 1px solid #3a5998;
     border-radius: 4px;
     background: #fff;
-}
-.searchBar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    max-width: calc(100% - 45px);
-    width: 406px;
-    height: 24px;
-    margin: 0 0 0 7px;
-    border: none;
-    outline: none;
-}
-.searchBar:focus + .submit {
-    background: #4c84f7;
-}
-.searchBar:focus + .submit:after {
-    background: url(../images/header_icons.png) no-repeat 0 -1001px / 180%;
-}
-/* secrch button */
-.submit {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 45px;
-    height: 24px;
-    border: none;
-    border-radius: 0 3px 3px 0;
-    background: #f5f6f7;
-    outline: none;
-    transition: all .4s;
-}
-.submit::after {
-    content:"";
-    position: absolute;
-    top: 5px;
-    left: 15px;
-    width: 15px;
-    height: 15px;
-    background: url(../images/header_icons.png) no-repeat 0 -985px / 180%;
-}
-.submit:active {
-    background: #4c84f7;
-}
-.submit:active::after {
-    background: url(../images/header_icons.png) no-repeat 0 -1001px / 180%;
 }

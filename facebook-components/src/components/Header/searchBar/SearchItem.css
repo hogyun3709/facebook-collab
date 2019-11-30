@@ -1,0 +1,44 @@
+/* searchItem CSS */
+.searchItem-txt {
+    float: left;
+    position: relative;
+    width: calc(100% - 34px);
+    padding: 0 0 0 40px;
+    color: inherit;
+    line-height: 32px;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.searchItem-txt::before {
+    content:'';
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    top: 0;
+    left: 0;
+    margin: 9px 13px;
+    background: url(../images/ico_search.png) no-repeat 0/100%;
+}
+.searchItem-rm {
+    float: right;
+    width: 10px;
+    height: 10px;
+    margin: 11px;
+    background: url(../images/ico_remove.png) no-repeat 0/100%;
+}
+/* .searchItem-box:hover {
+    background: #ebeef3;
+} */
+/* .searchItem-rm::after {
+    content:'';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    right: 0;
+    margin: 11px;
+    background: url(../images/ico_remove.png) no-repeat 0/100%;
+    border: 1px solid red;
+} */
