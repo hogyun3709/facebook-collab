@@ -22,9 +22,33 @@
   left: 0;
   top: 43px;
 } */
-* {
+
+/* reset code s */
+html, body {
+    padding: 0;
     margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
 }
+body {
+    margin-top: 43px;
+}
+ol,ul,li,p,h1,h2,h3,h4,h5,h6 {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    list-style-type: none;
+}
+.clear {
+    display: block;
+    clear: both;
+}
+.clear::after {
+    content:'';
+    display: block;
+    clear: both;
+}
+/* reset code e */
+/* header s */
 .App-header {
     position: fixed;
     top: 0;
@@ -34,7 +58,6 @@
     background: #4267b2;
     border-bottom: 1px solid #3a5381;
     box-sizing: border-box;
-    font-family: BlinkMacSystemFont;
 }
 .App-header-wrap {
     width: 1012px;
@@ -42,10 +65,10 @@
     padding: 0 8px;
     margin: 0 auto;
 }
-{/* 추가 , 메뉴 수정시 width값 변경으로 깨지는 부분 고민.. */}
+/* 추가 , 메뉴 수정시 width값 변경으로 깨지는 부분 고민.. */
 .side-menu-wrap {
     float: right;
-    width: 439px;
+    width: 460px;
     min-width: 200px;
 }
 @media only screen and (max-width: 750px) {
@@ -53,4 +76,12 @@
         width: 750px;
         max-width: 750px;
     }
+}
+/* header e */
+/* newsFeed e */
+.newsFeed-wrap {
+    width: 100%;
+    max-width: 1012px;
+    margin: 0 auto;
+    border: 1px solid red;
 }

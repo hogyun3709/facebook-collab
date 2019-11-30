@@ -19,13 +19,13 @@
 import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
-import SearchBar from "./components/Header/SearchBar/SearchBar";
-import Account from "./components/Header/Account/Account";
-import Home from "./components/Header/Menu/Home";
-import User from "./components/Header/Menu/User";
-import Friends from "./components/Header/Menu/Friends";
-import Create from "./components/Header/Menu/Create";
-import Notice from "./components/Header/Notice/Notice";
+import SearchBar from "./components/header/searchBar/SearchBarIndex";
+import Account from "./components/header/account/Account";
+import Home from "./components/header/menu/Home";
+import User from "./components/header/menu/User";
+import Friends from "./components/header/menu/Friends";
+import Create from "./components/header/menu/Create";
+import Notice from "./components/header/notice/Notice";
 import NewsFeed from "./components/newsFeed/NewsFeedIndex";
 
 
@@ -47,7 +47,9 @@ function App() {
         <Route path="/Friends" component={Friends} />
         <Route path="/Create" component={Create} />
       </Router>
-      <NewsFeed />
+      <div class="newsFeed-wrap">
+        <NewsFeed />
+      </div>
     </React.Fragment>
   );
 }

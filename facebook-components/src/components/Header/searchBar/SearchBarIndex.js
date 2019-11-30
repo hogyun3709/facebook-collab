@@ -1,26 +1,34 @@
 import React from 'react';
 import { Link, BrowserRouter as Router } from "react-router-dom";
-// import logo from '../../images/logo.png';
-import './SearchBar.css';
+import SearchList from './SearchList';
+import SearchForm from './SearchForm';
+import './SearchBarIndex.css';
 
 
-class SearchBar extends React.Component {
+class SearchBarIndex extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            text: ""
+            input: "",
+            logs: [
+                {
+                    id: 0,
+                    text: 'enjoy react :)'
+                    // date: new Date().toLocaleDateString
+                }
+            ]
         };
-    this.updateText = this.updateText.bind(this);
-    this.submit = this.submit.bind(this);
     }
-updateText(e){
+updateInput = (e) => {
     this.setState({
-        text: e.target.value
+        input: e.target.value
     });
 }
-submit(){
-
+submit = () => {
+    // input:''
+    // log: 
 }
+
     render(){
         return(
         <div className="header-left">
@@ -35,16 +43,19 @@ submit(){
                 className="searchBar"
                 type="text"
                 placeholder="검색"
-                value={this.state.text}
-                onChange={this.updateText}
+                value={this.state.input}
+                onChange={this.updateInput}
                 />
                 <button 
                 type="submit"
                 className="submit"
+                onClick={this.submit}
                 />
             </div>
+            <SearchForm />
+            <SearchList />
         </div>
         );
     }
 }
-export default SearchBar;
+export default SearchBarIndex;
