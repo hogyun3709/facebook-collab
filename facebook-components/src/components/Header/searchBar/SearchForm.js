@@ -2,7 +2,7 @@ import React from 'react';
 import SearchList from './SearchList';
 import './SearchForm.css';
 
-const SearchForm = ({ value, logs, onChange, onCreate, onKeyPress }) => {
+const SearchForm = ({ value, logs, onChange, onCreate, onKeyPress, onRemove }) => {
     return(
         <React.Fragment>
             <input
@@ -19,7 +19,10 @@ const SearchForm = ({ value, logs, onChange, onCreate, onKeyPress }) => {
             onClick={onCreate}
             />
             <div class="SearchList-wrap">
-                <SearchList logs={logs} />
+                <SearchList 
+                logs={logs} 
+                onRemove={onRemove}
+                />
             </div>
         </React.Fragment>
     );

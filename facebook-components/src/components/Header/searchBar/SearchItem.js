@@ -4,10 +4,10 @@ import './SearchItem.css';
 
 class SearchItem extends React.Component {
     render(){
-        const { id, text, date, onRemove } = this.props;
+        const { id, text, onRemove } = this.props;
         return(
             <React.Fragment>
-                <div className="searchItem-box">
+                {/* <div className="searchItem-box"> */}
                 <Link
                 className="searchItem-txt"
                 to=""
@@ -19,7 +19,7 @@ class SearchItem extends React.Component {
                 onClick={(e) => {onRemove(id)}}
                 >
                 </Link>
-                </div>
+                {/* </div> */}
             </React.Fragment>
         );
     }

@@ -10,7 +10,7 @@ class SearchBarIndex extends React.Component {
         this.state = {
             input: '',
             logs: [
-                {id: 0, text: 'Please leave a search log.', date: new Date()}
+                {id: 0, text: 'Please leave a search log.'}
             ]
         };
     }
@@ -35,10 +35,18 @@ handleKeyPress = (e) => {
         this.handleCreate();
     }
 }
+handleRemove = (id) => {
+    const { logs } = this.state;
+    this.setState({
+        logs: logs.filter(
+            log => log.id !== id
+        )
+    });
+  }
 
     render(){
         const { input, logs } = this.state;
-        const { handleChange,handleCreate,handleKeyPress } = this;
+        const { handleChange, handleCreate, handleKeyPress, handleRemove } = this;
         return(
             <div className="header-left">
                 <h1 className="logo">
@@ -54,6 +62,7 @@ handleKeyPress = (e) => {
                     onChange={handleChange}
                     onCreate={handleCreate}
                     onKeyPress={handleKeyPress}
+                    onRemove={handleRemove}
                     />
                 </div>
             </div>
