@@ -7,29 +7,23 @@ class CommentItem extends React.Component {
         return(
             <React.Fragment>
                 <div className="itemUserInfo" />
-                <div className="itemText">
+                <span className="itemText">
                     <span className="itemUserName">
                         {name}
                     </span>
                     {text}
-                    <span 
-                        className="itemRemove"
-                        onClick={(e) =>
-                            {
-                                e.stopPropagation();
-                                onRemove(id)}
-                            }>
-                                Remove
-                    </span>
-                </div>
+                </span>
+                <span 
+                    className="itemRemove"
+                    onClick={(e) =>
+                        {
+                            e.stopPropagation();
+                            onRemove(id)}
+                        }>
+                            Remove
+                </span>
                 <div className="iteminfo" >
-                    <span 
-                        className={"itemLike ${like?'liked':'unliked'}"}
-                        onClick={(e) =>
-                            {
-                                e.stopPropagation();
-                                onToggle(id)}
-                            }>
+                    <span className={"itemLike ${like?'liked':'unliked'}"}>
                             {
                                 like?
                                 <span className="liked">좋아요</span>:

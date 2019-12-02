@@ -61,25 +61,26 @@ class CommentForm extends React.Component {
                 <div className="commentListWrapper">
                     {commentItem}
                 </div>
-                <div className="commentUserInfo" />
-                <div className="commentBox">
-                    <input
-                    className="commentBar"
-                    type="text"
-                    placeholder="댓글을 입력하세요..."
-                    value={input}
-                    onChange={handleChange}
-                    onKeyPress={handleKeyPress}
-                    />
-                    <div className="attachBox">
-                        <span className="attachIcon" />
-                        <span className="attachFile" />
-                        <span className="attachGIF" />
-                        <span className="attachSticker" />
+                <div className="commentBox clear">
+                    <div className="commentUserInfo" />
+                    <div className="commentBar">
+                        <input
+                        className="commentInput"
+                        type="text"
+                        placeholder="댓글을 입력하세요..."
+                        value={input}
+                        onChange={handleChange}
+                        onKeyPress={handleKeyPress}
+                        />
+                        <div className="attachBox">
+                            <div className="attachIcon" />
+                            <div className="attachFile" />
+                            <div className="attachGIF" />
+                            <div className="attachSticker" />
+                        </div>
                     </div>
+                    <div className="commentNum">댓글 {comments.length}개</div>
                 </div>
-                <div className="commentInfo">글을 게시하려면 Enter 키를 누르세요.</div>
-                <div className="commentNum">댓글 {comments.length}개</div>
             </div>
         );
     }

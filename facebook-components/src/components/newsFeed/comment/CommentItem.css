@@ -1,1 +1,42 @@
 /* CommentItem.css */
+.itemText {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 18px;
+    background: #f2f3f5;
+    color: #1c1e21;
+    font-size: 13px;
+    line-height: 16px;
+    white-space: normal;
+}
+.itemUserName {
+    padding: 0 8px 0 0;
+    color: #385898;
+    font-weight: bold;
+}
+.itemRemove {
+    margin: 0 0 0 10px;
+}
+.iteminfo {
+    margin: 3px 10px;
+    color: #385898;
+    font-size: 12px;
+    line-height: 16px;
+}
+.iteminfo span {
+    position: relative;
+    margin: 0 5px;
+}
+.iteminfo span ~ span::before {
+    content:'';
+    position: absolute;
+    top: 6px;
+    left: -9px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: #8d949e;
+}
+.itemTime {
+    color: #606770;
+}

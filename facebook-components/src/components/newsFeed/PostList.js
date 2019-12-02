@@ -57,7 +57,7 @@ const TempCard = ({ tempPost }) => {
   return (
     <div class="ui card fluid">
       <div class="content">
-        <div class="right floated meta">14h</div>
+        {/* <div class="right floated meta">14h</div> */}
         {/* <img class="ui avatar image" src="https://source.unsplash.com/random" /> */}
       </div>
       <div class="image">

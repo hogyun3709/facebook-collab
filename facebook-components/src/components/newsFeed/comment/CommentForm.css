@@ -1,1 +1,69 @@
 /* CommentForm.css */
+.commentWrapper {
+    width: 500px;
+}
+.commentListWrapper {
+    padding: 4px 12px;
+}
+.commentBox {
+    height: 44px;
+    padding: 2px 12px 8px;
+}
+.commentUserInfo {
+    float: left;
+    width: 32px;
+    height: 32px;
+    margin: 0 6px 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    background: url(../../header/images/profile.png) no-repeat center/100%;
+}
+.commentBar {
+    float: left;
+    position: relative;
+    width: 438px;
+    height: 32px;
+    border: 1px solid #ccd0d5;
+    border-radius: 16px;
+    background: #f2f3f5;
+}
+.commentInput {
+    float: left;
+    width: 324px;
+    padding: 8px 12px;
+    color: #8d949e;
+    border: none;
+    outline: none;
+    background: transparent;
+    line-height: 16px;
+}
+.commentNum {
+    clear: both;
+    color: #606770;
+    font-size: 13px;
+    text-align: right;
+}
+.attachBox {
+    float: right;
+    width: 112px;
+    height: 32px;
+}
+.attachBox div {
+    float: left;
+    width: 28px;
+    height: 32px;
+    padding: 8px 6px;
+    background: url(../../header/images/feed_icons.png) no-repeat;
+}
+.attachIcon {
+    background-position: 0 0;
+}
+.attachFile {
+    background-position: 0 0;
+}
+.attachGIF {
+    background-position: 0 0;
+}
+.attachSticker {
+    background-position: 0 0;
+}
