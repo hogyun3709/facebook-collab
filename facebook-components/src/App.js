@@ -1,21 +1,3 @@
-// import React from "react";
-// import NewsFeed from "./components/newsFeed/NewsFeedIndex";
-// import "./App.css";
-//
-// function App() {
-//   return (
-//     <div>
-//       <div className="ui two column centered grid">
-//         <div className="column">
-//           <NewsFeed />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-//
-// export default App;
-
 import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";

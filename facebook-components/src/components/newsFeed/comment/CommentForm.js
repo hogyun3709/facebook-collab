@@ -3,6 +3,7 @@ import CommentItem from './CommentItem';
 import './CommentForm.css';
 
 class CommentForm extends React.Component {
+    id = 1
     constructor(props){
         super(props);
         this.state = {
@@ -12,20 +13,22 @@ class CommentForm extends React.Component {
             ]
         }
     }
-
     handleChange = (e) => {
         this.setState({
             input: e.target.value
         });
     }
 
+    helloworld = () => {
+        
+    }
     handleKeyPress = (e) => {
         const { input, comments } = this.state;
         if( e.key === 'Enter' ) {
             this.setState({
                 input: '',
                 comments: comments.concat({
-                    id: comments.id++,
+                    id: this.id++,
                     name: 'EunJi',
                     text: input,
                     time: comments.time
@@ -46,7 +49,6 @@ class CommentForm extends React.Component {
     render(){
         const { input, comments } = this.state;
         const { handleChange, handleKeyPress, handleRemove } = this;
-
         const commentItem = comments.map(
             (comment) => (
                 <CommentItem 
@@ -56,6 +58,8 @@ class CommentForm extends React.Component {
                 />
             )
         );
+        console.log( this.hello )
+        console.log({ comments })
         return(
             <div className="commentWrapper">
                 <div className="commentListWrapper">

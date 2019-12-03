@@ -7,16 +7,6 @@ class SearchList extends React.Component {
     // 리스트 데이터 양이 많아질수록 더 나은 사용자 경험을 위한 컨포넌트 최적화는 필수.
     render(){
         const { logs, onRemove } = this.props;
-        // const searchList = logs.map(
-        //     ({ id, text }) => (
-        //         <SearchItem 
-        //         key={id} // 배열 렌더링 필수값, id 지정이 컨포넌트 리랜더 시 효율적 작동
-        //         id={id}
-        //         text={text}
-        //         onRemove={onRemove}
-        //         />
-        //     )
-        // );
         const searchList = logs.map(
             (todo) => (
                 <SearchItem 

@@ -21,11 +21,11 @@ handleChange = (e) => {
     });
 }
 handleCreate = () => {
-    const {input,logs} = this.state;
+    const { input, logs } = this.state;
     this.setState({
         input:'',
         logs: logs.concat({
-            id: logs.id++,
+            id: this.id++,
             text: input
         })
     });

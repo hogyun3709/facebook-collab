@@ -7,7 +7,6 @@ class SearchItem extends React.Component {
         const { id, text, onRemove } = this.props;
         return(
             <React.Fragment>
-                {/* <div className="searchItem-box"> */}
                 <Link
                 className="searchItem-txt"
                 to=""
@@ -19,7 +18,6 @@ class SearchItem extends React.Component {
                 onClick={(e) => {onRemove(id)}}
                 >
                 </Link>
-                {/* </div> */}
             </React.Fragment>
         );
     }
