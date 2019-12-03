@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import PostForm from "./PostForm";
+import CommentForm from "./comment/CommentForm";
 import "./PostList.css"
 
 /* 카드 컴포넌트를 만들고, */
@@ -21,8 +22,8 @@ const Card = ({ post }) => {
   return (
     <div class="ui card fluid">
       <div class="content">
-        <div class="right floated meta">14h</div>
-        <img class="ui avatar image" src="https://source.unsplash.com/random" />
+        {/* <div class="right floated meta">14h</div>
+        <img class="ui avatar image" src="https://source.unsplash.com/random" /> */}
       </div>
       <div class="image">
         <img />
@@ -32,9 +33,9 @@ const Card = ({ post }) => {
           <div>{post.message}</div>
         </div>
         <div class="ui horizontal divider" />
-        <span class="right floated">
+        {/* <span class="right floated">
           <i class="comment icon"></i>3 comments
-        </span>
+        </span> */}
         <i
           class="heart outline like icon"
           onClick={() => setLike(like + 1)}
@@ -42,10 +43,11 @@ const Card = ({ post }) => {
         {like} likes
       </div>
       <div class="extra content">
-        <div class="ui large transparent left icon input">
+        <CommentForm />
+        {/* <div class="ui large transparent left icon input">
           <i class="heart outline icon"></i>
           <input type="text"placeholder="Add Comment..." />
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -56,8 +58,8 @@ const TempCard = ({ tempPost }) => {
   return (
     <div class="ui card fluid">
       <div class="content">
-        <div class="right floated meta">14h</div>
-        <img class="ui avatar image" src="https://source.unsplash.com/random" />
+        {/* <div class="right floated meta">14h</div> */}
+        {/* <img class="ui avatar image" src="https://source.unsplash.com/random" /> */}
       </div>
       <div class="image">
         <img />
@@ -68,7 +70,7 @@ const TempCard = ({ tempPost }) => {
         </div>
         <div class="ui horizontal divider" />
         <span class="right floated">
-          <i class="comment icon"></i>3 comments
+          {/* <i class="comment icon"></i>3 comments */}
         </span>
         <i
           class="heart outline like icon"
@@ -77,10 +79,14 @@ const TempCard = ({ tempPost }) => {
         {like} likes
       </div>
       <div class="extra content">
-        <div class="ui large transparent left icon input">
+
+        <CommentForm />
+
+        {/* <div class="ui large transparent left icon input">
           <i class="heart outline icon"></i>
           <input type="text" placeholder="Add Comment..." />
-        </div>
+        </div> */}
+
       </div>
     </div>
   );
