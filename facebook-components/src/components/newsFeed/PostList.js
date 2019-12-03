@@ -22,8 +22,8 @@ const Card = ({ post }) => {
   return (
     <div class="ui card fluid">
       <div class="content">
-        <div class="right floated meta">14h</div>
-        <img class="ui avatar image" src="https://source.unsplash.com/random" />
+        {/* <div class="right floated meta">14h</div>
+        <img class="ui avatar image" src="https://source.unsplash.com/random" /> */}
       </div>
       <div class="image">
         <img />
@@ -33,9 +33,9 @@ const Card = ({ post }) => {
           <div>{post.message}</div>
         </div>
         <div class="ui horizontal divider" />
-        <span class="right floated">
+        {/* <span class="right floated">
           <i class="comment icon"></i>3 comments
-        </span>
+        </span> */}
         <i
           class="heart outline like icon"
           onClick={() => setLike(like + 1)}
@@ -43,10 +43,11 @@ const Card = ({ post }) => {
         {like} likes
       </div>
       <div class="extra content">
-        <div class="ui large transparent left icon input">
+        <CommentForm />
+        {/* <div class="ui large transparent left icon input">
           <i class="heart outline icon"></i>
           <input type="text"placeholder="Add Comment..." />
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -65,7 +66,7 @@ const TempCard = ({ tempPost }) => {
       </div>
       <div class="content">
         <div class="description">
-          {/* <div>{tempPost.body}</div> */}
+          <div>{tempPost.body}</div>
         </div>
         <div class="ui horizontal divider" />
         <span class="right floated">
@@ -75,7 +76,7 @@ const TempCard = ({ tempPost }) => {
           class="heart outline like icon"
           onClick={() => setLike(like + 1)}
         ></i>
-        {/* {like} likes */}
+        {like} likes
       </div>
       <div class="extra content">
 

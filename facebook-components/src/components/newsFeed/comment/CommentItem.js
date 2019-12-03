@@ -5,23 +5,25 @@ class CommentItem extends React.Component {
     render(){
         const { id, name, text, like, time, recomment, onRemove, onToggle } = this.props;
         return(
-            <React.Fragment>
-                <div className="itemUserInfo" />
-                <span className="itemText">
-                    <span className="itemUserName">
-                        {name}
+            <div className="itemCommentWrapper">
+                <div className="itemCommentBox clear">
+                    <span className="itemUserInfo" />
+                    <span className="itemText">
+                        <span className="itemUserName">
+                            {name}
+                        </span>
+                        {text}
                     </span>
-                    {text}
-                </span>
-                <span 
-                    className="itemRemove"
-                    onClick={(e) =>
-                        {
-                            e.stopPropagation();
-                            onRemove(id)}
-                        }>
-                            Remove
-                </span>
+                    <span 
+                        className="itemRemove"
+                        onClick={(e) =>
+                            {
+                                e.stopPropagation();
+                                onRemove(id)}
+                            }>
+                                Remove
+                    </span>
+                </div>
                 <div className="iteminfo" >
                     <span className={"itemLike ${like?'liked':'unliked'}"}>
                             {
@@ -37,7 +39,7 @@ class CommentItem extends React.Component {
                         {time}
                     </span>
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 }

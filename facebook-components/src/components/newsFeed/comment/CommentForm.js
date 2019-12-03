@@ -73,10 +73,10 @@ class CommentForm extends React.Component {
                         onKeyPress={handleKeyPress}
                         />
                         <div className="attachBox">
-                            <div className="attachIcon" />
-                            <div className="attachFile" />
-                            <div className="attachGIF" />
-                            <div className="attachSticker" />
+                            <div className="attachIcon cmtAttach" />
+                            <div className="attachFile cmtAttach" />
+                            <div className="attachGIF cmtAttach" />
+                            <div className="attachSticker cmtAttach" />
                         </div>
                     </div>
                     <div className="commentNum">댓글 {comments.length}개</div>

@@ -3,7 +3,7 @@
     width: 500px;
 }
 .commentListWrapper {
-    padding: 4px 12px;
+    margin: 4px 0 0;
 }
 .commentBox {
     height: 44px;
@@ -16,20 +16,20 @@
     margin: 0 6px 0 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    background: url(../../header/images/profile.png) no-repeat center/100%;
+    background: url(../../header/images/profile.png) no-repeat center/110%;
 }
 .commentBar {
     float: left;
-    position: relative;
     width: 438px;
     height: 32px;
+    /* padding: 8px 12px; */
     border: 1px solid #ccd0d5;
     border-radius: 16px;
     background: #f2f3f5;
 }
 .commentInput {
     float: left;
-    width: 324px;
+    width: 312px;
     padding: 8px 12px;
     color: #8d949e;
     border: none;
@@ -47,23 +47,24 @@
     float: right;
     width: 112px;
     height: 32px;
+    margin: 0 12px 0 0;
 }
-.attachBox div {
+.cmtAttach {
     float: left;
-    width: 28px;
-    height: 32px;
-    padding: 8px 6px;
+    width: 16px;
+    height: 16px;
+    margin: 8px 6px;
     background: url(../../header/images/feed_icons.png) no-repeat;
 }
 .attachIcon {
-    background-position: 0 0;
+    background-position: -34px -258px;
 }
 .attachFile {
-    background-position: 0 0;
+    background-position: -34px -241px;
 }
 .attachGIF {
-    background-position: 0 0;
+    background-position: -34px -275px;
 }
 .attachSticker {
-    background-position: 0 0;
+    background-position: -34px -309px;
 }

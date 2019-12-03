@@ -31,7 +31,7 @@ import NewsFeed from "./components/newsFeed/NewsFeedIndex";
 
 function App() {
   return (
-    <React.Fragment>
+    <div className="App-container">
       <Router className="App">
         <header className="App-header">
           <div className="App-header-wrap">
@@ -47,10 +47,12 @@ function App() {
         <Route path="/Friends" component={Friends} />
         <Route path="/Create" component={Create} />
       </Router>
-      <div class="newsFeed-wrap">
-        <NewsFeed />
+      <div className="contents-wrap">
+        <div className="newsFeed-wrap">
+          <NewsFeed />
+        </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 export default App;
