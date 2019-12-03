@@ -1,60 +1,71 @@
 import React from 'react';
 import { Link, BrowserRouter as Router } from "react-router-dom";
-import SearchList from './SearchList';
 import SearchForm from './SearchForm';
 import './SearchBarIndex.css';
 
-
 class SearchBarIndex extends React.Component {
+    id = 1
     constructor(props){
         super(props);
         this.state = {
-            input: "",
+            input: '',
             logs: [
-                {
-                    id: 0,
-                    text: 'enjoy react :)'
-                    // date: new Date().toLocaleDateString
-                }
+                {id: 0, text: 'Please leave a search log.'}
             ]
         };
     }
-updateInput = (e) => {
+
+handleChange = (e) => {
     this.setState({
         input: e.target.value
     });
 }
-submit = () => {
-    // input:''
-    // log: 
+handleCreate = () => {
+    const { input, logs } = this.state;
+    this.setState({
+        input:'',
+        logs: logs.concat({
+            id: this.id++,
+            text: input
+        })
+    });
 }
+handleKeyPress = (e) => {
+    if(e.key === 'Enter') {
+        this.handleCreate();
+    }
+}
+handleRemove = (id) => {
+    const { logs } = this.state;
+    this.setState({
+        logs: logs.filter(
+            log => log.id !== id
+        )
+    });
+  }
 
     render(){
+        const { input, logs } = this.state;
+        const { handleChange, handleCreate, handleKeyPress, handleRemove } = this;
         return(
-        <div className="header-left">
-            <h1 className="logo">
-                <Link
-                to="/"
-                className="logoImg"
-                />
-            </h1>
-            <div className="form">
-                <input
-                className="searchBar"
-                type="text"
-                placeholder="검색"
-                value={this.state.input}
-                onChange={this.updateInput}
-                />
-                <button 
-                type="submit"
-                className="submit"
-                onClick={this.submit}
-                />
+            <div className="header-left">
+                <h1 className="logo">
+                    <Link
+                    className="logoImg"
+                    to="/"
+                    />
+                </h1>
+                <div class="SearchForm-wrap">
+                    <SearchForm
+                    value={input}
+                    logs={logs}
+                    onChange={handleChange}
+                    onCreate={handleCreate}
+                    onKeyPress={handleKeyPress}
+                    onRemove={handleRemove}
+                    />
+                </div>
             </div>
-            <SearchForm />
-            <SearchList />
-        </div>
         );
     }
 }
