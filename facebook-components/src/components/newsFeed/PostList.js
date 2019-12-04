@@ -113,24 +113,25 @@ class PostList extends Component {
     this.getPostData();
   }
 
-  temp = obj => {
-    let tempArr = this.state.postItems;
-    tempArr.push(obj);
-    this.setState({ postItems: tempArr });
+  userInput = messageObj => {
+    let linkArray = this.state.postItems;
+    linkArray.unshift(messageObj);
+    this.setState({ postItems: linkArray})
   };
 
   render() {
+
     return (
       <div className="postList-wrap">
-        <PostForm temp={this.temp} />
+        <PostForm userInputProps={this.userInput} />
 
         {this.state.postItems.map(post => (
           <Card post={post} />
         ))}
-
         {this.state.tempPosts.map(tempPost =>(
           <TempCard tempPost={tempPost} />
         ))}
+
       </div>
     );
   }

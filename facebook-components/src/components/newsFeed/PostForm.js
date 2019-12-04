@@ -18,8 +18,7 @@ class PostForm extends Component {
     });
   };
   onSubmit = e => {
-    //return {this.state.post}
-    this.props.temp(this.state.post)
+    this.props.userInputProps(this.state.post)
   }
 
   render() {
