@@ -19,6 +19,11 @@ class PostForm extends Component {
   };
   onSubmit = e => {
     this.props.userInputProps(this.state.post)
+    this.setState({
+      post: {
+        message: ""
+      }
+    })
   }
 
   render() {
