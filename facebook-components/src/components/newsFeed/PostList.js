@@ -99,6 +99,7 @@ class PostList extends Component {
   userInput = messageObj => {
     let linkArray = this.state.postItems;
     linkArray.unshift(messageObj);
+    console.log(messageObj)
     this.setState({ postItems: linkArray });
   };
 
@@ -107,15 +108,16 @@ class PostList extends Component {
       <div className="postList-wrap">
         <PostForm userInputProps={this.userInput} />
 
-        {this.state.postItems.map(post => (
+        {this.state.postItems.map((post) => (
           <MyPost postProps={post} />
         ))}
-        {this.state.totalPosts.map(totalPost => (
-          <TotalPost totalPostProps={totalPost} />
-        ))}
+
       </div>
     );
   }
 }
+// {this.state.totalPosts.map(totalPost => (
+//   <TotalPost totalPostProps={totalPost} />
+// ))}
 
 export default PostList;
