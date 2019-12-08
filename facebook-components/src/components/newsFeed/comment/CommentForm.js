@@ -18,10 +18,7 @@ class CommentForm extends React.Component {
             input: e.target.value
         });
     }
-
-    helloworld = () => {
-        
-    }
+    
     handleKeyPress = (e) => {
         const { input, comments } = this.state;
         if( e.key === 'Enter' ) {
