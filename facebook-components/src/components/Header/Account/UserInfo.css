@@ -19,7 +19,7 @@
     height: 23px;
     margin: 2px 0 0 3px;
     border-radius: 50%;
-    background: url(../images/profile.png) no-repeat 0/24px;
+    background: url(../../../images/profile.png) no-repeat 0/24px;
 }
 .user-profile:hover {
     border-radius: 5px;
