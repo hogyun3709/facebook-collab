@@ -9,7 +9,7 @@
     margin: -5px 6px 0 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    background: url(../../header/images/profile.png) no-repeat center/110%;
+    background: url(../../../images/profile.png) no-repeat center/110%;
 }
 .itemText {
     width: 100%;

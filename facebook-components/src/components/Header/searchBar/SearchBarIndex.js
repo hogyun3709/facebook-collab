@@ -43,8 +43,11 @@ handleRemove = (id) => {
         )
     });
   }
-
+handleHistory = () => {
+    
+}
     render(){
+
         const { input, logs } = this.state;
         const { handleChange, handleCreate, handleKeyPress, handleRemove } = this;
         return(

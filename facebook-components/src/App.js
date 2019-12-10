@@ -9,6 +9,7 @@ import Friends from "./components/header/menu/Friends";
 import Create from "./components/header/menu/Create";
 import Notice from "./components/header/notice/Notice";
 import NewsFeed from "./components/newsFeed/NewsFeedIndex";
+import WidgetIndex from "./components/widget/WidgetIndex";
 
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
         <div className="newsFeed-wrap">
           <NewsFeed />
         </div>
+      </div>
+      <div className="widget-wrap">
+        <WidgetIndex />
       </div>
     </div>
   );

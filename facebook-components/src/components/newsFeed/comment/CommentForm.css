@@ -16,7 +16,7 @@
     margin: 0 6px 0 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    background: url(../../header/images/profile.png) no-repeat center/110%;
+    background: url(../../../images/profile.png) no-repeat center/110%;
 }
 .commentBar {
     float: left;
@@ -54,7 +54,7 @@
     width: 16px;
     height: 16px;
     margin: 8px 6px;
-    background: url(../../header/images/feed_icons.png) no-repeat;
+    background: url(../../../images/feed_icons.png) no-repeat;
 }
 .attachIcon {
     background-position: -34px -258px;

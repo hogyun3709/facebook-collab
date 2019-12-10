@@ -71,7 +71,18 @@ ol,ul,li,p,h1,h2,h3,h4,h5,h6 {
     outline: 1px solid #999;
 }
 /* newsFeed e */
-
+/* widget-wrap s */
+.widget-wrap {
+    position: fixed;
+    width: 208px;
+    height: 356px;
+    right: 66px;
+    bottom: 0;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.3);
+}
+/* widget-wrap e */
 /* media.css */
 @media only screen and (max-width: 750px) {
     .App-container {

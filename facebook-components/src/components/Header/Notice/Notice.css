@@ -37,7 +37,7 @@
     text-align: center;
     line-height: 20px;
     text-decoration: none;
-    background: url(../images/header_icons.png) no-repeat 23px;
+    background: url(../../../images/header_icons.png) no-repeat 23px;
     opacity: .6;
 }
 .icon-link:hover {
