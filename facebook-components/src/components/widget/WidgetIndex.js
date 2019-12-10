@@ -2,7 +2,6 @@ import React from 'react';
 import WidgetForm from './WidgetForm';
 import WidgetItem from './WidgetItem';
 import WidgetInputBar from './WidgetInputBar';
-import './WidgetIndex.css';
 
 class WidgetIndex extends React.Component {
     constructor(props){
@@ -12,20 +11,29 @@ class WidgetIndex extends React.Component {
             lists:[
                 { id:0, name:'hokyun' },
                 { id:1, name:'dami lee' },
-                { id:2, name:'somi choi' }
+                { id:2, name:'eunji' }
             ]
         }
     }
+    
     handleChange = (e) => {
+        const { lists } = this.state;
         this.setState({
-            input: e.target.value
+            input: e.target.value,
+            // lists: lists.filter(
+            //     (list) => (
+            //         list.name === input
+            //     )
+            // )
         });
     }
+
     handleRemove = () => {
         this.setState({
             input:''
         })
     }
+    
     render(){
         const { input, lists } = this.state;
         const { handleChange, handleRemove } = this;

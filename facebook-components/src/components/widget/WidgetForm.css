@@ -1,0 +1,22 @@
+/* WidgetForm.css */
+
+.widgetHeader {
+    height: 46px;
+    padding: 16px 12px;
+    border-bottom: 2px solid #eee;
+    font-size: 14px;
+    line-height: 11px;
+    transition: all .1s;
+}
+.widgetHeader:hover {
+    background: #f2f3f5;
+}
+.widgetItem {
+    width: 100%;
+}
+.widgetInputBar {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: 0;
+}
