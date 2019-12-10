@@ -3,13 +3,15 @@
 .widgetHeader {
     height: 46px;
     padding: 16px 12px;
-    border-bottom: 2px solid #eee;
+    border-radius: 4px 4px 0 0;
     font-size: 14px;
+    font-weight: 600;
     line-height: 11px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, .1);
     transition: all .1s;
 }
 .widgetHeader:hover {
-    background: #f2f3f5;
+    background: #e5e6ea;
 }
 .widgetItem {
     width: 100%;

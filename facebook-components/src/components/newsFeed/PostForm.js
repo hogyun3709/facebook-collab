@@ -32,11 +32,11 @@ class PostForm extends Component {
         <div class="ui form">
           <div class="field field-box">
             <label>게시물 만들기</label>
-            <textarea
+            <input
               className="text-box"
               value={this.state.post.message}
               onChange={this.createPost}
-            ></textarea>
+            ></input>
           </div>
         </div>
         <div class="ui horizontal divider" />

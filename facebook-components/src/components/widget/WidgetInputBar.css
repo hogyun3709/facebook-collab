@@ -13,12 +13,13 @@
     border: none;
     outline: none;
 }
-/* .widgetInput:focus ~ .widgetInputRemove {
+.widgetInput:focus ~ .widgetInputRemove,
+.widgetInputRemove:hover {
     display: block;
-} */
+}
 .widgetInputRemove {
     float: left;
-    /* display: none; */
+    display: none;
     width: 25px;
     height: 100%;
     background: url(../../images/ico_widget.png) no-repeat 6px -309px /33px;

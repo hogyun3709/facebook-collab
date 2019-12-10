@@ -53,6 +53,7 @@
     background: #fff;
     box-shadow: 0 4px 6px 2px rgba(0,0,0,.10);
 }
-.SearchList-height {
+.inputBar:focus ~ .SearchList-wrap,
+.searchItem-rm:hover .SearchList-wrap {
     height: auto;
 }

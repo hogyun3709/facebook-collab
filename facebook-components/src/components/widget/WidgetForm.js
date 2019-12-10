@@ -2,7 +2,7 @@ import React from 'react';
 import WidgetItem from './WidgetItem'
 import './WidgetForm.css';
 
-const WidgetForm = ({ widgetInputBar, widgetItems }) => {
+const WidgetForm = ({ widgetInputBar, friendList }) => {
 
     return(
         <div className="widgetFormWrap">
@@ -14,7 +14,7 @@ const WidgetForm = ({ widgetInputBar, widgetItems }) => {
             </div>
             <div className="widgetItemWrap">
                 <ul className="widgetItem">
-                    {widgetItems}
+                    {friendList}
                 </ul>
                 <div className="widgetInputBar clear">
                     {widgetInputBar}

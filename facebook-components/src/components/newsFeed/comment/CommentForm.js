@@ -3,14 +3,13 @@ import CommentItem from './CommentItem';
 import './CommentForm.css';
 
 class CommentForm extends React.Component {
-    id = 1
+    // id는 인삭하나, 값의 참조할 수 없음.. ( id 2부터 ++ )
+    id = 0;
     constructor(props){
         super(props);
         this.state = {
             input: '',
-            comments: [
-                { id:0, name: 'EunJi', text:'first comment.', like:false, time:(new Date()).getDay }
-            ]
+            comments: []
         }
     }
     handleChange = (e) => {
@@ -25,6 +24,7 @@ class CommentForm extends React.Component {
             this.setState({
                 input: '',
                 comments: comments.concat({
+                    // unshift 변경 시 map error
                     id: this.id++,
                     name: 'EunJi',
                     text: input,
@@ -32,6 +32,7 @@ class CommentForm extends React.Component {
                 })
             });
         }
+        console.log(comments);
     }
 
     handleRemove = (id) => {

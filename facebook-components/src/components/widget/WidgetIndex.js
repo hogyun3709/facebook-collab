@@ -8,24 +8,21 @@ class WidgetIndex extends React.Component {
         super(props);
         this.state = {
             input:'',
-            lists:[
-                { id:0, name:'hokyun' },
+            friends:[
+                { id:0, name:'eunji' },
                 { id:1, name:'dami lee' },
-                { id:2, name:'eunji' }
-            ]
+                { id:2, name:'hokyun' },
+                { id:3, name:'eunji2' }
+            ],
+            searchFriend:''
         }
     }
     
     handleChange = (e) => {
-        const { lists } = this.state;
         this.setState({
-            input: e.target.value,
-            // lists: lists.filter(
-            //     (list) => (
-            //         list.name === input
-            //     )
-            // )
+            input: e.target.value
         });
+        console.log(this.state.input);
     }
 
     handleRemove = () => {
@@ -35,20 +32,48 @@ class WidgetIndex extends React.Component {
     }
     
     render(){
-        const { input, lists } = this.state;
+        const { input, friends, searchFriend } = this.state;
         const { handleChange, handleRemove } = this;
-        const widgetItems = lists.map(
-            (list) => (
-                <WidgetItem
-                key={list.id}
-                name={list.name}
-                />
-            )
-        );
+
+        // const filterName = friends.filter(
+        //     (friend) => {
+        //         // return friend.name.toLowerCase().includes(searchFriend.toLowerCase())
+        //         return friend.name.indexOf(searchFriend) > -1
+        //     }
+        // );
+        // const friendList = filterName.map(
+        //     (friend) => (
+        //         <WidgetItem
+        //         key={friend.id}
+        //         name={friend.name}
+        //         />
+        //     )
+        // );
+
+        const friendList = (friends) => {
+            //data.sort();
+            friends = friends.filter(
+                (contact) => {
+                    return contact.name.indexOf(searchFriend) > -1
+                }
+            );
+            return friends.map(
+                (contactObj) => {
+                    return (
+                        <WidgetItem
+                        key={contactObj.id}
+                        name={contactObj.name}
+                        />
+                    )
+                }
+            );
+        }
+
+
         return(
             <WidgetForm 
-            widgetItems={widgetItems}
-                widgetInputBar={<WidgetInputBar 
+            friendList={friendList}
+            widgetInputBar={<WidgetInputBar 
                 value={input}
                 onChange={handleChange}
                 onRemove={handleRemove}

@@ -5,6 +5,7 @@
 html, body {
     padding: 0;
     margin: 0;
+    background: #e9ebee;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
 }
 body {
@@ -68,7 +69,8 @@ ol,ul,li,p,h1,h2,h3,h4,h5,h6 {
 .newsFeed-wrap {
     width: 500px;
     margin: 0 auto;
-    outline: 1px solid #999;
+    border: 1px solid #dddfe2;
+    background: #fff;
 }
 /* newsFeed e */
 /* widget-wrap s */
