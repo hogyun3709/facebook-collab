@@ -13,8 +13,7 @@ class WidgetIndex extends React.Component {
                 { id:1, name:'dami lee' },
                 { id:2, name:'hokyun' },
                 { id:3, name:'eunji2' }
-            ],
-            searchFriend:''
+            ]
         }
     }
     
@@ -32,42 +31,42 @@ class WidgetIndex extends React.Component {
     }
     
     render(){
-        const { input, friends, searchFriend } = this.state;
+        const { input, friends } = this.state;
         const { handleChange, handleRemove } = this;
 
-        // const filterName = friends.filter(
-        //     (friend) => {
-        //         // return friend.name.toLowerCase().includes(searchFriend.toLowerCase())
-        //         return friend.name.indexOf(searchFriend) > -1
-        //     }
-        // );
-        // const friendList = filterName.map(
-        //     (friend) => (
-        //         <WidgetItem
-        //         key={friend.id}
-        //         name={friend.name}
-        //         />
-        //     )
-        // );
+        const filterName = friends.filter(
+            (friend) => {
+                // return friend.name.toLowerCase().includes(input.toLowerCase())
+                return friend.name.toLowerCase().indexOf(input.toLowerCase()) > -1
+            }
+        );
+        const friendList = filterName.map(
+            (friend) => (
+                <WidgetItem
+                key={friend.id}
+                name={friend.name}
+                />
+            )
+        );
 
-        const friendList = (friends) => {
-            //data.sort();
-            friends = friends.filter(
-                (contact) => {
-                    return contact.name.indexOf(searchFriend) > -1
-                }
-            );
-            return friends.map(
-                (contactObj) => {
-                    return (
-                        <WidgetItem
-                        key={contactObj.id}
-                        name={contactObj.name}
-                        />
-                    )
-                }
-            );
-        }
+        // const friendList = (friends) => {
+        //     //data.sort();
+        //     friends = friends.filter(
+        //         (contact) => {
+        //             return contact.name.indexOf(searchFriend) > -1
+        //         }
+        //     );
+        //     return friends.map(
+        //         (contactObj) => {
+        //             return (
+        //                 <WidgetItem
+        //                 key={contactObj.id}
+        //                 name={contactObj.name}
+        //                 />
+        //             )
+        //         }
+        //     );
+        // }
 
 
         return(

@@ -12,7 +12,6 @@ class Notice extends React.Component{
                         id: 0,
                         name: '친구요청',
                         menu: ['친구찾기','설정'],
-                        // menu2: '설정',
                         btn: '모두보기',
                         className: ''
                     },

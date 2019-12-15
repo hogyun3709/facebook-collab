@@ -49,22 +49,48 @@
     height: 32px;
     margin: 0 12px 0 0;
 }
-.cmtAttach {
+.attachIconLink {
     float: left;
     width: 16px;
     height: 16px;
     margin: 8px 6px;
-    background: url(../../../images/feed_icons.png) no-repeat;
+    background: url(../../../images/feed_icons.png) no-repeat 0 / 64px;
 }
 .attachIcon {
-    background-position: -34px -258px;
+    background-position: -17px -277px;
 }
 .attachFile {
-    background-position: -34px -241px;
+    background-position: -17px -260px;
 }
 .attachGIF {
-    background-position: -34px -275px;
+    background-position: -17px -294px;
 }
 .attachSticker {
-    background-position: -34px -309px;
+    background-position: -17px -328px;
+}
+
+.attachIcon:hover {
+    background-position: 0 -277px;
+}
+.attachFile:hover {
+    background-position: 0 -260px;
+}
+.attachGIF:hover {
+    background-position: 0 -294px;
+}
+.attachSticker:hover {
+    background-position: 0 -328px;
+}
+
+.attachIcon:focus {
+    background-position: -68px -277px;
+}
+.attachFile:focus {
+    background-position: -68px -260px;
+}
+.attachGIF:focus {
+    background-position: -68px -294px;
+}
+.attachSticker:focus {
+    background-position: -68px -328px;
 }

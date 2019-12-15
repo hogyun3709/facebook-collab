@@ -67,7 +67,7 @@ ol,ul,li,p,h1,h2,h3,h4,h5,h6 {
 /* main content e */
 /* newsFeed s */
 .newsFeed-wrap {
-    width: 500px;
+    width: 502px;
     margin: 0 auto;
     border: 1px solid #dddfe2;
     background: #fff;
@@ -77,8 +77,7 @@ ol,ul,li,p,h1,h2,h3,h4,h5,h6 {
 .widget-wrap {
     position: fixed;
     width: 208px;
-    height: 356px;
-    right: 66px;
+    right: 30px;
     bottom: 0;
     border-radius: 4px;
     background: #fff;

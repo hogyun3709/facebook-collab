@@ -3,7 +3,7 @@
 /* icon ui layout */
 .icon-wrap {
     float: left;
-    padding: 0 0 0 6px;
+    padding: 0 0 0 5px;
 }
 .icon-list {
     float: left;
@@ -15,65 +15,72 @@
     padding-right: 5px;
 }
 .icon-list:nth-child(4) {
-    margin-left: 3px;
+    margin-left: 5px;
 }
 .icon-list:nth-child(1)::before,
 .icon-list:nth-child(4)::before {
     content:'';
     position: absolute;
     width: 1px;
-    height: 15px;
-    top: 14px;
-    left: 0;
+    height: 16px;
+    top: 13px;
+    left: -6px;
     background: #425e9b;
+}
+.icon-list:nth-child(4)::before {
+    left: -6px;
 }
 /* icon img setting */
 .icon-link {
     display: inline-block;
     width: 24px;
-    height: 21px;
+    height: 22px;
     margin: 0 6px;
     color: transparent;
     text-align: center;
-    line-height: 20px;
+    line-height: 22px;
     text-decoration: none;
-    background: url(../../../images/header_icons.png) no-repeat 23px;
+    background: url(../../../images/header_icons.png) no-repeat 0 / 26px;
     opacity: .6;
+}
+.icon-list:nth-child(1) .icon-link {
+    background-position: 2px -50px;
+}
+.icon-list:nth-child(2) .icon-link {
+    background-position: 2px -100px;
+}
+.icon-list:nth-child(3) .icon-link {
+    background-position: 2px 1px;
+}
+.icon-list:nth-child(4) .icon-link {
+    background-position: 2px -154px;
+}
+.icon-list:nth-child(5) .icon-link {
+    background-position: 7px -206px;
 }
 .icon-link:hover {
     opacity: 1;
 }
-.icon-list:nth-child(1) a {
-    background-position: 0 -256px;
+
+.icon-link:focus {
+    opacity: 1;
 }
-.icon-list:nth-child(2) a {
-    background-position: 0 -12px;
+.icon-list:nth-child(1) .icon-link:focus {
+    background-position: 2px -75px;
 }
-.icon-list:nth-child(3) a {
-    background-position: 0 -56PX;
+.icon-list:nth-child(2) .icon-link:focus {
+    background-position: 2px -125px;
 }
-.icon-list:nth-child(4) a {
-    background-position: 1px -869PX;
+.icon-list:nth-child(3) .icon-link:focus {
+    background-position: 2px -26px;
 }
-.icon-list:nth-child(5) a {
-    background-position: 0 -918px;
+.icon-list:nth-child(4) .icon-link:focus {
+    background-position: 2px -180px;
+}
+.icon-list:nth-child(5) .icon-link:focus {
+    background-position: 7px -223px;
 }
 
-.icon-link:focus a {
-    background-position: 0 -306px;
-}
-.icon-list:nth-child(2) a {
-    background-position: 0 -12px;
-}
-.icon-list:nth-child(3) a {
-    background-position: 0 -56PX;
-}
-.icon-list:nth-child(4) a {
-    background-position: 1px -869PX;
-}
-.icon-list:nth-child(5) a {
-    background-position: 0 -918px;
-}
 /* show menu title */
 .icon-link:hover + .icon-name {
     display: block;
