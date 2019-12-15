@@ -49,26 +49,6 @@ class WidgetIndex extends React.Component {
             )
         );
 
-        // const friendList = (friends) => {
-        //     //data.sort();
-        //     friends = friends.filter(
-        //         (contact) => {
-        //             return contact.name.indexOf(searchFriend) > -1
-        //         }
-        //     );
-        //     return friends.map(
-        //         (contactObj) => {
-        //             return (
-        //                 <WidgetItem
-        //                 key={contactObj.id}
-        //                 name={contactObj.name}
-        //                 />
-        //             )
-        //         }
-        //     );
-        // }
-
-
         return(
             <WidgetForm 
             friendList={friendList}
