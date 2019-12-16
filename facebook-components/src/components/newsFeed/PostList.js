@@ -1,10 +1,22 @@
 import React, { Component, useState } from "react";
 import PostForm from "./PostForm";
+import EditPostForm from "./EditPostForm";
 import CommentForm from "./comment/CommentForm";
 import "./PostList.css";
 
 const MyPost = ({ postProps }) => {
   const [like, setLike] = useState(0);
+  const [posts, setPosts] = useState(postProps);
+  const [edit, setEdit] = useState(false);
+  const [currentPost, setCurrentPost] = useState(postProps);
+
+  const updatePost = (id, updatedPost) => {
+    setEdit(false);
+    setPosts(posts.map(post => (post.id === id ? updatedPost : post)));
+  };
+
+
+  console.log(currentPost);
   return (
     <div class="ui card fluid">
       <div class="content">
@@ -16,7 +28,20 @@ const MyPost = ({ postProps }) => {
       </div>
       <div class="content">
         <div class="description">
-          <div>{postProps.message}</div>
+          {edit ? (
+            <div>
+              <h2>Edit</h2>
+              <EditPostForm
+                edit={edit}
+                setEdit={setEdit}
+                currentPost={currentPost}
+                updatePost={updatePost}
+              />
+            </div>
+          ) : (
+            <div>{postProps.message}</div>
+          )}
+          <button onClick={() => setEdit(!edit)}>Edit</button>
         </div>
         <div class="ui horizontal divider" />
         {/* <span class="right floated">
@@ -38,7 +63,7 @@ const MyPost = ({ postProps }) => {
     </div>
   );
 };
-const TotalPost= ({ totalPostProps }) => {
+const TotalPost = ({ totalPostProps }) => {
   const [like, setLike] = useState(0);
 
   return (
@@ -76,6 +101,7 @@ const TotalPost= ({ totalPostProps }) => {
   );
 };
 class PostList extends Component {
+  id = 0;
   constructor(props) {
     super(props);
     this.state = {
@@ -95,23 +121,26 @@ class PostList extends Component {
   componentDidMount() {
     this.getPostData();
   }
-
+  /* console 에서 평가시점마다 obj 값을 참조 해보기  */
   userInput = messageObj => {
-    let linkArray = this.state.postItems;
-    linkArray.unshift(messageObj);
-    console.log(messageObj)
-    this.setState({ postItems: linkArray });
+    // messageObj.id = this.id;
+    const { postItems } = this.state;
+    this.setState({
+      postItems: postItems.concat({
+        /* this.id 의 존재는 뭔가.. */
+        id: this.id++,
+        message: messageObj.message
+      })
+    });
   };
-
   render() {
     return (
       <div className="postList-wrap">
         <PostForm userInputProps={this.userInput} />
 
-        {this.state.postItems.map((post) => (
-          <MyPost postProps={post} />
-        ))}
-
+        {this.state.postItems
+          .map(post => <MyPost postProps={post} />)
+          .reverse()}
       </div>
     );
   }
