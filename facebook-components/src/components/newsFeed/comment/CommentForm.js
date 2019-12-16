@@ -28,11 +28,20 @@ class CommentForm extends React.Component {
                     id: this.id++,
                     name: 'EunJi',
                     text: input,
-                    time: comments.time
+                    date: new Date(),
+                    like: true,
+                    likeNum: 1
                 })
             });
         }
         console.log(comments);
+    }
+
+    handleToggle = () => {
+        const { comments } = this.state;
+        this.setState({
+            like: !comments.like
+        });
     }
 
     handleRemove = (id) => {
@@ -46,7 +55,7 @@ class CommentForm extends React.Component {
 
     render(){
         const { input, comments } = this.state;
-        const { handleChange, handleKeyPress, handleRemove } = this;
+        const { handleChange, handleKeyPress, handleRemove, handleToggle } = this;
         const commentItem = comments.map(
             (comment) => (
                 <CommentItem 
@@ -60,8 +69,10 @@ class CommentForm extends React.Component {
         console.log({ comments })
         return(
             <div className="commentWrapper">
-                <div className="commentListWrapper">
-                    {commentItem}
+                <div 
+                    className="commentListWrapper"
+                    onToggle={handleToggle}>
+                        {commentItem}
                 </div>
                 <div className="commentBox clear">
                     <div className="commentUserInfo" />

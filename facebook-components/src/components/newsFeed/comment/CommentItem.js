@@ -1,9 +1,12 @@
 import React from 'react';
+import TimeAgo from 'react-timeago';
+import frenchStrings from 'react-timeago/lib/language-strings/fr'
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
 import './CommentItem.css';
 
 class CommentItem extends React.Component {
     render(){
-        const { id, name, text, like, time, recomment, onRemove, onToggle } = this.props;
+        const { id, name, text, like, likeNum, date, recomment, onRemove, onToggle } = this.props;
         return(
             <div className="itemCommentWrapper">
                 <div className="itemCommentBox clear">
@@ -14,6 +17,10 @@ class CommentItem extends React.Component {
                         </span>
                         {text}
                     </span>
+                    {
+                        like?
+                        <span className="itemSticker">{likeNum}</span>:false
+                    }
                     <div className="itemCommentSetBox">
                         <a href="#a">
                             <div className="itemCommentSetTitle">수정 또는 삭제</div>
@@ -31,18 +38,17 @@ class CommentItem extends React.Component {
                     </div>
                 </div>
                 <div className="iteminfo" >
-                    <span className={"itemLike ${like?'liked':'unliked'}"}>
-                            {
-                                like?
-                                <span className="liked">좋아요</span>:
-                                <span className="unliked">좋아요</span>
-                            }
+                    <span
+                        className={like?'liked':'unliked'}
+                        onClick={onToggle}>
+                        좋아요
                     </span>
                     <span className="itemRecommant">
-                        답글달기
+                        답글 달기
                     </span>
                     <span className="itemTime">
-                        {time}
+                        <TimeAgo date={date} />
+                        {/* {date.toLocaleTimeString()} */}
                     </span>
                 </div>
             </div>

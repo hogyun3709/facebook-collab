@@ -13,53 +13,63 @@ class Notice extends React.Component{
                         name: '친구요청',
                         menu: ['친구찾기','설정'],
                         btn: '모두보기',
-                        className: ''
+                        show: true
                     },
                     {
                         id: 1,
                         name: '메세지',
                         menu: ['새 그룹','새 메세지'],
                         btn: 'Messenger에서 모두 보기',
-                        className: ''
+                        show: false
                     },
                     {
                         id: 2,
                         name: '알림',
                         menu: ['모두 읽음 상태로 표시','알림 해제','설정'],
                         btn: '모두보기',
-                        className: ''
+                        show: false
                     },
                     {
                         id: 3,
                         name: '빠른 도움말',
                         menu: '고객센터',
-                        className: ''
+                        show: false
                     },
                     {
                         id: 4,
                         name: '더 보기',
-                        className: ''
+                        show: false
                     }
                 ]
-            }
-        };
+        }
+    };
+
+    handleToggle = () => {
+        const notice = this.state;
+        this.setState({
+            notice: !notice.show
+        });
+        console.log(notice.show);
+    }
 
     render(){
+        const notice = this.state;
+        const handleToggle = this;
         const noticeList = this.state.notice.map(
             (icon) => 
-                <React.Fragment>
-                    <li className="icon-list">
-                        <Link
-                        className="icon-link"
-                        key={icon.id}
-                        >
-                            {icon.id}
-                        </Link>
-                        <span 
-                        className="icon-name"
-                        >
-                            {icon.name}
-                        </span> 
+                <li className="icon-list">
+                    <Link
+                    className="icon-link"
+                    onClick={handleToggle}
+                    key={icon.id}
+                    >
+                        {icon.id}
+                    </Link>
+                    <span 
+                    className="icon-tooltip"
+                    >
+                        {icon.name}
+                    </span>
                         <div className="banner-wrap">
                             <div className="banner-header">
                                 <Link
@@ -69,8 +79,6 @@ class Notice extends React.Component{
                                 <Link
                                 className="banner-menu">
                                     <span className="b-menu">{icon.menu}</span>
-                                    {/* <span className="b-menu">{icon.menu2}</span>
-                                    <span className="b-menu">{icon.menu3}</span> */}
                                 </Link>
                             </div>
                             <Link
@@ -78,13 +86,13 @@ class Notice extends React.Component{
                                 {icon.btn}
                             </Link>
                         </div>
-                    </li>  
-                </React.Fragment>           
+                </li>          
         );
 
         return(
             <div className="icon-cont">
-                <ul className="icon-wrap">
+                <ul
+                    className="icon-wrap">
                     {noticeList}
                 </ul>
             </div>

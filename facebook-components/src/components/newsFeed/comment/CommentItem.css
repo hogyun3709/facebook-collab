@@ -2,20 +2,21 @@
 .itemCommentWrapper {
     padding: 4px 12px;
 }
-.itemCommentBox {
-    position: relative;
+.itemCommentWrapper:hover .itemCommentSetBox {
+    display: inline-block;
 }
 .itemUserInfo {
     float: left;
     width: 32px;
     height: 32px;
-    margin: -5px 6px 0 0;
+    margin: 0 6px 0 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     background: url(../../../images/profile.png) no-repeat center/110%;
 }
 .itemText {
-    width: 100%;
+    float: left;
+    position: relative;
     padding: 8px 10px;
     border-radius: 18px;
     background: #f2f3f5;
@@ -29,25 +30,39 @@
     color: #385898;
     font-weight: bold;
 }
+.itemSticker {
+    float: left;
+    width: 31px;
+    height: 20px;
+    padding: 3px;
+    border-radius: 20px;
+    background: #fff url(../../../images/feed_icons.png) no-repeat -44px -132px / 64px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2);
+    color: #777D88;
+    font-size: 11px;
+    text-align: right;
+    transform: translate(-5px, 7px);
+}
 .itemCommentSetBox {
     position: relative;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin: 0 0 0 10px;
-    background: url(../../../images/feed_icons.png) no-repeat 0 -175px / 64px;
+    display: none;
+    width: 15px;
+    height: 12px;
+    padding: 10px 7px;
+    margin: 3px 5px;
+    background: url(../../../images/feed_icons.png) no-repeat 1px -177px / 64px;
     cursor: pointer;
 }
 .itemCommentSetBox:hover {
-    background-position: -21px -175px;
+    background-position: -20px -177px;
 }
-/* .itemCommentSetBox:focus .itemCommentSetTitle {
+.itemCommentSetBox:hover .itemCommentSetTitle {
     display: block;
-} */
+}
 .itemCommentSetTitle {
-    /* display: none; */
+    display: none;
     position: absolute;
-    right: -34px;
+    right: -37px;
     bottom: calc(100% - 3px);
     padding: 6px 9px;
     border-radius: 2px;
@@ -67,10 +82,11 @@
     border-top: 5px solid #000;
 }
 .itemCommentSetListBox {
+    /* display: none; */
     position: absolute;
     width: 100px;
-    top: calc(100% + 12px );
-    right: -23px;
+    top: calc(100% + 10px );
+    right: -27px;
     padding: 5px 0;
     font-size: 12px;
     border: 1px solid rgba(0, 0, 0, .15);
@@ -86,20 +102,22 @@
     height: 8px;
     left: 60%;
     bottom: 100%;
-    /* transform: translateX(-50%); */
     background: url(../../../images/feed_icons.png) no-repeat -37px -382px / 64px;
 }
 .itemCommentSetList {
+    height: 22px;
     padding: 0 10px;
 }
 .itemCommentSetList:hover {
     background: #4267B2;
+    border-top: 1px solid #29487d;
+    border-bottom: 1px solid #29487d;
 }
 .itemCommentSetList a {
     position: relative;
     display: block;
     height: 22px;
-    line-height: 22px;
+    line-height: 20px;
     padding: 0 0 0 20px;
     color: #1d2129;
 }
@@ -109,21 +127,21 @@
     width: 16px;
     height: 16px;
     left: 0px;
-    top: 4px;
+    top: 2px;
     background: url(../../../images/feed_icons.png) no-repeat 0 / 64px;
 }
 .itemCommentSetList:nth-child(1) a::before {
     background-position: -51px -349px;
 }
 .itemCommentSetList:nth-child(2) a::before {
-    background-position: -51px -366px;
+    background-position: -51px -364px;
 }
 .itemCommentSetList a:hover {
     color: #fff;
 }
-/* .itemCommentSetList a {
-
-} */
+.itemCommentSetBox:focus .itemCommentSetListBox {
+    display: block;
+}
 .iteminfo {
     padding: 0 0 0 28px;
     margin: 3px 10px;
@@ -139,11 +157,15 @@
     content:'';
     position: absolute;
     top: 6px;
-    left: -9px;
+    left: -6.5px;
     width: 2px;
     height: 2px;
     border-radius: 50%;
     background: #8d949e;
+}
+.liked {
+    color: rgb(32, 120, 244);
+    font-weight: bold;
 }
 .itemTime {
     color: #606770;

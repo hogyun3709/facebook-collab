@@ -11,20 +11,17 @@ class Account extends React.Component{
                 {   
                     id: 0,
                     name: '홈',
-                    link: '/',
-                    className: ''
+                    link: '/'
                 },
                 {   
                     id: 1,
                     name: '친구찾기',
-                    link: '/Friends',
-                    className: ''
+                    link: '/Friends'
                 },
                 {   
                     id: 2,
                     name: '만들기',
-                    link: '/Create',
-                    className: ''
+                    link: '/Create'
                 }
             ]
         };
@@ -47,11 +44,7 @@ class Account extends React.Component{
         return(
             <div className="account-wrap">
                 <div className="user-wrap">
-                    <UserInfo
-                        // name={this.state.name}
-                        // profile={this.state.profile}
-                        // getUserInfo={userInfo}
-                    />
+                    <UserInfo />
                 </div>
                 <ul className="list-wrap">
                     {listItem}

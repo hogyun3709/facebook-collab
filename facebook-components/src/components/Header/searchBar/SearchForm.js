@@ -2,11 +2,7 @@ import React from 'react';
 import SearchList from './SearchList';
 import './SearchForm.css';
 
-const SearchForm = ({ value, logs, onChange, onCreate, onKeyPress, onRemove }) => {
-
-    // document.querySelector('.inputBar').onclick = function(){
-    //     document.querySelector('.SearchList-wrap').style.height = 'auto';
-    // };
+const SearchForm = ({ value, logs, onChange, onCreate, onKeyPress, onRemove, searchlog, onDropdown }) => {
 
     return(
         <React.Fragment>
@@ -17,13 +13,17 @@ const SearchForm = ({ value, logs, onChange, onCreate, onKeyPress, onRemove }) =
             value={value}
             onChange={onChange}
             onKeyPress={onKeyPress}
+            onClick={onDropdown}
             />
             <button 
             type="submit"
             className="submit"
             onClick={onCreate}
             />
-            <div class="SearchList-wrap">
+            <div 
+            class={searchlog && logs.length > 0 ? 
+                'SearchList-wrap' : 'SearchList-wrap close'}
+            >
                 <SearchList 
                 logs={logs} 
                 onRemove={onRemove}
