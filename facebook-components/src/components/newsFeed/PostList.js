@@ -53,7 +53,7 @@ const MyPost = ({ postProps }) => {
         ></i>
         {like} likes
       </div>
-      <div class="extra content">
+      <div class="extra content_a">
         <CommentForm />
         {/* <div class="ui large transparent left icon input">
           <i class="heart outline icon"></i>
@@ -89,7 +89,10 @@ const TotalPost = ({ totalPostProps }) => {
         ></i>
         {like} likes
       </div>
+
       <div class="extra content">
+        
+
         <CommentForm />
 
         {/* <div class="ui large transparent left icon input">

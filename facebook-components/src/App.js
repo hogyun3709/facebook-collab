@@ -9,6 +9,7 @@ import Friends from "./components/header/menu/Friends";
 import Create from "./components/header/menu/Create";
 import Notice from "./components/header/notice/Notice";
 import NewsFeed from "./components/newsFeed/NewsFeedIndex";
+import WidgetIndex from "./components/widget/WidgetIndex";
 
 
 function App() {
@@ -24,15 +25,18 @@ function App() {
             </div>
           </div>
         </header>
-        <Route exact path="/" component={Home} />
+        {/* <Route exact path="/" component={Home} />
         <Route path="/User" component={User} />
         <Route path="/Friends" component={Friends} />
-        <Route path="/Create" component={Create} />
+        <Route path="/Create" component={Create} /> */}
       </Router>
       <div className="contents-wrap">
         <div className="newsFeed-wrap">
           <NewsFeed />
         </div>
+      </div>
+      <div className="widget-wrap">
+        <WidgetIndex />
       </div>
     </div>
   );

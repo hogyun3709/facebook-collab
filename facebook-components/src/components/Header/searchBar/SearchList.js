@@ -19,7 +19,7 @@ class SearchList extends React.Component {
         return(
             <React.Fragment>
                 <div class="searchList-title">
-                    최근검색
+                    최근 검색
                 </div>
                 <div class="searchList-items">
                     {searchList}

@@ -3,6 +3,11 @@ import SearchList from './SearchList';
 import './SearchForm.css';
 
 const SearchForm = ({ value, logs, onChange, onCreate, onKeyPress, onRemove }) => {
+
+    // document.querySelector('.inputBar').onclick = function(){
+    //     document.querySelector('.SearchList-wrap').style.height = 'auto';
+    // };
+
     return(
         <React.Fragment>
             <input
