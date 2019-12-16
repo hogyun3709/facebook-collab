@@ -42,7 +42,7 @@ const Card = ({ post }) => {
         ></i>
         {like} likes
       </div>
-      <div class="extra content">
+      <div class="extra content_a">
         <CommentForm />
         {/* <div class="ui large transparent left icon input">
           <i class="heart outline icon"></i>
@@ -78,7 +78,7 @@ const TempCard = ({ tempPost }) => {
         ></i>
         {like} likes
       </div>
-      <div class="extra content">
+      <div class="extra content_a">
 
         <CommentForm />
 

@@ -1,19 +1,52 @@
 /* WidgetForm.css */
 
+/* widget header */
 .widgetHeader {
     height: 46px;
-    padding: 16px 12px;
-    border-bottom: 2px solid #eee;
+    padding: 15px 0 15px 12px;
+    margin: 0 0 2px 0;
+    border-radius: 4px 4px 0 0;
     font-size: 14px;
-    line-height: 11px;
+    font-weight: 600;
+    box-shadow: 0 2px 1px #dddee2;
     transition: all .1s;
 }
 .widgetHeader:hover {
-    background: #f2f3f5;
+    background: #e5e6ea;
+}
+.widgetMenuBox {
+    float: right;
+    width: 90px;
+    height: 100%;
+}
+.widgetMenu {
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
+    background: url(../../images/ico_widget.png) no-repeat 0 / 27px;
+    color: transparent;
+    line-height: 0;
+    cursor: pointer;
+}
+.widgetMenu:nth-child(1) {
+    background-position: 0 -38px;
+}
+.widgetMenu:nth-child(2) {
+    background-position: 0 -98px;
+}
+.widgetMenu:nth-child(3) {
+    background-position: 0 -155px;
+}
+
+/* widget listbox */
+.widgetItemBox {
+    min-height: 307px;
 }
 .widgetItem {
     width: 100%;
 }
+/* widget inputbar */
 .widgetInputBar {
     position: absolute;
     width: 100%;

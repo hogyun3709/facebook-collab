@@ -25,10 +25,10 @@ function App() {
             </div>
           </div>
         </header>
-        <Route exact path="/" component={Home} />
+        {/* <Route exact path="/" component={Home} />
         <Route path="/User" component={User} />
         <Route path="/Friends" component={Friends} />
-        <Route path="/Create" component={Create} />
+        <Route path="/Create" component={Create} /> */}
       </Router>
       <div className="contents-wrap">
         <div className="newsFeed-wrap">

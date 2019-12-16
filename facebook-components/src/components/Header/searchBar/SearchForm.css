@@ -31,7 +31,7 @@
     left: 15px;
     width: 15px;
     height: 15px;
-    background: url(../../../images/header_icons.png) no-repeat 0 -985px / 180%;
+    background: url(../../../images/header_icons.png) no-repeat 0 -252px / 26px;
 }
 .inputBar:focus ~ .submit,
 .submit:active {
@@ -39,7 +39,7 @@
 }
 .inputBar:focus ~ .submit:after,
 .submit:active::after {
-    background: url(../../../images/header_icons.png) no-repeat 0 -1001px / 180%;
+    background: url(../../../images/header_icons.png) no-repeat 0 -277px / 26px;
 }
 /* searchList CSS */
 .SearchList-wrap {
@@ -53,6 +53,7 @@
     background: #fff;
     box-shadow: 0 4px 6px 2px rgba(0,0,0,.10);
 }
-.SearchList-height {
+.inputBar:focus ~ .SearchList-wrap,
+.searchItem-rm:hover .SearchList-wrap {
     height: auto;
 }

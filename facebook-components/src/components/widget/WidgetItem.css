@@ -1,0 +1,24 @@
+/* WidgetItem.css */
+
+.widgetItemlist {
+    position: relative;
+    height: 42px;
+    padding: 5px 0 5px 52px;
+    line-height: 30px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.widgetItemlist::before {
+    content:'';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 5px;
+    left: 0;
+    margin-left: 12px;
+    border-radius: 50%;
+    background: url(../../images/profile.png) no-repeat center / 100%;
+}
+.widgetItemlist:hover {
+    background: #e9ebee;
+}

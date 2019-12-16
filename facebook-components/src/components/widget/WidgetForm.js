@@ -2,20 +2,24 @@ import React from 'react';
 import WidgetItem from './WidgetItem'
 import './WidgetForm.css';
 
-const WidgetForm = ({ widgetInputBar, widgetItems }) => {
+const WidgetForm = ({ widgetInputBar, friendList }) => {
 
     return(
         <div className="widgetFormWrap">
             <div className="widgetHeader">
                 채팅
-                <div>
-                    {/* 부가기능 입력 */}
-                </div>
+                <ul className="widgetMenuBox">
+                    <li className="widgetMenu">새 메세지</li>
+                    <li className="widgetMenu">새 그룹 만들기</li>
+                    <li className="widgetMenu">옵션</li>
+                </ul>
             </div>
             <div className="widgetItemWrap">
-                <ul className="widgetItem">
-                    {widgetItems}
-                </ul>
+                <div className="widgetItemBox">
+                    <ul className="widgetItem">
+                        {friendList}
+                    </ul>
+                </div>
                 <div className="widgetInputBar clear">
                     {widgetInputBar}
                 </div>

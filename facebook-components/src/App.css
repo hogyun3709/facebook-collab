@@ -5,6 +5,7 @@
 html, body {
     padding: 0;
     margin: 0;
+    background: #e9ebee;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
 }
 body {
@@ -66,17 +67,17 @@ ol,ul,li,p,h1,h2,h3,h4,h5,h6 {
 /* main content e */
 /* newsFeed s */
 .newsFeed-wrap {
-    width: 500px;
+    width: 502px;
     margin: 0 auto;
-    outline: 1px solid #999;
+    border: 1px solid #dddfe2;
+    background: #fff;
 }
 /* newsFeed e */
 /* widget-wrap s */
 .widget-wrap {
     position: fixed;
     width: 208px;
-    height: 356px;
-    right: 66px;
+    right: 30px;
     bottom: 0;
     border-radius: 4px;
     background: #fff;

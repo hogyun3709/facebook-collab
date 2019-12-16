@@ -1,6 +1,11 @@
 .field-box {
   width: 706px;
 }
+label {
+  display: block;
+}
 .text-box {
-  width: 706px;  
+  width: 498px;
+  height: 100px;
+  outline: none;
 }

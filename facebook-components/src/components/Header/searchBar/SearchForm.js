@@ -23,7 +23,7 @@ const SearchForm = ({ value, logs, onChange, onCreate, onKeyPress, onRemove }) =
             className="submit"
             onClick={onCreate}
             />
-            <div class="SearchList-wrap SearchList-height">
+            <div class="SearchList-wrap">
                 <SearchList 
                 logs={logs} 
                 onRemove={onRemove}
