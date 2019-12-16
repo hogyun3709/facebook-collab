@@ -14,15 +14,21 @@ class CommentItem extends React.Component {
                         </span>
                         {text}
                     </span>
-                    <span 
-                        className="itemRemove"
-                        onClick={(e) =>
-                            {
-                                e.stopPropagation();
-                                onRemove(id)}
-                            }>
-                                Remove
-                    </span>
+                    <div className="itemCommentSetBox">
+                        <a href="#a">
+                            <div className="itemCommentSetTitle">수정 또는 삭제</div>
+                        </a>
+                        <ul className="itemCommentSetListBox">
+                            <li className="itemCommentEdit itemCommentSetList">
+                                <a href="#a">수정...</a>
+                            </li>
+                            <li
+                            className="itemCommentRemove itemCommentSetList"
+                            onClick={() => onRemove(id)}>
+                                <a href="#a">삭제하기...</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div className="iteminfo" >
                     <span className={"itemLike ${like?'liked':'unliked'}"}>
