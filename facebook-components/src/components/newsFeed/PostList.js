@@ -5,18 +5,36 @@ import CommentForm from "./comment/CommentForm";
 import "./PostList.css";
 
 const MyPost = ({ postProps }) => {
+  /*
+    currentPost 를 못맞춰주고있음.
+    componentDidMount 처럼 rendering 전에 postProps를 받으면
+    다시금 currentPost 를 업데이트를 시켜야하나 - initialPostState가 아닌 postProps로 받는 값으로 setState.. state값 변경
+    hooks 에선 setState을 inlineing 으로 하는 방법말고 다른게 있는가
+    posts state 은 추가된 모든 posts obj를 받고.
+  */
+  // const initialPostState = { id: null, message: '' }
+
   const [like, setLike] = useState(0);
   const [posts, setPosts] = useState(postProps);
   const [edit, setEdit] = useState(false);
   const [currentPost, setCurrentPost] = useState(postProps);
 
+  /* edit form을 받아서 posts 를 업데이트 해줌 */
   const updatePost = (id, updatedPost) => {
     setEdit(false);
     setPosts(posts.map(post => (post.id === id ? updatedPost : post)));
   };
-  /* post 에 obj 가 하나씩 덜 들어오는 상황 */
-  console.log(postProps)
-  console.log(posts)
+  /*
+    post 에 obj 가 하나씩 덜 들어오는 상황
+    posts에 갯수는 맞게 들어오나, id 0, 메세지도 첫 메세지로 고정됨
+  */
+  // console.log(posts)
+  /*
+    postProps는
+    0, 0 1, 0 1 2, 0 1 2 3 형식으로 들어옴
+  */
+  // console.log(postProps)
+  // console.log(currentPost)
     return (
     <div class="ui card fluid">
       <div class="content">
@@ -135,7 +153,6 @@ class PostList extends Component {
         message: messageObj.message
       })
     });
-    console.log(postItems)
   };
   render() {
     return (
