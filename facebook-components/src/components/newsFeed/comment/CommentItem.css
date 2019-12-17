@@ -2,17 +2,21 @@
 .itemCommentWrapper {
     padding: 4px 12px;
 }
+.itemCommentWrapper:hover .itemCommentSetBox {
+    display: inline-block;
+}
 .itemUserInfo {
     float: left;
     width: 32px;
     height: 32px;
-    margin: -5px 6px 0 0;
+    margin: 0 6px 0 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     background: url(../../../images/profile.png) no-repeat center/110%;
 }
 .itemText {
-    width: 100%;
+    float: left;
+    position: relative;
     padding: 8px 10px;
     border-radius: 18px;
     background: #f2f3f5;
@@ -26,30 +30,146 @@
     color: #385898;
     font-weight: bold;
 }
-.itemRemove {
-    margin: 0 0 0 10px;
+.itemSticker {
+    float: left;
+    width: 31px;
+    height: 20px;
+    padding: 3px;
+    border-radius: 20px;
+    background: #fff url(../../../images/feed_icons.png) no-repeat -44px -132px / 64px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2);
+    color: #777D88;
+    font-size: 11px;
+    text-align: right;
+    transform: translate(-5px, 7px);
+}
+.itemCommentSetBox {
+    padding: 7px 0;
+}
+.itemCommentSetBox .itemCommentSet {
+    position: relative;
+    width: 15px;
+    height: 12px;
+    padding: 0 7px;
+    margin: 3px 5px;
+    background: url(../../../images/feed_icons.png) no-repeat -1px -180px / 64px;
     cursor: pointer;
 }
-.iteminfo {
+.itemCommentSetBox:hover .itemCommentSet {
+    background-position: -22px -180px;
+}
+.itemCommentSetBox:hover .itemCommentSetTitle {
+    display: block;
+}
+.itemCommentSetTitle {
+    display: none;
+    position: absolute;
+    right: -36px;
+    bottom: calc(100%);
+    padding: 6px 9px;
+    border-radius: 2px;
+    background: #000;
+    white-space: nowrap;
+    color: #fff;
+    font-size: 12px;
+    z-index: 1;
+}
+.itemCommentSetTitle::after {
+    content:'';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top: 5px solid #000;
+}
+.itemCommentSetListBox {
+    position: absolute;
+    width: 100px;
+    top: calc(100% + 8px );
+    right: -26px;
+    padding: 5px 0;
+    font-size: 12px;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0 3px 8px rgba(0,0,0,.3);
+    z-index: 1;
+}
+.itemCommentSetListBox::after {
+    content:'';
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    left: 60%;
+    bottom: 100%;
+    background: url(../../../images/feed_icons.png) no-repeat -37px -382px / 64px;
+}
+.displayNone {
+    display: none;
+}
+.itemCommentSetList {
+    height: 22px;
+    padding: 0 10px;
+}
+.itemCommentSetList:hover {
+    background: #4267B2;
+    border-top: 1px solid #29487d;
+    border-bottom: 1px solid #29487d;
+}
+.itemCommentSetList a {
+    position: relative;
+    display: block;
+    height: 22px;
+    line-height: 20px;
+    padding: 0 0 0 20px;
+    color: #1d2129;
+}
+.itemCommentSetList a::before {
+    content:'';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0px;
+    top: 2px;
+    background: url(../../../images/feed_icons.png) no-repeat 0 / 64px;
+}
+.itemCommentSetList:nth-child(1) a::before {
+    background-position: -51px -349px;
+}
+.itemCommentSetList:nth-child(2) a::before {
+    background-position: -51px -364px;
+}
+.itemCommentSetList a:hover {
+    color: #fff;
+}
+.itemCommentSetBox:focus .itemCommentSetListBox {
+    display: block;
+}
+.iteminfoBox {
     padding: 0 0 0 28px;
     margin: 3px 10px;
     color: #385898;
     font-size: 12px;
     line-height: 16px;
 }
-.iteminfo span {
+.iteminfo {
     position: relative;
     margin: 0 5px;
 }
-.iteminfo span ~ span::before {
+.iteminfoBox .iteminfo ~ .iteminfo::before {
     content:'';
     position: absolute;
     top: 6px;
-    left: -9px;
+    left: -6.5px;
     width: 2px;
     height: 2px;
     border-radius: 50%;
     background: #8d949e;
+}
+.liked {
+    color: rgb(32, 120, 244);
+    font-weight: bold;
 }
 .itemTime {
     color: #606770;

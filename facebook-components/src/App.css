@@ -17,6 +17,10 @@ ol,ul,li,p,h1,h2,h3,h4,h5,h6 {
     font-weight: normal;
     list-style-type: none;
 }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 .clear {
     display: block;
     clear: both;
@@ -44,6 +48,7 @@ ol,ul,li,p,h1,h2,h3,h4,h5,h6 {
     background: #4267b2;
     border-bottom: 1px solid #3a5381;
     box-sizing: border-box;
+    z-index: 9999;
 }
 .App-header-wrap {
     width: 1012px;

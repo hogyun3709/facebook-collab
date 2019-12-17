@@ -6,6 +6,7 @@
     padding: 15px 0 15px 12px;
     margin: 0 0 2px 0;
     border-radius: 4px 4px 0 0;
+    background: #fff;
     font-size: 14px;
     font-weight: 600;
     box-shadow: 0 2px 1px #dddee2;
@@ -40,8 +41,11 @@
 }
 
 /* widget listbox */
-.widgetItemBox {
+.widgetItemWrap {
     min-height: 307px;
+}
+.widgetItemClose {
+    height: 0;
 }
 .widgetItem {
     width: 100%;

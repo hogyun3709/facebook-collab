@@ -13,7 +13,8 @@ class WidgetIndex extends React.Component {
                 { id:1, name:'dami lee' },
                 { id:2, name:'hokyun' },
                 { id:3, name:'eunji2' }
-            ]
+            ],
+            close: true
         }
     }
     
@@ -21,7 +22,7 @@ class WidgetIndex extends React.Component {
         this.setState({
             input: e.target.value
         });
-        console.log(this.state.input);
+        //console.log(this.state.input);
     }
 
     handleRemove = () => {
@@ -29,10 +30,16 @@ class WidgetIndex extends React.Component {
             input:''
         })
     }
+
+    handleToggle = () => {
+        this.setState({
+            close: !this.state.close
+        });
+    }
     
     render(){
-        const { input, friends } = this.state;
-        const { handleChange, handleRemove } = this;
+        const { input, friends, close } = this.state;
+        const { handleChange, handleRemove, handleToggle } = this;
 
         const filterName = friends.filter(
             (friend) => {
@@ -52,6 +59,8 @@ class WidgetIndex extends React.Component {
         return(
             <WidgetForm 
             friendList={friendList}
+            close={close}
+            onToggle={handleToggle}
             widgetInputBar={<WidgetInputBar 
                 value={input}
                 onChange={handleChange}

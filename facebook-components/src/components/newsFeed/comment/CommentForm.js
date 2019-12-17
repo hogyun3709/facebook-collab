@@ -9,7 +9,8 @@ class CommentForm extends React.Component {
         super(props);
         this.state = {
             input: '',
-            comments: []
+            comments: [],
+            commentSet: true
         }
     }
     handleChange = (e) => {
@@ -31,13 +32,23 @@ class CommentForm extends React.Component {
                     id: this.id++,
                     name: 'EunJi',
                     text: input,
-                    time: comments.time
+                    date: new Date(),
+                    like: true,
+                    likeNum: 1
                 })
             });
         }
         console.log(comments);
     }
 
+    handleToggle = () => {
+        const { comments, commentSet } = this.state;
+        this.setState({
+            like: !comments.like,
+            commentSet: !commentSet
+        });
+        console.log(commentSet)
+    }
     handleRemove = (id) => {
         const { comments } = this.state;
         this.setState({
@@ -49,7 +60,7 @@ class CommentForm extends React.Component {
 
     render(){
         const { input, comments } = this.state;
-        const { handleChange, handleKeyPress, handleRemove } = this;
+        const { handleChange, handleKeyPress, handleRemove, handleToggle } = this;
         const commentItem = comments.map(
             (comment) => (
                 <CommentItem
@@ -59,12 +70,16 @@ class CommentForm extends React.Component {
                 />
             )
         );
+
         // console.log( this.hello )
         // console.log({ comments })
+
         return(
             <div className="commentWrapper">
-                <div className="commentListWrapper">
-                    {commentItem}
+                <div 
+                    className="commentListWrapper"
+                    onToggle={handleToggle}>
+                        {commentItem}
                 </div>
                 <div className="commentBox clear">
                     <div className="commentUserInfo" />
@@ -84,8 +99,8 @@ class CommentForm extends React.Component {
                             <a className="attachIconLink attachSticker"/>
                         </div>
                     </div>
-                    <div className="commentNum">댓글 {comments.length}개</div>
                 </div>
+                <div className="commentNum">댓글 {comments.length}개</div>
             </div>
         );
     }

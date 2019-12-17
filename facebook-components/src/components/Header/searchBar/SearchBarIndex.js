@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, BrowserRouter as Router } from "react-router-dom";
 import SearchForm from './SearchForm';
+import SearchList from './SearchList';
 import './SearchBarIndex.css';
 
 class SearchBarIndex extends React.Component {
@@ -9,9 +10,8 @@ class SearchBarIndex extends React.Component {
         super(props);
         this.state = {
             input: '',
-            logs: [
-                {id: 0, text: 'Please leave a search log.'}
-            ]
+            logs: [],
+            searchlog: false
         };
     }
 
@@ -43,13 +43,16 @@ handleRemove = (id) => {
         )
     });
   }
-handleHistory = () => {
-    
+toggleDropdown = () => {
+    const searchlog = this.state.searchlog;
+    this.setState({
+        searchlog: true
+    });
 }
     render(){
+        const { input, logs, searchlog } = this.state;
+        const { handleChange, handleCreate, handleKeyPress, handleRemove, toggleDropdown } = this;
 
-        const { input, logs } = this.state;
-        const { handleChange, handleCreate, handleKeyPress, handleRemove } = this;
         return(
             <div className="header-left">
                 <h1 className="logo">
@@ -66,6 +69,8 @@ handleHistory = () => {
                     onCreate={handleCreate}
                     onKeyPress={handleKeyPress}
                     onRemove={handleRemove}
+                    onDropdown={toggleDropdown}
+                    searchlog={searchlog}
                     />
                 </div>
             </div>
