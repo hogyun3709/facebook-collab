@@ -33,7 +33,7 @@ const MyPost = ({ postProps }) => {
     postProps는
     0, 0 1, 0 1 2, 0 1 2 3 형식으로 들어옴
   */
-  // console.log(postProps)
+  console.log(postProps)
   // console.log(currentPost)
     return (
     <div class="ui card fluid">
