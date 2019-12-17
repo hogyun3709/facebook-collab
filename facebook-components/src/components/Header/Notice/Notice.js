@@ -37,7 +37,7 @@ class Notice extends React.Component{
                     },
                     {
                         id: 4,
-                        name: '더 보기',
+                        name: '더 보기!',
                         className: ''
                     }
                 ]
