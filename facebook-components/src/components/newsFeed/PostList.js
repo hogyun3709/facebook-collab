@@ -14,10 +14,10 @@ const MyPost = ({ postProps }) => {
     setEdit(false);
     setPosts(posts.map(post => (post.id === id ? updatedPost : post)));
   };
-
-
-  console.log(currentPost);
-  return (
+  /* post 에 obj 가 하나씩 덜 들어오는 상황 */
+  console.log(postProps)
+  console.log(posts)
+    return (
     <div class="ui card fluid">
       <div class="content">
         {/* <div class="right floated meta">14h</div>
@@ -91,7 +91,7 @@ const TotalPost = ({ totalPostProps }) => {
       </div>
 
       <div class="extra content">
-        
+
 
         <CommentForm />
 
@@ -135,6 +135,7 @@ class PostList extends Component {
         message: messageObj.message
       })
     });
+    console.log(postItems)
   };
   render() {
     return (

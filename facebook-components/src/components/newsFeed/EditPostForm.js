@@ -25,8 +25,8 @@ const EditPostForm = props => {
         props.updatePost(post.id, post)
       }}
     >
-      <label>Name</label>
-      <input type="text" name="name" value={post.message} onChange={handleInputChange} />
+      <label>Post</label>
+      <input type="text" name="post" value={post.message} onChange={handleInputChange} />
       <button>Update Post</button>
       <button onClick={() => props.setEdit(false)} className="">
         Cancel
