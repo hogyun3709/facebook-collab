@@ -3,10 +3,13 @@ import React, { useState, useEffect } from 'react'
 const EditPostForm = props => {
   const [ post, setPost ] = useState(props.currentPost)
 
+  console.log(props)
+  /* use effect takes the role of componentDidMount and componentDidUpdate lifecycle */
   useEffect(
     () => {
       setPost(props.currentPost)
     },
+    /* takes the role of comparing prevProps's post and current post*/
     [ props ]
   )
   // You can tell React to skip applying an effect if certain values haven’t changed between re-renders. [ props ]
@@ -16,6 +19,7 @@ const EditPostForm = props => {
 
     setPost({ ...post, [message]: value })
   }
+  /* post 의 id 가 0으로 고정되는 상황 (edit 으로 넘어왔을시에만)*/
   console.log(post.id)
   return (
     <form
