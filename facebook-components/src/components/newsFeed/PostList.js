@@ -1,25 +1,23 @@
 import React, { Component, useState } from "react";
 import PostForm from "./PostForm";
+import EditPostForm from "./EditPostForm";
 import CommentForm from "./comment/CommentForm";
-import "./PostList.css"
+import "./PostList.css";
 
-/* 카드 컴포넌트를 만들고, */
-/* This component shows series of post item contents (objects) created by user */
-/* post {} < post의 값만 받고오겠다 */
-const Card = ({ post }) => {
-  const [like, setLike] = useState(0)
+const MyPost = ({ postProps }) => {
+  const [like, setLike] = useState(0);
+  const [posts, setPosts] = useState(postProps);
+  const [edit, setEdit] = useState(false);
+  const [currentPost, setCurrentPost] = useState(postProps);
 
-  // submitComment() => {
-  //   () => setComment("co")
-  // }
-  //
-  // handleUserEnter = e  => {
-  //   e.key = e.key || e.keyCode;
-  //   if (e.key === 13){
-  //     submitComment()
-  //   }
-  // // }
-  return (
+  const updatePost = (id, updatedPost) => {
+    setEdit(false);
+    setPosts(posts.map(post => (post.id === id ? updatedPost : post)));
+  };
+  /* post 에 obj 가 하나씩 덜 들어오는 상황 */
+  console.log(postProps)
+  console.log(posts)
+    return (
     <div class="ui card fluid">
       <div class="content">
         {/* <div class="right floated meta">14h</div>
@@ -30,7 +28,20 @@ const Card = ({ post }) => {
       </div>
       <div class="content">
         <div class="description">
-          <div>{post.message}</div>
+          {edit ? (
+            <div>
+              <h2>Edit</h2>
+              <EditPostForm
+                edit={edit}
+                setEdit={setEdit}
+                currentPost={currentPost}
+                updatePost={updatePost}
+              />
+            </div>
+          ) : (
+            <div>{postProps.message}</div>
+          )}
+          <button onClick={() => setEdit(!edit)}>Edit</button>
         </div>
         <div class="ui horizontal divider" />
         {/* <span class="right floated">
@@ -52,7 +63,7 @@ const Card = ({ post }) => {
     </div>
   );
 };
-const TempCard = ({ tempPost }) => {
+const TotalPost = ({ totalPostProps }) => {
   const [like, setLike] = useState(0);
 
   return (
@@ -66,7 +77,7 @@ const TempCard = ({ tempPost }) => {
       </div>
       <div class="content">
         <div class="description">
-          <div>{tempPost.body}</div>
+          <div>{totalPostProps.body}</div>
         </div>
         <div class="ui horizontal divider" />
         <span class="right floated">
@@ -78,7 +89,9 @@ const TempCard = ({ tempPost }) => {
         ></i>
         {like} likes
       </div>
-      <div class="extra content_a">
+
+      <div class="extra content">
+
 
         <CommentForm />
 
@@ -86,55 +99,58 @@ const TempCard = ({ tempPost }) => {
           <i class="heart outline icon"></i>
           <input type="text" placeholder="Add Comment..." />
         </div> */}
-
       </div>
     </div>
   );
 };
-/* comment 를 결국 parent 에서 handling */
 class PostList extends Component {
+  id = 0;
   constructor(props) {
     super(props);
     this.state = {
       postItems: [],
-      tempPosts: [],
+      totalPosts: []
     };
   }
   getPostData() {
     fetch("https://jsonplaceholder.typicode.com/posts")
-    .then(response =>  response.json())
-    .then(data =>
-      this.setState({
-        tempPosts: data
-      })
-    )
+      .then(response => response.json())
+      .then(data =>
+        this.setState({
+          totalPosts: data
+        })
+      );
   }
-  componentDidMount(){
+  componentDidMount() {
     this.getPostData();
   }
-
+  /* console 에서 평가시점마다 obj 값을 참조 해보기  */
   userInput = messageObj => {
-    let linkArray = this.state.postItems;
-    linkArray.unshift(messageObj);
-    this.setState({ postItems: linkArray})
+    // messageObj.id = this.id;
+    const { postItems } = this.state;
+    this.setState({
+      postItems: postItems.concat({
+        /* this.id 의 존재는 뭔가.. */
+        id: this.id++,
+        message: messageObj.message
+      })
+    });
+    console.log(postItems)
   };
-
   render() {
-
     return (
       <div className="postList-wrap">
         <PostForm userInputProps={this.userInput} />
 
-        {this.state.postItems.map(post => (
-          <Card post={post} />
-        ))}
-        {this.state.tempPosts.map(tempPost =>(
-          <TempCard tempPost={tempPost} />
-        ))}
-
+        {this.state.postItems
+          .map(post => <MyPost postProps={post} />)
+          .reverse()}
       </div>
     );
   }
 }
+// {this.state.totalPosts.map(totalPost => (
+//   <TotalPost totalPostProps={totalPost} />
+// ))}
 
 export default PostList;

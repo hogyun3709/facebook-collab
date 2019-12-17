@@ -35,6 +35,7 @@ function App() {
           <NewsFeed />
         </div>
       </div>
+
       <div className="widget-wrap">
         <WidgetIndex />
       </div>
