@@ -1,8 +1,8 @@
 /* CommentForm.css */
 .commentWrapper {
+    position: relative;
     width: 500px;
     padding: 4px 0 0;
-    /* border: 1px solid red; */
 }
 .commentListWrapper {
     margin: 4px 0;
@@ -41,10 +41,11 @@
     line-height: 16px;
 }
 .commentNum {
-    clear: both;
+    position: absolute;
+    top: -15px;
+    right: 15px;
     color: #606770;
     font-size: 13px;
-    text-align: right;
 }
 .attachBox {
     float: right;

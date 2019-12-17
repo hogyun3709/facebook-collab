@@ -44,17 +44,19 @@
     transform: translate(-5px, 7px);
 }
 .itemCommentSetBox {
+    padding: 7px 0;
+}
+.itemCommentSetBox .itemCommentSet {
     position: relative;
-    display: none;
     width: 15px;
     height: 12px;
-    padding: 10px 7px;
+    padding: 0 7px;
     margin: 3px 5px;
-    background: url(../../../images/feed_icons.png) no-repeat 1px -177px / 64px;
+    background: url(../../../images/feed_icons.png) no-repeat -1px -180px / 64px;
     cursor: pointer;
 }
-.itemCommentSetBox:hover {
-    background-position: -20px -177px;
+.itemCommentSetBox:hover .itemCommentSet {
+    background-position: -22px -180px;
 }
 .itemCommentSetBox:hover .itemCommentSetTitle {
     display: block;
@@ -62,15 +64,15 @@
 .itemCommentSetTitle {
     display: none;
     position: absolute;
-    right: -37px;
-    bottom: calc(100% - 3px);
+    right: -36px;
+    bottom: calc(100%);
     padding: 6px 9px;
     border-radius: 2px;
     background: #000;
     white-space: nowrap;
     color: #fff;
     font-size: 12px;
-    z-index: 9;
+    z-index: 1;
 }
 .itemCommentSetTitle::after {
     content:'';
@@ -82,18 +84,17 @@
     border-top: 5px solid #000;
 }
 .itemCommentSetListBox {
-    /* display: none; */
     position: absolute;
     width: 100px;
-    top: calc(100% + 10px );
-    right: -27px;
+    top: calc(100% + 8px );
+    right: -26px;
     padding: 5px 0;
     font-size: 12px;
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: 2px;
     background: #fff;
     box-shadow: 0 3px 8px rgba(0,0,0,.3);
-    z-index: 9;
+    z-index: 1;
 }
 .itemCommentSetListBox::after {
     content:'';
@@ -103,6 +104,9 @@
     left: 60%;
     bottom: 100%;
     background: url(../../../images/feed_icons.png) no-repeat -37px -382px / 64px;
+}
+.displayNone {
+    display: none;
 }
 .itemCommentSetList {
     height: 22px;
@@ -142,18 +146,18 @@
 .itemCommentSetBox:focus .itemCommentSetListBox {
     display: block;
 }
-.iteminfo {
+.iteminfoBox {
     padding: 0 0 0 28px;
     margin: 3px 10px;
     color: #385898;
     font-size: 12px;
     line-height: 16px;
 }
-.iteminfo span {
+.iteminfo {
     position: relative;
     margin: 0 5px;
 }
-.iteminfo span ~ span::before {
+.iteminfoBox .iteminfo ~ .iteminfo::before {
     content:'';
     position: absolute;
     top: 6px;

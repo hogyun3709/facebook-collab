@@ -6,7 +6,8 @@ import './CommentItem.css';
 
 class CommentItem extends React.Component {
     render(){
-        const { id, name, text, like, likeNum, date, recomment, onRemove, onToggle } = this.props;
+        const { id, name, text, like, likeNum, date, commentSet, recomment, onRemove, onToggle } = this.props;
+        console.log(commentSet)
         return(
             <div className="itemCommentWrapper">
                 <div className="itemCommentBox clear">
@@ -22,31 +23,37 @@ class CommentItem extends React.Component {
                         <span className="itemSticker">{likeNum}</span>:false
                     }
                     <div className="itemCommentSetBox">
-                        <a href="#a">
+                        <a className="itemCommentSet"
+                        href="#a" 
+                        onClick={onToggle}>
                             <div className="itemCommentSetTitle">수정 또는 삭제</div>
+                            <ul 
+                            className={commentSet ? ('itemCommentSetListBox') : ('itemCommentSetListBox') }>
+                                <li className="itemCommentEdit itemCommentSetList">
+                                    <a href="#a">수정...</a>
+                                </li>
+                                <li
+                                className="itemCommentRemove itemCommentSetList"
+                                onClick={() => onRemove(id)}>
+                                    <a href="#a">삭제하기...</a>
+                                </li>
+                            </ul>
                         </a>
-                        <ul className="itemCommentSetListBox">
-                            <li className="itemCommentEdit itemCommentSetList">
-                                <a href="#a">수정...</a>
-                            </li>
-                            <li
-                            className="itemCommentRemove itemCommentSetList"
-                            onClick={() => onRemove(id)}>
-                                <a href="#a">삭제하기...</a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
-                <div className="iteminfo" >
-                    <span
-                        className={like?'liked':'unliked'}
+                <div className="iteminfoBox" >
+                    <a
+                        href="#a"
+                        className={like?'liked iteminfo':'unliked iteminfo'}
                         onClick={onToggle}>
                         좋아요
-                    </span>
-                    <span className="itemRecommant">
+                    </a>
+                    <a 
+                        href="#a"
+                        className="itemRecommant iteminfo">
                         답글 달기
-                    </span>
-                    <span className="itemTime">
+                    </a>
+                    <span className="itemTime iteminfo">
                         <TimeAgo date={date} />
                         {/* {date.toLocaleTimeString()} */}
                     </span>

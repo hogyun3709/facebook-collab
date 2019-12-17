@@ -9,7 +9,8 @@ class CommentForm extends React.Component {
         super(props);
         this.state = {
             input: '',
-            comments: []
+            comments: [],
+            commentSet: true
         }
     }
     handleChange = (e) => {
@@ -38,12 +39,13 @@ class CommentForm extends React.Component {
     }
 
     handleToggle = () => {
-        const { comments } = this.state;
+        const { comments, commentSet } = this.state;
         this.setState({
-            like: !comments.like
+            like: !comments.like,
+            commentSet: !commentSet
         });
+        console.log(commentSet)
     }
-
     handleRemove = (id) => {
         const { comments } = this.state;
         this.setState({
@@ -65,8 +67,6 @@ class CommentForm extends React.Component {
                 />
             )
         );
-        console.log( this.hello )
-        console.log({ comments })
         return(
             <div className="commentWrapper">
                 <div 
@@ -92,8 +92,8 @@ class CommentForm extends React.Component {
                             <a className="attachIconLink attachSticker"/>
                         </div>
                     </div>
-                    <div className="commentNum">댓글 {comments.length}개</div>
                 </div>
+                <div className="commentNum">댓글 {comments.length}개</div>
             </div>
         );
     }
