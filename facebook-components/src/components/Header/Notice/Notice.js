@@ -13,7 +13,7 @@ class Notice extends React.Component{
                         name: '친구요청',
                         menu: ['친구찾기','설정'],
                         btn: '모두보기',
-                        show: true
+                        show: false
                     },
                     {
                         id: 1,
@@ -40,16 +40,19 @@ class Notice extends React.Component{
                         name: '더 보기',
                         show: false
                     }
-                ]
+                ],
+                shows: false
         }
+        //console.log(this.state.notice[0].show)
     };
-
+    
     handleToggle = () => {
         const notice = this.state;
         this.setState({
-            notice: !notice.show
+            notice: !notice[0].show
         });
-        console.log(notice.show);
+        console.log(notice[0].show)
+        // console.log("hellow")
     }
 
     render(){
@@ -60,7 +63,7 @@ class Notice extends React.Component{
                 <li className="icon-list">
                     <Link
                     className="icon-link"
-                    onClick={handleToggle}
+                    onClick={() => handleToggle}
                     key={icon.id}
                     >
                         {icon.id}
@@ -70,22 +73,27 @@ class Notice extends React.Component{
                     >
                         {icon.name}
                     </span>
-                        <div className="banner-wrap">
-                            <div className="banner-header">
-                                <Link
-                                className="banner-name">
-                                    {icon.name}
-                                </Link>
-                                <Link
-                                className="banner-menu">
-                                    <span className="b-menu">{icon.menu}</span>
-                                </Link>
-                            </div>
+
+                    { notice.show &&
+                        (<div className="banner-wrap">
+                        <div className="banner-header">
                             <Link
-                            className="banner-btn">
-                                {icon.btn}
+                            className="banner-name">
+                                {icon.name}
+                            </Link>
+                            <Link
+                            className="banner-menu">
+                                <span className="b-menu">{icon.menu}</span>
                             </Link>
                         </div>
+                        <Link
+                        className="banner-btn">
+                            {icon.btn}
+                        </Link>
+                    </div>)
+                    }
+
+                        
                 </li>          
         );
 

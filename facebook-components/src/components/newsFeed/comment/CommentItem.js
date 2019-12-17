@@ -7,7 +7,7 @@ import './CommentItem.css';
 class CommentItem extends React.Component {
     render(){
         const { id, name, text, like, likeNum, date, commentSet, recomment, onRemove, onToggle } = this.props;
-        console.log(commentSet)
+        // console.log(commentSet)
         return(
             <div className="itemCommentWrapper">
                 <div className="itemCommentBox clear">

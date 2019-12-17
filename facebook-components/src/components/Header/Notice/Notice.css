@@ -115,7 +115,7 @@
 }
 /* show banner */
 .banner-wrap {
-    display: none;
+    /* display: none; */
     position: absolute;
     top: calc(100% + 1px);
     right: -30px;
@@ -130,12 +130,12 @@
     z-index: 9999;
 }
 /* toggle 오류 */
-.icon-link:focus ~ .banner-wrap {
+/* .icon-link:focus ~ .banner-wrap {
     display: block;
 }
 .icon-link:focus ~ .icon-tooltip {
     display: none;
-}
+} */
 .banner-header {
     width: 100%;
     height: 31px;
