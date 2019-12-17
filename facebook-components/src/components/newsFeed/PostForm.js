@@ -1,30 +1,33 @@
 import React, { Component } from "react";
-import "./PostFom.css"
-/* Post Form 의 위치는 어디여야할까.. */
+import "./PostFom.css";
 class PostForm extends Component {
+  id = 0
   constructor(props) {
     super(props);
     this.state = {
-      post: {
-        message: ""
-      }
+      post: [
+        {
+          message: ""
+        }
+      ]
     };
   }
 
-  createPost = e => {
-    let tempPost = { message: e.target.value };
+  handleUserInput = e => {
     this.setState({
-      post:tempPost
+      post: { message: e.target.value }
     });
   };
+
   onSubmit = e => {
-    this.props.userInputProps(this.state.post)
+
+    this.props.userInputProps(this.state.post);
     this.setState({
       post: {
         message: ""
       }
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -32,11 +35,11 @@ class PostForm extends Component {
         <div class="ui form">
           <div class="field field-box">
             <label>게시물 만들기</label>
-            <input
+            <textarea
               className="text-box"
               value={this.state.post.message}
-              onChange={this.createPost}
-            ></input>
+              onChange={this.handleUserInput}
+            ></textarea>
           </div>
         </div>
         <div class="ui horizontal divider" />
@@ -53,7 +56,9 @@ class PostForm extends Component {
         </div>
 
         <div class="ui horizontal divider" />
-        <button class="fluid ui button blue" onClick={this.onSubmit}>게시</button>
+        <button class="fluid ui button blue" onClick={this.onSubmit}>
+          게시
+        </button>
       </div>
     );
   }
