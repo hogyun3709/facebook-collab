@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 const EditPostForm = props => {
   const [ post, setPost ] = useState(props.currentPost)
-
-  console.log(props)
+  /*postProps.message 가 이상하다*/
+  console.log(props.message)
   /* use effect takes the role of componentDidMount and componentDidUpdate lifecycle */
   useEffect(
     () => {

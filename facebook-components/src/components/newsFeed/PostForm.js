@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./PostFom.css";
 class PostForm extends Component {
-  id = 0
   constructor(props) {
     super(props);
     this.state = {

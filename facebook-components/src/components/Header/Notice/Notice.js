@@ -45,37 +45,50 @@ class Notice extends React.Component{
         }
         //console.log(this.state.notice[0].show)
     };
-    
-    handleToggle = () => {
-        const notice = this.state;
-        this.setState({
-            notice: !notice[0].show
-        });
-        console.log(notice[0].show)
+
+    handleToggle = (icon) => {
+
+      let notice = this.state.notice;
+
+      let selectedIndex = null;
+      for(var i = 0; i < this.state.notice.length; i++) {
+        if(notice[i].id == icon.id) {
+          selectedIndex = i;
+        }
+      }
+
+      console.log(selectedIndex);
+
+      notice[selectedIndex].show = !notice[selectedIndex].show;
+
+      this.setState({
+          notice: notice
+      });
         // console.log("hellow")
     }
 
     render(){
-        const notice = this.state;
-        const handleToggle = this;
-        const noticeList = this.state.notice.map(
-            (icon) => 
+        const { notice } = this.state;
+
+        console.log(notice);
+        const noticeList = notice.map(
+            (icon) =>
                 <li className="icon-list">
                     <Link
                     className="icon-link"
-                    onClick={() => handleToggle}
+                    onClick={() => this.handleToggle(icon)}
                     key={icon.id}
                     >
                         {icon.id}
                     </Link>
-                    <span 
+                    <span
                     className="icon-tooltip"
                     >
                         {icon.name}
                     </span>
 
-                    { notice.show &&
-                        (<div className="banner-wrap">
+                    { icon.show ?
+                      (<div className="banner-wrap">
                         <div className="banner-header">
                             <Link
                             className="banner-name">
@@ -85,16 +98,19 @@ class Notice extends React.Component{
                             className="banner-menu">
                                 <span className="b-menu">{icon.menu}</span>
                             </Link>
+                          </div>
+                          <Link
+                          className="banner-btn">
+                              {icon.btn}
+                          </Link>
                         </div>
-                        <Link
-                        className="banner-btn">
-                            {icon.btn}
-                        </Link>
-                    </div>)
-                    }
+                        )
+                        :
+                        null
+                      }
 
-                        
-                </li>          
+
+                </li>
         );
 
         return(
