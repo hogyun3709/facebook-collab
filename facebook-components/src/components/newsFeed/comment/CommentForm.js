@@ -9,17 +9,14 @@ class CommentForm extends React.Component {
         super(props);
         this.state = {
             input: '',
-            comments: [],
-            commentSet: true
+            comments: []
         }
     }
     handleChange = (e) => {
         this.setState({
             input: e.target.value
         });
-        console.log("e target: " + e.target.value)
-        console.log("state: " + this.state.input)
-
+        //console.log("inputValue: " + e.target.value)
     }
 
     handleKeyPress = (e) => {
@@ -33,52 +30,82 @@ class CommentForm extends React.Component {
                     name: 'EunJi',
                     text: input,
                     date: new Date(),
-                    like: true,
-                    likeNum: 1
+                    like: false,
+                    likeNum: 1,
+                    setComment: false
                 })
             });
+            // console.log(comments);
         }
-        console.log(comments);
     }
 
-    handleToggle = () => {
-        const { comments, commentSet } = this.state;
+    toggleCommentSet = (id) => {
+        const { comments } = this.state;
+        const selectedIndex = comments.findIndex(
+            i => i.id === id
+        );
+        comments[selectedIndex].setComment = !comments[selectedIndex].setComment;
         this.setState({
-            like: !comments.like,
-            commentSet: !commentSet
+            comments: comments
         });
-        console.log(commentSet)
     }
+
+    onBlurHandle = (id) => {
+        const { comments } = this.state;
+        const selectedIndex = comments.findIndex(
+            i => i.id === id
+        );
+        this.timeOutId = setTimeout(() => {comments[selectedIndex].setComment = false;
+            this.setState({
+                comments: comments
+            });
+        });
+    }
+
+    onFocusHandle = (id) => {
+        clearTimeout(this.timeOutId);
+    }
+
     handleRemove = (id) => {
         const { comments } = this.state;
         this.setState({
-            comments: comments.filter(
+            comments: this.state.comments.filter(
                 comment => comment.id !== id
             )
         });
     }
 
+    toggleLike = (id) => {
+        const { comments } = this.state;
+        const selectedIndex = comments.findIndex(
+            i => i.id === id
+        );
+        comments[selectedIndex].like = !comments[selectedIndex].like;
+        this.setState({
+            comments: comments
+        });
+    }
+
     render(){
         const { input, comments } = this.state;
-        const { handleChange, handleKeyPress, handleRemove, handleToggle } = this;
+        const { handleChange, handleKeyPress, toggleCommentSet, handleRemove, toggleLike, onBlurHandle, onFocusHandle } = this;
         const commentItem = comments.map(
             (comment) => (
                 <CommentItem
                     {...comment}
                     key={comment.id}
                     onRemove={handleRemove}
+                    onCommentSet={toggleCommentSet}
+                    onLike={toggleLike}
+                    onBlurHandle={onBlurHandle}
+                    onFocusHandle={onFocusHandle}
                 />
             )
         );
 
-        // console.log( this.hello )
-        // console.log({ comments })
-
         return(
             <div className="commentWrapper">
-                <div 
-                    className="commentListWrapper"
-                    onToggle={handleToggle}>
+                <div className="commentListWrapper">
                         {commentItem}
                 </div>
                 <div className="commentBox clear">

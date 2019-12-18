@@ -10,106 +10,132 @@ class Notice extends React.Component{
                 [
                     {
                         id: 0,
-                        name: '친구요청',
+                        title: '친구요청',
                         menu: ['친구찾기','설정'],
                         btn: '모두보기',
                         show: false
                     },
                     {
                         id: 1,
-                        name: '메세지',
+                        title: '메세지',
                         menu: ['새 그룹','새 메세지'],
                         btn: 'Messenger에서 모두 보기',
                         show: false
                     },
                     {
                         id: 2,
-                        name: '알림',
+                        title: '알림',
                         menu: ['모두 읽음 상태로 표시','알림 해제','설정'],
                         btn: '모두보기',
                         show: false
                     },
                     {
                         id: 3,
-                        name: '빠른 도움말',
+                        title: '빠른 도움말',
                         menu: '고객센터',
                         show: false
                     },
                     {
                         id: 4,
-                        name: '더 보기',
+                        title: '더 보기',
                         show: false
                     }
-                ],
-                shows: false
+                ]
         }
-        //console.log(this.state.notice[0].show)
+        this.timeOutId = null
     };
 
     handleToggle = (icon) => {
+        const notice = this.state.notice;
+        const selectedIndex = notice.findIndex((i) =>
+            i.id === icon.id
+        )
+        //클릭된 아이콘의 id와 일치하는 배열의 index값 출력
+        //console.log(selectedIndex);
 
-      let notice = this.state.notice;
+        //클릭된 배열의 state값 변경
+        notice[selectedIndex].show = !notice[selectedIndex].show;
+        this.setState({
+            notice: notice
+        });
+    }
 
-      let selectedIndex = null;
-      for(var i = 0; i < this.state.notice.length; i++) {
-        if(notice[i].id == icon.id) {
-          selectedIndex = i;
-        }
-      }
+    onBlurHandle = (icon) => {
+        const notice = this.state.notice;
+        //console.log('onBlur');
+        const selectedIndex = notice.findIndex((i) =>
+            i.id === icon.id
+        )
 
-      console.log(selectedIndex);
+        //블러된 배열의 state값 변경 (동시에 하위요소 focus시, event clearTimeOut)
+        this.timeOutId = setTimeout(() => {
+            notice[selectedIndex].show = false;
+            this.setState({
+                notice: notice
+            });
+        });
+    }
 
-      notice[selectedIndex].show = !notice[selectedIndex].show;
-
-      this.setState({
-          notice: notice
-      });
-        // console.log("hellow")
+    onFocusHandle = () => {
+        clearTimeout(this.timeOutId);
     }
 
     render(){
         const { notice } = this.state;
+        const { handleToggle, onBlurHandle, onFocusHandle } = this;
 
-        console.log(notice);
         const noticeList = notice.map(
             (icon) =>
-                <li className="icon-list">
+                <li 
+                className="icon-list"
+                // onFocus={onFocusHandle}
+                // onBlur={() => onBlurHandle(icon)}
+                >
                     <Link
                     className="icon-link"
-                    onClick={() => this.handleToggle(icon)}
+                    onClick={() => handleToggle(icon)}
+                    onFocus={onFocusHandle}
+                    onBlur={() => onBlurHandle(icon)}
+                    // onBlur={(e) => e.stopPropagation()}
                     key={icon.id}
                     >
                         {icon.id}
                     </Link>
-                    <span
-                    className="icon-tooltip"
-                    >
-                        {icon.name}
-                    </span>
-
-                    { icon.show ?
-                      (<div className="banner-wrap">
-                        <div className="banner-header">
+                    { 
+                        icon.show ?
+                        null
+                        :
+                        (<span
+                        className="icon-tooltip"
+                        >
+                            {icon.title}
+                        </span>)
+                    }
+                    { 
+                    icon.show ?
+                        (<div 
+                        className="banner-wrap"
+                        // onFocus={onFocusHandle}
+                        // onBlur={() => onBlurHandle(icon)}
+                        >
+                            <div className="banner-header">
+                                <Link
+                                className="banner-name">
+                                    {icon.title}
+                                </Link>
+                                <Link
+                                className="banner-menu">
+                                    <span className="b-menu">{icon.menu}</span>
+                                </Link>
+                            </div>
                             <Link
-                            className="banner-name">
-                                {icon.name}
+                            className="banner-btn">
+                                {icon.btn}
                             </Link>
-                            <Link
-                            className="banner-menu">
-                                <span className="b-menu">{icon.menu}</span>
-                            </Link>
-                          </div>
-                          <Link
-                          className="banner-btn">
-                              {icon.btn}
-                          </Link>
-                        </div>
-                        )
+                        </div>)
                         :
                         null
-                      }
-
-
+                    }
                 </li>
         );
 

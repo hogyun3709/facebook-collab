@@ -6,8 +6,7 @@ import './CommentItem.css';
 
 class CommentItem extends React.Component {
     render(){
-        const { id, name, text, like, likeNum, date, commentSet, recomment, onRemove, onToggle } = this.props;
-        // console.log(commentSet)
+        const { id, name, text, like, likeNum, date, setComment, recomment, onCommentSet, onRemove, onLike, onBlurHandle, onFocusHandle } = this.props;
         return(
             <div className="itemCommentWrapper">
                 <div className="itemCommentBox clear">
@@ -20,24 +19,41 @@ class CommentItem extends React.Component {
                     </span>
                     {
                         like?
-                        <span className="itemSticker">{likeNum}</span>:false
+                        <span className="itemSticker">{likeNum}</span>:null
                     }
                     <div className="itemCommentSetBox">
                         <a className="itemCommentSet"
                         href="#a" 
-                        onClick={onToggle}>
-                            <div className="itemCommentSetTitle">수정 또는 삭제</div>
-                            <ul 
-                            className={commentSet ? ('itemCommentSetListBox') : ('itemCommentSetListBox') }>
-                                <li className="itemCommentEdit itemCommentSetList">
-                                    <a href="#a">수정...</a>
-                                </li>
-                                <li
-                                className="itemCommentRemove itemCommentSetList"
-                                onClick={() => onRemove(id)}>
-                                    <a href="#a">삭제하기...</a>
-                                </li>
-                            </ul>
+                        onClick={(e) => {
+                            e.stopPropagation()
+                            onCommentSet(id)
+                        }}
+                        onBlur={() => onBlurHandle(id)}
+                        onFocus={() => onFocusHandle(id)}
+                        >
+                            {
+                                setComment?
+                                null:
+                                <div className="itemCommentSetTitle">수정 또는 삭제</div>
+                            }
+                            {
+                                setComment?
+                                (<ul 
+                                className={setComment ? ('itemCommentSetListBox') : ('itemCommentSetListBox') }>
+                                    <li className="itemCommentEdit itemCommentSetList">
+                                        <a href="#a">수정...</a>
+                                    </li>
+                                    <li
+                                    className="itemCommentRemove itemCommentSetList"
+                                    onClick={(e) => 
+                                        {e.stopPropagation()
+                                            onRemove(id)}
+                                    }>
+                                        <a href="#a">삭제하기...</a>
+                                    </li>
+                                </ul>)
+                                : null
+                            }
                         </a>
                     </div>
                 </div>
@@ -45,7 +61,10 @@ class CommentItem extends React.Component {
                     <a
                         href="#a"
                         className={like?'liked iteminfo':'unliked iteminfo'}
-                        onClick={onToggle}>
+                        onClick={(e) => 
+                            {e.stopPropagation()
+                            onLike(id)}
+                        }>
                         좋아요
                     </a>
                     <a 

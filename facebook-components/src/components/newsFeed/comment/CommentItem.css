@@ -157,6 +157,9 @@
     position: relative;
     margin: 0 5px;
 }
+.iteminfo:hover {
+    text-decoration: underline;
+}
 .iteminfoBox .iteminfo ~ .iteminfo::before {
     content:'';
     position: absolute;
