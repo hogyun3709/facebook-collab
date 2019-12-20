@@ -61,12 +61,11 @@ class CommentItem extends React.Component {
                             onFocus={() => onFocusHandle(id)}
                             >
                                 {
-                                    setComment?
-                                    null:
+                                    !setComment&&
                                     <div className="itemCommentSetTitle">수정 또는 삭제</div>
                                 }
                                 {
-                                    setComment?
+                                    setComment&&
                                     (<ul 
                                     className={setComment ? ('itemCommentSetListBox') : ('itemCommentSetListBox') }>
                                         <li 
@@ -86,7 +85,6 @@ class CommentItem extends React.Component {
                                             <span>삭제하기...</span>
                                         </li>
                                     </ul>)
-                                    : null
                                 }
                             </a>
                         </div>
