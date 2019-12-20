@@ -26,7 +26,7 @@
     white-space: normal;
 }
 .itemUserName {
-    padding: 0 8px 0 0;
+    padding: 0 6px 0 0;
     color: #385898;
     font-weight: bold;
 }
@@ -35,23 +35,24 @@
     width: 31px;
     height: 20px;
     padding: 3px;
+    margin-right: -7px;
     border-radius: 20px;
     background: #fff url(../../../images/feed_icons.png) no-repeat -44px -132px / 64px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2);
     color: #777D88;
     font-size: 11px;
     text-align: right;
-    transform: translate(-5px, 7px);
+    transform: translate(-7px, 7px);
 }
 .itemCommentSetBox {
     padding: 7px 0;
 }
-.itemCommentSetBox .itemCommentSet {
+.itemCommentSet {
     position: relative;
     width: 15px;
     height: 12px;
     padding: 0 7px;
-    margin: 3px 5px;
+    margin: 3px 10px;
     background: url(../../../images/feed_icons.png) no-repeat -1px -180px / 64px;
     cursor: pointer;
 }
@@ -117,7 +118,7 @@
     border-top: 1px solid #29487d;
     border-bottom: 1px solid #29487d;
 }
-.itemCommentSetList a {
+.itemCommentSetList span {
     position: relative;
     display: block;
     height: 22px;
@@ -125,7 +126,7 @@
     padding: 0 0 0 20px;
     color: #1d2129;
 }
-.itemCommentSetList a::before {
+.itemCommentSetList span::before {
     content:'';
     position: absolute;
     width: 16px;
@@ -134,13 +135,13 @@
     top: 2px;
     background: url(../../../images/feed_icons.png) no-repeat 0 / 64px;
 }
-.itemCommentSetList:nth-child(1) a::before {
+.itemCommentSetList:nth-child(1) span::before {
     background-position: -51px -349px;
 }
-.itemCommentSetList:nth-child(2) a::before {
+.itemCommentSetList:nth-child(2) span::before {
     background-position: -51px -364px;
 }
-.itemCommentSetList a:hover {
+.itemCommentSetList span:hover {
     color: #fff;
 }
 .itemCommentSetBox:focus .itemCommentSetListBox {

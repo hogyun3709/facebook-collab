@@ -11,6 +11,10 @@
     height: 44px;
     padding: 2px 12px 8px;
 }
+.commentEditBox {
+    height: 52px;
+    padding-bottom: 4px; 
+}
 .commentUserInfo {
     float: left;
     width: 32px;
@@ -21,10 +25,10 @@
     background: url(../../../images/profile.png) no-repeat center/110%;
 }
 .commentBar {
+    position: relative;
     float: left;
     width: 438px;
     height: 32px;
-    /* padding: 8px 12px; */
     border: 1px solid #ccd0d5;
     border-radius: 16px;
     background: #e9ebee;
@@ -97,4 +101,23 @@
 }
 .attachSticker:focus {
     background-position: -68px -328px;
+}
+.commentEditCancelBox {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    padding: 2px 0 0 0;
+    color: #385898;
+    font-size: 11px;
+}
+.commentEditCancel:hover {
+    text-decoration: underline;
+}
+.commentEditCancelInfo {
+    display: none;
+    color: #90949C;
+}
+.commentEditInput:focus ~ .commentEditCancelBox .commentEditCancelInfo {
+    display: inline-block;
+
 }

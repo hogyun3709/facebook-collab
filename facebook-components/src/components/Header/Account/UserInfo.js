@@ -6,7 +6,7 @@ class UserInfo extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            name: "EJ Choi"
+            name: "EunJi"
         }
     };
     render(){

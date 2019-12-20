@@ -66,7 +66,12 @@ class Notice extends React.Component{
         const selectedIndex = notice.findIndex((i) =>
             i.id === icon.id
         )
-
+        
+        // if(!banner.onmouseenter()) {
+        //     notice[selectedIndex].show = false;
+        // } else if (banner.onmouseenter()) {
+        //     notice[selectedIndex].show = true;
+        // } 
         //블러된 배열의 state값 변경 (동시에 하위요소 focus시, event clearTimeOut)
         this.timeOutId = setTimeout(() => {
             notice[selectedIndex].show = false;
@@ -76,27 +81,25 @@ class Notice extends React.Component{
         });
     }
 
-    onFocusHandle = () => {
+    onFocusHandle = (icon) => {
         clearTimeout(this.timeOutId);
     }
 
     render(){
         const { notice } = this.state;
-        const { handleToggle, onBlurHandle, onFocusHandle } = this;
+        const { handleToggle, onBlurHandle, onFocusHandle, onMouseOver, onMouseOut } = this;
 
         const noticeList = notice.map(
             (icon) =>
                 <li 
                 className="icon-list"
-                // onFocus={onFocusHandle}
-                // onBlur={() => onBlurHandle(icon)}
+                onFocus={() => onFocusHandle(icon)}
+                onBlur={() => onBlurHandle(icon)}
+                // onBlur={(e) => e.stopPropagation()}
                 >
                     <Link
                     className="icon-link"
                     onClick={() => handleToggle(icon)}
-                    onFocus={onFocusHandle}
-                    onBlur={() => onBlurHandle(icon)}
-                    // onBlur={(e) => e.stopPropagation()}
                     key={icon.id}
                     >
                         {icon.id}
@@ -113,11 +116,7 @@ class Notice extends React.Component{
                     }
                     { 
                     icon.show ?
-                        (<div 
-                        className="banner-wrap"
-                        // onFocus={onFocusHandle}
-                        // onBlur={() => onBlurHandle(icon)}
-                        >
+                        (<div className="banner-wrap">
                             <div className="banner-header">
                                 <Link
                                 className="banner-name">

@@ -3,7 +3,6 @@ import CommentItem from './CommentItem';
 import './CommentForm.css';
 
 class CommentForm extends React.Component {
-    // id는 인삭하나, 값의 참조할 수 없음.. ( id 2부터 ++ )
     id = 0;
     constructor(props){
         super(props);
@@ -25,17 +24,17 @@ class CommentForm extends React.Component {
             this.setState({
                 input: '',
                 comments: comments.concat({
-                    // unshift 변경 시 map error
                     id: this.id++,
                     name: 'EunJi',
                     text: input,
                     date: new Date(),
                     like: false,
                     likeNum: 1,
-                    setComment: false
+                    setComment: false,
+                    editing: false
                 })
             });
-            // console.log(comments);
+            console.log(comments);
         }
     }
 
@@ -51,11 +50,13 @@ class CommentForm extends React.Component {
     }
 
     onBlurHandle = (id) => {
+        //console.log('onBlur');
         const { comments } = this.state;
         const selectedIndex = comments.findIndex(
             i => i.id === id
         );
-        this.timeOutId = setTimeout(() => {comments[selectedIndex].setComment = false;
+        this.timeOutId = setTimeout(() => {
+            comments[selectedIndex].setComment = false;
             this.setState({
                 comments: comments
             });
@@ -64,6 +65,59 @@ class CommentForm extends React.Component {
 
     onFocusHandle = (id) => {
         clearTimeout(this.timeOutId);
+    }
+
+    handleEdit = (id) => {
+        const { comments } = this.state;
+        const selectedIndex = comments.findIndex(
+            i => i.id === id
+        )
+        comments[selectedIndex].editing = true;
+        console.log(comments[selectedIndex].editing);
+        this.setState({
+            comments: comments
+        })
+    }
+    
+    ///////////////////////error////////////////////////
+    handleEditEsc = (e, id) => {
+        const { comments } = this.state;
+        const selectedIndex = comments.findIndex(
+            i => i.id === id
+        )
+        if ( e.keyCode === 27 ) {
+            console.log('Esc');
+            // error - editing state 참조 불가
+            comments[selectedIndex].editing = false;
+            this.setState({
+                comments: comments
+            });
+        }
+    }
+
+    handleEditCancel = (id) => {
+        const { comments } = this.state;
+        const selectedIndex = comments.findIndex(
+            i => i.id === id
+        )
+        console.log('cancel click');
+        // error - editing state 참조 불가
+        comments[selectedIndex].editing = false;
+        this.setState({
+            comments: comments
+        })
+    }
+    ///////////////////////error////////////////////////
+
+    handleUpdate = (id, comment) => {
+        const { comments } = this.state;
+        this.setState({
+            comments: comments.map(
+                data => data.id === id ?
+                {...data, ...comment} // 새 객체에 기존값과 전달받은 data를 덮어씀
+                : data // 기존값 그대로 유지
+            )
+        });
     }
 
     handleRemove = (id) => {
@@ -88,17 +142,34 @@ class CommentForm extends React.Component {
 
     render(){
         const { input, comments } = this.state;
-        const { handleChange, handleKeyPress, toggleCommentSet, handleRemove, toggleLike, onBlurHandle, onFocusHandle } = this;
+        const { 
+            handleChange, 
+            handleKeyPress, 
+            toggleLike, 
+            toggleCommentSet, 
+            onBlurHandle, 
+            onFocusHandle, 
+            handleEdit,
+            handleUpdate,
+            handleRemove,
+            handleEditCancel,
+            handleEditEsc
+        } = this;
+
         const commentItem = comments.map(
             (comment) => (
                 <CommentItem
                     {...comment}
                     key={comment.id}
+                    onEdit={handleEdit}
+                    onUpdate={handleUpdate}
                     onRemove={handleRemove}
                     onCommentSet={toggleCommentSet}
                     onLike={toggleLike}
                     onBlurHandle={onBlurHandle}
                     onFocusHandle={onFocusHandle}
+                    handleEditCancel={handleEditCancel}
+                    handleEditEsc={handleEditEsc}
                 />
             )
         );
