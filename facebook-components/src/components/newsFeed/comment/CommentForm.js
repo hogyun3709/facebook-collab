@@ -115,7 +115,6 @@ class CommentForm extends React.Component {
         const selectedIndex = comments.findIndex(
             i => i.id === id
         )
-        //console.log('selectedIndex: ' + selectedIndex);
         comments[selectedIndex].editing = false;
         comments[selectedIndex].text = value;
         this.setState({
