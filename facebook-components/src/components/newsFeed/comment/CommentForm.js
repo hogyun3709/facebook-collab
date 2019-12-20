@@ -63,7 +63,7 @@ class CommentForm extends React.Component {
         });
     }
 
-    onFocusHandle = (id) => {
+    onFocusHandle = () => {
         clearTimeout(this.timeOutId);
     }
 
@@ -73,26 +73,10 @@ class CommentForm extends React.Component {
             i => i.id === id
         )
         comments[selectedIndex].editing = true;
-        console.log(comments[selectedIndex].editing);
+        comments[selectedIndex].setComment = false;
         this.setState({
             comments: comments
-        })
-    }
-    
-    ///////////////////////error////////////////////////
-    handleEditEsc = (e, id) => {
-        const { comments } = this.state;
-        const selectedIndex = comments.findIndex(
-            i => i.id === id
-        )
-        if ( e.keyCode === 27 ) {
-            console.log('Esc');
-            // error - editing state 참조 불가
-            comments[selectedIndex].editing = false;
-            this.setState({
-                comments: comments
-            });
-        }
+        });
     }
 
     handleEditCancel = (id) => {
@@ -100,23 +84,42 @@ class CommentForm extends React.Component {
         const selectedIndex = comments.findIndex(
             i => i.id === id
         )
-        console.log('cancel click');
-        // error - editing state 참조 불가
+        //console.log('cancel');
+        console.log('selectedIndex: ' + selectedIndex);
         comments[selectedIndex].editing = false;
         this.setState({
             comments: comments
-        })
+        });
     }
-    ///////////////////////error////////////////////////
+    
+    handleEditEsc = (e, id) => {
+        if ( e.keyCode === 27 ) {
+            console.log('Esc');
+            this.handleEditCancel(id);
+        }
+    }
 
-    handleUpdate = (id, comment) => {
+    // handleUpdate = (id, comment) => {
+    //     const { comments } = this.state;
+    //     this.setState({
+    //         comments: comments.map(
+    //             data => data.id === id ?
+    //             {...data, ...comment} // 새 객체에 기존값과 전달받은 data를 덮어씀
+    //             : data // 기존값 그대로 유지
+    //         )
+    //     });
+    // }
+
+    isEdited = (value, id) => {
         const { comments } = this.state;
+        const selectedIndex = comments.findIndex(
+            i => i.id === id
+        )
+        //console.log('selectedIndex: ' + selectedIndex);
+        comments[selectedIndex].editing = false;
+        comments[selectedIndex].text = value;
         this.setState({
-            comments: comments.map(
-                data => data.id === id ?
-                {...data, ...comment} // 새 객체에 기존값과 전달받은 data를 덮어씀
-                : data // 기존값 그대로 유지
-            )
+            comments: comments
         });
     }
 
@@ -150,6 +153,7 @@ class CommentForm extends React.Component {
             onBlurHandle, 
             onFocusHandle, 
             handleEdit,
+            isEdited,
             handleUpdate,
             handleRemove,
             handleEditCancel,
@@ -162,6 +166,7 @@ class CommentForm extends React.Component {
                     {...comment}
                     key={comment.id}
                     onEdit={handleEdit}
+                    onChange={isEdited}
                     onUpdate={handleUpdate}
                     onRemove={handleRemove}
                     onCommentSet={toggleCommentSet}

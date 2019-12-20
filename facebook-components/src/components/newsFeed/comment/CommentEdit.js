@@ -5,43 +5,25 @@ class CommentEdit extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            input: ''
+            input: this.props.text
         }
     };
 
-    handleChange = (e) => {
-        const { input } = this.state;
-        console.log(e.target.value);
+    handleChange = (e, id) => {
+        //console.log('keyPress');
         this.setState({
             input: e.target.value
         });
-    }
-    handleKeyPress = (e) => {
-        const { input, id, editing, onUpdate } = this.props;
         if ( e.key === 'Enter' ) {
             console.log('Enter');
-            if ( !editing ) {
-                this.setState({
-                    editing: true,
-                    input: input
-                });
-            } else {
-                onUpdate(id, {
-                    input: this.state.input
-                });
-                this.setState({
-                    editing: false
-                });
-            } 
+            this.props.onChange(e.target.value, id);
         }
-        this.setState({
-            input: this.state.input
-        });
     }
 
     render(){
-        const { input, id, handleEditCancel, handleEditEsc, onUpdate } = this.props;
-        const { handleChange, handleKeyPress } = this;
+        const { input } = this.state;
+        const { id, handleEditCancel, handleEditEsc } = this.props;
+        const { handleChange } = this;
         return(
             <div className="commentBox commentEditBox clear">
                 <div className="commentUserInfo" />
@@ -51,9 +33,8 @@ class CommentEdit extends React.Component {
                     type="text"
                     placeholder="댓글을 입력하세요..."
                     value={input}
-                    onChange={handleChange}
-                    // onKeyDown={handleEditEsc}
-                    onKeyPress={handleKeyPress}
+                    onChange={(e) => handleChange(e,id)}
+                    onKeyDown={(e) => handleEditEsc(e,id)}
                     />
                     <div className="attachBox">
                         <a className="attachIconLink attachIcon" />

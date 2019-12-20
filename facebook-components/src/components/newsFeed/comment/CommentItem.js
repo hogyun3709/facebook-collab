@@ -18,7 +18,7 @@ class CommentItem extends React.Component {
             onCommentSet, 
             editing,
             onEdit,
-            onUpdate,
+            onChange,
             onRemove,
             onLike, 
             onBlurHandle, 
@@ -30,8 +30,9 @@ class CommentItem extends React.Component {
         return(
             editing?
                 <CommentEdit 
-                editing={editing}
-                onUpdate={onUpdate}
+                id={id}
+                text={text}
+                onChange={onChange}
                 handleEditCancel={handleEditCancel}
                 handleEditEsc={handleEditEsc}
                 />
@@ -67,7 +68,7 @@ class CommentItem extends React.Component {
                                 {
                                     setComment&&
                                     (<ul 
-                                    className={setComment ? ('itemCommentSetListBox') : ('itemCommentSetListBox') }>
+                                    className={setComment?'itemCommentSetListBox':'itemCommentSetListBox'}>
                                         <li 
                                         className="itemCommentEdit itemCommentSetList"
                                         onClick={(e) => 
