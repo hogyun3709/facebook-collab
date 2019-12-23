@@ -9,10 +9,10 @@ class WidgetIndex extends React.Component {
         this.state = {
             input:'',
             friends:[
-                { id:0, name:'eunji' },
-                { id:1, name:'dami lee' },
-                { id:2, name:'hokyun' },
-                { id:3, name:'eunji2' }
+                { id:0, name:'EunJi' },
+                { id:1, name:'Dami Lee' },
+                { id:2, name:'Hokyun' },
+                { id:3, name:'Musung Park' }
             ],
             close: true
         }
