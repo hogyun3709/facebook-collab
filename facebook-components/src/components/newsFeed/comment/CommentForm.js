@@ -15,7 +15,7 @@ class CommentForm extends React.Component {
         this.setState({
             input: e.target.value
         });
-        //console.log("inputValue: " + e.target.value)
+
     }
 
     handleKeyPress = (e) => {
@@ -177,10 +177,13 @@ class CommentForm extends React.Component {
                 />
             )
         );
-
+      
         return(
             <div className="commentWrapper">
-                <div className="commentListWrapper">
+                <div
+                    className="commentListWrapper"
+                    onToggle={handleToggle}>
+
                         {commentItem}
                 </div>
                 <div className="commentBox clear">
