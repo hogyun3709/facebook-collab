@@ -181,8 +181,7 @@ class CommentForm extends React.Component {
         return(
             <div className="commentWrapper">
                 <div
-                    className="commentListWrapper"
-                    onToggle={handleToggle}>
+                    className="commentListWrapper">
 
                         {commentItem}
                 </div>
