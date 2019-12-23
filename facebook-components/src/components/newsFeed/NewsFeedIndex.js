@@ -5,6 +5,7 @@ class NewsFeedIndex extends Component {
   render() {
     return(
       <PostList/>
+      /* issue numbering test */
     );
   }
 }
