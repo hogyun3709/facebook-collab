@@ -17,8 +17,6 @@ class CommentForm extends React.Component {
         this.setState({
             input: e.target.value
         });
-        console.log("e target: " + e.target.value)
-        console.log("state: " + this.state.input)
 
     }
 
@@ -38,7 +36,6 @@ class CommentForm extends React.Component {
                 })
             });
         }
-        console.log(comments);
     }
 
     handleToggle = () => {
@@ -73,10 +70,10 @@ class CommentForm extends React.Component {
 
         // console.log( this.hello )
         // console.log({ comments })
-
+        console.log(commentItem)
         return(
             <div className="commentWrapper">
-                <div 
+                <div
                     className="commentListWrapper"
                     onToggle={handleToggle}>
                         {commentItem}
