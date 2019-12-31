@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 
 const EditPostForm = props => {
   const [ post, setPost ] = useState(props.currentPost)
+
   /*postProps.message 가 이상하다*/
   console.log(props.message)
+
   /* use effect takes the role of componentDidMount and componentDidUpdate lifecycle */
   useEffect(
     () => {
@@ -13,7 +15,7 @@ const EditPostForm = props => {
     [ props ]
   )
   // You can tell React to skip applying an effect if certain values haven’t changed between re-renders. [ props ]
-
+  console.log(post)
   const handleInputChange = event => {
     const { message, value } = event.target
 
