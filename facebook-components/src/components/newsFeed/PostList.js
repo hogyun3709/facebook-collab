@@ -4,29 +4,34 @@ import EditPostForm from "./EditPostForm";
 import CommentForm from "./comment/CommentForm";
 import "./PostList.css";
 
+/*
+  1. id 문제,
+  2. MyPost 내부에서 posts(포스트에 관련된 id, message 를 담는 state를 push나 map 으로 추가)
+    - MyPost 는 하나의 컴포넌트, message 를 뿌려줄떄도, posts를 받아서 하나씩 post => mapping 으로 뿌려줘야하나?
+*/
 const MyPost = ({ postProps }) => {
-
-  const initialPostState = { id: null, message: 'hi' }
+  const initialPostState = { id: null, message: "hi" };
   const [like, setLike] = useState(0);
   const [posts, setPosts] = useState(postProps);
   const [edit, setEdit] = useState(false);
   const [currentPost, setCurrentPost] = useState(initialPostState);
 
-  const updateCurrentPost = (postProps) => {
-    setEdit(!edit)
-    setCurrentPost({id: postProps.id, message: postProps.message})
-  }
+  const updateCurrentPost = postProps => {
+    setEdit(!edit);
+    setCurrentPost({ id: postProps.id, message: postProps.message });
+  };
 
   /*posts 에 첫번쨱 state 으로 고정됨 */
-  console.log(posts)
-
+  console.log(posts);
+  console.log(postProps);
+  /*결국 posts 자체에 postProps 가 제대로 담기지 않으면 update를 해줄수 없음.*/
   /* edit form을 받아서 posts 를 업데이트 해줌 */
   const updatePost = (id, updatedPost) => {
     setEdit(false);
     setPosts(posts.map(post => (post.id === id ? updatedPost : post)));
   };
 
-    return (
+  return (
     <div class="ui card fluid">
       <div class="content">
         {/* <div class="right floated meta">14h</div>
@@ -48,6 +53,7 @@ const MyPost = ({ postProps }) => {
               />
             </div>
           ) : (
+            /* postProps.message 가 아닌 posts state 에 메세지가 담겨야함 */
             <div>{postProps.message}</div>
           )}
 
@@ -101,8 +107,6 @@ const TotalPost = ({ totalPostProps }) => {
       </div>
 
       <div class="extra content">
-
-
         <CommentForm />
 
         {/* <div class="ui large transparent left icon input">
@@ -122,6 +126,13 @@ class PostList extends Component {
       totalPosts: []
     };
   }
+  // createUniquePostID() {
+  //   const allIDs = [];
+  //   const ID = window.crypto.getRandomValues(new Uint32Array(5));
+  //   allIDs.push(ID);
+  //   console.log(allIDs)
+  //   return ID[0];
+  // }
   getPostData() {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then(response => response.json())
@@ -147,11 +158,12 @@ class PostList extends Component {
     });
   };
 
+
   render() {
     return (
       <div className="postList-wrap">
         <PostForm userInputProps={this.userInput} />
-
+        // <button onClick={this.createUniquePostID}>Create Unique ID</button>
         {this.state.postItems
           .map(post => <MyPost postProps={post} />)
           .reverse()}

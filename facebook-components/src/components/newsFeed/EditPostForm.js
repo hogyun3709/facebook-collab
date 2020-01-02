@@ -1,44 +1,50 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
 const EditPostForm = props => {
-  const [ post, setPost ] = useState(props.currentPost)
-
-  /*postProps.message 가 이상하다*/
-  console.log(props.message)
+  const [post, setPost] = useState(props.currentPost);
 
   /* use effect takes the role of componentDidMount and componentDidUpdate lifecycle */
   useEffect(
     () => {
-      setPost(props.currentPost)
+      setPost(props.currentPost);
     },
     /* takes the role of comparing prevProps's post and current post*/
-    [ props ]
-  )
+    [props]
+  );
   // You can tell React to skip applying an effect if certain values haven’t changed between re-renders. [ props ]
-  console.log(post)
-  const handleInputChange = event => {
-    const { message, value } = event.target
-
-    setPost({ ...post, [message]: value })
-  }
-  /* post 의 id 가 0으로 고정되는 상황 (edit 으로 넘어왔을시에만)*/
-  console.log(post.id)
+  console.log(post);
+  // const handleInputChange = event => {
+  //   event.preventDefault()
+  //   const { message, value } = event.target
+  //
+  //   setPost({ ...post, [message]: value })
+  // }
+  const handleInputChange = e => {
+    setPost({ post, message: e.target.value });
+  };
+  console.log(post.id);
+  console.log(post.message);
   return (
     <form
       onSubmit={event => {
-        event.preventDefault()
+        event.preventDefault();
 
-        props.updatePost(post.id, post)
+        props.updatePost(post.id, post);
       }}
     >
       <label>Post</label>
-      <input type="text" name="post" value={post.message} onChange={handleInputChange} />
+      <input
+        type="text"
+        name="post"
+        value={post.message}
+        onChange={e => handleInputChange(e)}
+      />
       <button>Update Post</button>
       <button onClick={() => props.setEdit(false)} className="">
         Cancel
       </button>
     </form>
-  )
-}
+  );
+};
 
-export default EditPostForm
+export default EditPostForm;
