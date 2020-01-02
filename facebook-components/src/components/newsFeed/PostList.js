@@ -126,13 +126,13 @@ class PostList extends Component {
       totalPosts: []
     };
   }
-  // createUniquePostID() {
-  //   const allIDs = [];
-  //   const ID = window.crypto.getRandomValues(new Uint32Array(5));
-  //   allIDs.push(ID);
-  //   console.log(allIDs)
-  //   return ID[0];
-  // }
+  createUniquePostID() {
+    const allIDs = [];
+    const ID = window.crypto.getRandomValues(new Uint32Array(5));
+    allIDs.push(ID);
+    console.log(allIDs)
+    return ID[0];
+  }
   getPostData() {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then(response => response.json())
@@ -163,7 +163,7 @@ class PostList extends Component {
     return (
       <div className="postList-wrap">
         <PostForm userInputProps={this.userInput} />
-        // <button onClick={this.createUniquePostID}>Create Unique ID</button>
+        <button onClick={this.createUniquePostID}>Create Unique ID</button>
         {this.state.postItems
           .map(post => <MyPost postProps={post} />)
           .reverse()}
