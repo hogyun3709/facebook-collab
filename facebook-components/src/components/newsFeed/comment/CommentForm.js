@@ -149,6 +149,8 @@ class CommentForm extends React.Component {
         const selectedIndex = comments.findIndex(
             i => i.id === id
         );
+        console.log(comments.length);
+        
         comments[selectedIndex].reply = true;
         this.setState({
             comments: comments
@@ -196,10 +198,9 @@ class CommentForm extends React.Component {
       
         return(
             <div className="commentWrapper">
-                <div
-                className="commentListWrapper">
+                <ul className="commentListWrapper">
                     {commentItem}
-                </div>
+                </ul>
                 <CommentInput
                 input={input}
                 handleChange={handleChange}
