@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentItem from './CommentItem';
+import CommentInput from './CommentInput';
 import './CommentForm.css';
 
 class CommentForm extends React.Component {
@@ -30,6 +31,7 @@ class CommentForm extends React.Component {
                     date: new Date(),
                     like: false,
                     likeNum: 1,
+                    reply: false,
                     setComment: false,
                     editing: false
                 })
@@ -142,12 +144,27 @@ class CommentForm extends React.Component {
         });
     }
 
+    onReply = (id) => {
+        const { comments } = this.state;
+        const selectedIndex = comments.findIndex(
+            i => i.id === id
+        );
+        console.log(comments.length);
+        
+        comments[selectedIndex].reply = true;
+        this.setState({
+            comments: comments
+        });
+        // console.log(comments[selectedIndex].reply);
+    }
+
     render(){
         const { input, comments } = this.state;
         const { 
             handleChange, 
             handleKeyPress, 
-            toggleLike, 
+            toggleLike,
+            onReply,
             toggleCommentSet, 
             onBlurHandle, 
             onFocusHandle, 
@@ -170,6 +187,7 @@ class CommentForm extends React.Component {
                     onRemove={handleRemove}
                     onCommentSet={toggleCommentSet}
                     onLike={toggleLike}
+                    onReply={onReply}
                     onBlurHandle={onBlurHandle}
                     onFocusHandle={onFocusHandle}
                     handleEditCancel={handleEditCancel}
@@ -180,30 +198,14 @@ class CommentForm extends React.Component {
       
         return(
             <div className="commentWrapper">
-                <div
-                    className="commentListWrapper">
-
-                        {commentItem}
-                </div>
-                <div className="commentBox clear">
-                    <div className="commentUserInfo" />
-                    <div className="commentBar">
-                        <input
-                        className="commentInput"
-                        type="text"
-                        placeholder="댓글을 입력하세요..."
-                        value={input}
-                        onChange={handleChange}
-                        onKeyPress={handleKeyPress}
-                        />
-                        <div className="attachBox">
-                            <a className="attachIconLink attachIcon" />
-                            <a className="attachIconLink attachFile" />
-                            <a className="attachIconLink attachGIF" />
-                            <a className="attachIconLink attachSticker"/>
-                        </div>
-                    </div>
-                </div>
+                <ul className="commentListWrapper">
+                    {commentItem}
+                </ul>
+                <CommentInput
+                input={input}
+                handleChange={handleChange}
+                handleKeyPress={handleKeyPress}
+                />
                 <div className="commentNum">댓글 {comments.length}개</div>
             </div>
         );

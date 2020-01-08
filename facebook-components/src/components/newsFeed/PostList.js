@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react";
 import PostForm from "./PostForm";
 import EditPostForm from "./EditPostForm";
-import CommentForm from "./comment/CommentForm";
+import CommentIndex from "./comment/CommentIndex";
 import "./PostList.css";
 
 const MyPost = ({ postProps }) => {
@@ -72,7 +72,7 @@ const MyPost = ({ postProps }) => {
         {like} likes
       </div>
       <div class="extra content_a">
-        <CommentForm />
+        <CommentIndex />
         {/* <div class="ui large transparent left icon input">
           <i class="heart outline icon"></i>
           <input type="text"placeholder="Add Comment..." />
@@ -111,7 +111,7 @@ const TotalPost = ({ totalPostProps }) => {
       <div class="extra content">
 
 
-        <CommentForm />
+        <CommentIndex />
 
         {/* <div class="ui large transparent left icon input">
           <i class="heart outline icon"></i>
