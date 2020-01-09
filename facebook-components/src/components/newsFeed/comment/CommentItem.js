@@ -1,127 +1,48 @@
 import React from 'react';
 import CommentEdit from './CommentEdit';
-import CommentInput from './CommentInput';
-import TimeAgo from 'react-timeago';
+import CommentText from './CommentText';
+import CommentInfo from './CommentInfo';
+import CommentReply from './CommentReply';
 // import frenchStrings from 'react-timeago/lib/language-strings/fr';
 // import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 import './CommentItem.css';
 
-class CommentItem extends React.Component {
-    render(){
-        const { 
-            id, 
-            name, 
-            text, 
-            like,
-            likeNum, 
-            reply,
-            date, 
-            setComment, 
-            onCommentSet, 
-            editing,
-            onEdit,
-            onChange,
-            onRemove,
-            onLike, 
-            onReply,
-            onBlurHandle, 
-            onFocusHandle,
-            handleEditCancel,
-            handleEditEsc
-        } = this.props;
-
-        return(
-            editing?
-                <CommentEdit 
+const CommentItem = ({ id, name, text, like, likeNum, reply, date, setComment, editing, onCommentSet, onEdit, onChange, onRemove, onLike, onReply, onBlurHandle, onFocusHandle, handleEditCancel, handleEditEsc }) => {
+    return(
+        editing?
+        <CommentEdit 
+            id={id}
+            text={text}
+            onChange={onChange}
+            handleEditCancel={handleEditCancel}
+            handleEditEsc={handleEditEsc}
+        />
+        :
+        (<li className="itemCommentWrapper">
+            <CommentText 
                 id={id}
+                name={name}
                 text={text}
-                onChange={onChange}
-                handleEditCancel={handleEditCancel}
-                handleEditEsc={handleEditEsc}
-                />
-                :
-                (<div className="itemCommentWrapper">
-                    <div className="itemCommentBox clear">
-                        <span className="itemUserInfo" />
-                        <span className="itemText">
-                            <span className="itemUserName">
-                                {name}
-                            </span>
-                            {text}
-                        </span>
-                        {
-                            like?
-                            <span className="itemSticker">{likeNum}</span>:null
-                        }
-                        <div className="itemCommentSetBox">
-                            <a 
-                            href="#a"
-                            className="itemCommentSet"
-                            onClick={(e) => {
-                                e.stopPropagation()
-                                onCommentSet(id)
-                            }}
-                            onBlur={() => onBlurHandle(id)}
-                            onFocus={() => onFocusHandle(id)}
-                            >
-                                {
-                                    !setComment&&
-                                    (<div className="itemCommentSetTitle">수정 또는 삭제</div>)
-                                }
-                                {
-                                    setComment&&
-                                    (<ul 
-                                    className={setComment?'itemCommentSetListBox':'itemCommentSetListBox'}>
-                                        <li 
-                                        className="itemCommentEdit itemCommentSetList"
-                                        onClick={(e) => 
-                                            {e.stopPropagation()
-                                                onEdit(id)}
-                                        }>
-                                            <span>수정...</span>
-                                        </li>
-                                        <li
-                                        className="itemCommentRemove itemCommentSetList"
-                                        onClick={(e) => 
-                                            {e.stopPropagation()
-                                                onRemove(id)}
-                                        }>
-                                            <span>삭제하기...</span>
-                                        </li>
-                                    </ul>)
-                                }
-                            </a>
-                        </div>
-                    </div>
-                    <div className="iteminfoBox" >
-                        <a
-                            href="#a"
-                            className={like?'liked iteminfo':'unliked iteminfo'}
-                            onClick={(e) => 
-                                {e.stopPropagation()
-                                onLike(id)}
-                            }>
-                            좋아요
-                        </a>
-                        <a 
-                            href="#a"
-                            className="itemRecommant iteminfo"
-                            onClick={(e) =>
-                                {e.stopPropagation()
-                                onReply(id)}
-                            }>
-                            답글 달기
-                        </a>
-                        <span className="itemTime iteminfo">
-                            <TimeAgo date={date} />
-                        </span>
-                        {
-                        reply&&
-                        <CommentInput />
-                        }
-                    </div>
-                </div>)
-        );
-    }
+                like={like}
+                likeNum={likeNum}
+                setComment={setComment}
+                onEdit={onEdit}
+                onRemove={onRemove}
+                onCommentSet={onCommentSet}
+                onBlurHandle={onBlurHandle}
+                onFocusHandle={onFocusHandle}
+            />
+            <CommentInfo
+                id={id}
+                date={date}
+                reply={reply}
+                onLike={onLike}
+                onReply={onReply}
+            />
+            {
+            reply && <CommentReply />
+            }
+        </li>)
+    );
 }
 export default CommentItem;
