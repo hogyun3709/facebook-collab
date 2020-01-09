@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, BrowserRouter as Router } from "react-router-dom";
-import './UserInfo.css';
+import './Username.css';
 
-class UserInfo extends React.Component{
+class Username extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -13,10 +13,10 @@ class UserInfo extends React.Component{
         return(
             <Link
             to="/User"
-            className="user-profile">
+            className="username">
                 {this.state.name}
             </Link>
         );
     }
 }
-export default UserInfo;
+export default Username;
