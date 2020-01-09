@@ -11,11 +11,11 @@ class Username extends React.Component{
     };
     render(){
         return(
-            <Link
+            <span
             to="/User"
             className="username">
                 {this.state.name}
-            </Link>
+            </span>
         );
     }
 }

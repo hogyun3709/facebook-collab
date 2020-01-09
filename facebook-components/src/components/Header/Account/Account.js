@@ -44,10 +44,12 @@ class Account extends React.Component{
         );
         return(
             <div className="account-wrap">
-                <div className="user-wrap">
+                <Link
+                to="/User"
+                className="user-wrap">
                     <UserIco />
                     <Username />
-                </div>
+                </Link>
                 <ul className="account-menu">
                     {listItem}
                 </ul>

@@ -3,6 +3,7 @@
     position: relative;
 }
 .inputBar {
+    width: 100%;
     max-width: calc(100% - 45px);
     min-width: 144px;
     height: 24px;
@@ -10,7 +11,7 @@
     border: none;
     font-size: 14px;
     border-radius: 3px;
-    outline: none;
+    /* outline: none; */
 }
 /* secrch button CSS */
 .submit {
@@ -22,8 +23,9 @@
     border: none;
     border-radius: 0 2px 2px 0;
     background: #f5f6f7;
-    outline: none;
     transition: all .4s;
+    outline: none;
+    cursor: pointer;
 }
 .submit::after {
     content:"";
@@ -35,11 +37,13 @@
     background: url(../../../images/header_icons.png) no-repeat 0 -252px / 26px;
 }
 .inputBar:focus ~ .submit,
-.submit:active {
+.submit:active,
+.submit:focus {
     background: #4c84f7;
 }
 .inputBar:focus ~ .submit:after,
-.submit:active::after {
+.submit:active::after,
+.submit:focus::after {
     background: url(../../../images/header_icons.png) no-repeat 0 -277px / 26px;
 }
 /* searchList CSS */
