@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentEdit from './CommentEdit';
+import CommentInput from './CommentInput';
 import TimeAgo from 'react-timeago';
 // import frenchStrings from 'react-timeago/lib/language-strings/fr';
 // import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
@@ -13,6 +14,7 @@ class CommentItem extends React.Component {
             text, 
             like,
             likeNum, 
+            reply,
             date, 
             setComment, 
             onCommentSet, 
@@ -21,6 +23,7 @@ class CommentItem extends React.Component {
             onChange,
             onRemove,
             onLike, 
+            onReply,
             onBlurHandle, 
             onFocusHandle,
             handleEditCancel,
@@ -63,7 +66,7 @@ class CommentItem extends React.Component {
                             >
                                 {
                                     !setComment&&
-                                    <div className="itemCommentSetTitle">수정 또는 삭제</div>
+                                    (<div className="itemCommentSetTitle">수정 또는 삭제</div>)
                                 }
                                 {
                                     setComment&&
@@ -102,12 +105,20 @@ class CommentItem extends React.Component {
                         </a>
                         <a 
                             href="#a"
-                            className="itemRecommant iteminfo">
+                            className="itemRecommant iteminfo"
+                            onClick={(e) =>
+                                {e.stopPropagation()
+                                onReply(id)}
+                            }>
                             답글 달기
                         </a>
                         <span className="itemTime iteminfo">
                             <TimeAgo date={date} />
                         </span>
+                        {
+                        reply&&
+                        <CommentInput />
+                        }
                     </div>
                 </div>)
         );
