@@ -33,47 +33,53 @@ a {
 /* reset code e */
 /* layout code s */
 .App-container {
-    width: 1012px;
-    max-width: 100%;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 /* layout code e */
 /* header s */
-.App-header {
+.App-header-wrap {
+    display: flex;
     position: fixed;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100%;
     height: 43px;
     background: #4267b2;
     border-bottom: 1px solid #3a5381;
-    box-sizing: border-box;
     z-index: 9999;
 }
-.App-header-wrap {
+.App-header {
+    display: flex;
     width: 1012px;
-    max-width: 100%;
-    padding: 0 8px;
-    margin: 0 auto;
+    height: 100%;
 }
-.side-menu-wrap {
-    float: right;
-    width: 460px;
-    min-width: 200px;
+.App-header-left {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: flex-start;
+}
+.App-header-right {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-end;
 }
 /* header e */
 /* main content s */
 .contents-wrap {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 1012px;
+    min-width: 1012px;
     outline: 1px solid #999;
 }
 /* main content e */
 /* newsFeed s */
 .newsFeed-wrap {
     width: 502px;
-    margin: 0 auto;
     border: 1px solid #dddfe2;
     background: #fff;
 }
@@ -87,12 +93,4 @@ a {
     border-radius: 4px;
     background: #fff;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,.3);
-}
-/* widget-wrap e */
-/* media.css */
-@media only screen and (max-width: 750px) {
-    .App-container {
-        width: 750px;
-        max-width: 750px;
-    }
 }

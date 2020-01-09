@@ -2,12 +2,12 @@
 .searchList-title {
     height: 32px;
     padding: 0 0 0 12px;
-    color: #90949c;
     border-bottom: 1px solid #e9eaed;
+    background: #f5f6f7;
+    color: #90949c;
     font-size: 11px;
     font-weight: bold;
     line-height: 32px;
-    background: #f5f6f7;
 }
 .searchList-items {
     height: 32px;
