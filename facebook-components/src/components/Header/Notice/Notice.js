@@ -42,7 +42,7 @@ class Notice extends React.Component{
                     }
                 ]
         }
-        this.timeOutId = null
+        // this.timeOutId = null
     };
 
     handleToggle = (icon) => {
@@ -106,7 +106,7 @@ class Notice extends React.Component{
                         </span>)
                     }
                     { 
-                    icon.show &&
+                        icon.show &&
                         (<div 
                         className="banner-wrap"
                         onFocus={(e) => onFocusHandle(icon)}

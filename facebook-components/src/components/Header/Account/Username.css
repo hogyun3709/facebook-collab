@@ -1,0 +1,8 @@
+/* Username.css */
+
+.username {
+    display: inline-block;
+    height: 27px;
+    font-weight: bold;
+    line-height: 25px;
+}

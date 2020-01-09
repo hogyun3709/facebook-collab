@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, BrowserRouter as Router } from "react-router-dom";
-import UserInfo from './UserInfo';
+import Username from './Username';
+import UserIco from './UserIco';
 import './Account.css';
 
 class Account extends React.Component{
@@ -30,10 +31,10 @@ class Account extends React.Component{
     render(){
         const listItem = this.state.lists.map(
             (list) => 
-                <li className="list">
+                <li className="account-menu-list">
                     <Link
+                    className="account-menu-link" 
                     to={list.link}
-                    className="list-link" 
                     key={list.id}
                     >
                         {list.name}
@@ -43,10 +44,13 @@ class Account extends React.Component{
         );
         return(
             <div className="account-wrap">
-                <div className="user-wrap">
-                    <UserInfo />
-                </div>
-                <ul className="list-wrap">
+                <Link
+                to="/User"
+                className="user-wrap">
+                    <UserIco />
+                    <Username />
+                </Link>
+                <ul className="account-menu">
                     {listItem}
                 </ul>
             </div>

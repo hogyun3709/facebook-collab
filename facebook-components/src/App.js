@@ -16,10 +16,12 @@ function App() {
   return (
     <div className="App-container">
       <Router className="App">
-        <header className="App-header">
-          <div className="App-header-wrap">
-            <Route path="/" component={SearchBar} />
-            <div className="side-menu-wrap">
+        <header className="App-header-wrap">
+          <div className="App-header">
+            <div className="App-header-left">
+              <Route path="/" component={SearchBar} />
+            </div>
+            <div className="App-header-right">
               <Route path="/" component={Account} />
               <Route path="/" component={Notice} />
             </div>
@@ -35,7 +37,6 @@ function App() {
           <NewsFeed />
         </div>
       </div>
-
       <div className="widget-wrap">
         <WidgetIndex />
       </div>
