@@ -5,7 +5,7 @@ import './SearchForm.css';
 const SearchForm = ({ value, logs, onChange, onCreate, onKeyPress, onRemove, searchlog, onDropdown }) => {
 
     return(
-        <React.Fragment>
+        <div className="searchform">
             <input
             className="inputBar"
             type="text"
@@ -29,7 +29,7 @@ const SearchForm = ({ value, logs, onChange, onCreate, onKeyPress, onRemove, sea
                 onRemove={onRemove}
                 />
             </div>
-        </React.Fragment>
+        </div>
     );
 }
 export default SearchForm;

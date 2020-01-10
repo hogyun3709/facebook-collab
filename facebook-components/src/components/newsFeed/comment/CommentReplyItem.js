@@ -2,12 +2,8 @@ import React from 'react';
 import CommentEdit from './CommentEdit';
 import CommentText from './CommentText';
 import CommentInfo from './CommentInfo';
-import CommentReply from './CommentReply';
-// import frenchStrings from 'react-timeago/lib/language-strings/fr';
-// import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
-import './CommentItem.css';
 
-const CommentItem = ({ id, name, text, like, likeNum, reply, date, setComment, editing, onCommentSet, onEdit, onChange, onRemove, onLike, onReply, onBlurHandle, onFocusHandle, handleEditCancel, handleEditEsc }) => {
+const commentReplyItem = ({ id, name, text, like, likeNum, date, setComment, editing, onCommentSet, onEdit, onChange, onRemove, onLike, onBlurHandle, onFocusHandle, handleEditCancel, handleEditEsc }) => {
     return(
         editing?
         <CommentEdit 
@@ -35,14 +31,11 @@ const CommentItem = ({ id, name, text, like, likeNum, reply, date, setComment, e
             <CommentInfo
                 id={id}
                 date={date}
-                reply={reply}
+                // reply={reply}
                 onLike={onLike}
-                onReply={onReply}
+                // onReply={onReply}
             />
-            {
-            reply && <CommentReply />
-            }
         </li>)
     );
 }
-export default CommentItem;
+export default commentReplyItem;

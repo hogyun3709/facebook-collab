@@ -54,14 +54,14 @@ toggleDropdown = () => {
         const { handleChange, handleCreate, handleKeyPress, handleRemove, toggleDropdown } = this;
 
         return(
-            <div className="header-left">
+            <React.Fragment>
                 <h1 className="logo">
                     <Link
                     className="logoImg"
                     to="/"
                     />
                 </h1>
-                <div class="SearchForm-wrap">
+                <div class="searchform-wrap">
                     <SearchForm
                     value={input}
                     logs={logs}
@@ -73,7 +73,7 @@ toggleDropdown = () => {
                     searchlog={searchlog}
                     />
                 </div>
-            </div>
+            </React.Fragment>
         );
     }
 }
