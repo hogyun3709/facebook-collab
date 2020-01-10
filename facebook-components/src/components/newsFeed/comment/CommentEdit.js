@@ -14,7 +14,9 @@ class CommentEdit extends React.Component {
         this.setState({
             input: e.target.value
         });
+        console.log(this.state.input)
     }
+
 
     handleEdit = (e, id) => {
             //console.log('Enter');
