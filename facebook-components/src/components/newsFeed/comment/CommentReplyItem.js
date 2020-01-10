@@ -3,7 +3,7 @@ import CommentEdit from './CommentEdit';
 import CommentText from './CommentText';
 import CommentInfo from './CommentInfo';
 
-const commentReplyItem = ({ id, name, text, like, likeNum, date, setComment, editing, onCommentSet, onEdit, onChange, onRemove, onLike, onBlurHandle, onFocusHandle, handleEditCancel, handleEditEsc }) => {
+const commentReplyItem = ({ id, name, text, like, likeNum, date, setComment, editing, onCommentSet, onEdit, onChange, onRemove, onLikes, onBlurHandle, onFocusHandle, handleEditCancel, handleEditEsc }) => {
     return(
         editing?
         <CommentEdit 
@@ -32,7 +32,7 @@ const commentReplyItem = ({ id, name, text, like, likeNum, date, setComment, edi
                 id={id}
                 date={date}
                 // reply={reply}
-                onLike={onLike}
+                onLike={onLikes}
                 // onReply={onReply}
             />
         </li>)

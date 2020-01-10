@@ -148,7 +148,7 @@ class CommentReply extends React.Component {
             onEdit,
             onChange,
             onRemove,
-            onLike, 
+            toggleLike, 
             onReply,
             onBlurHandle, 
             onFocusHandle,
@@ -166,7 +166,7 @@ class CommentReply extends React.Component {
                 onEdit={onEdit}
                 onChange={onChange}
                 onRemove={onRemove}
-                onLike={onLike}
+                onLikes={toggleLike}
                 onReply={onReply}
                 onBlurHandle={onBlurHandle}
                 onFocusHandle={onFocusHandle}

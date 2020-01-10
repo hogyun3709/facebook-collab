@@ -20,8 +20,6 @@ class CommentInput extends React.Component {
                     value={input}
                     onChange={handleChange}
                     onKeyPress={handleKeyPress}
-
-
                     />
                     <div className="attachBox">
                         <a className="attachIconLink attachIcon" />
