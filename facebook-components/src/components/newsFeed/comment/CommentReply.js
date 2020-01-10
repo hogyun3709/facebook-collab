@@ -97,17 +97,6 @@ class CommentReply extends React.Component {
         }
     }
 
-    // handleUpdate = (id, comment) => {
-    //     const { recomments } = this.state;
-    //     this.setState({
-    //         recomments: recomments.map(
-    //             data => data.id === id ?
-    //             {...data, ...comment} // 새 객체에 기존값과 전달받은 data를 덮어씀
-    //             : data // 기존값 그대로 유지
-    //         )
-    //     });
-    // }
-
     isEdited = (value, id) => {
         const { recomments } = this.state;
         const selectedIndex = recomments.findIndex(

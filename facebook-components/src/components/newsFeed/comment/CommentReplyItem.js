@@ -31,9 +31,7 @@ const commentReplyItem = ({ id, name, text, like, likeNum, date, setComment, edi
             <CommentInfo
                 id={id}
                 date={date}
-                // reply={reply}
                 onLike={onLikes}
-                // onReply={onReply}
             />
         </li>)
     );

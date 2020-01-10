@@ -36,7 +36,7 @@ class CommentForm extends React.Component {
                     editing: false
                 })
             });
-            console.log(comments);
+            // console.log(comments);
         }
     }
 

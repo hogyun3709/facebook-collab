@@ -1,5 +1,4 @@
 import React from 'react';
-import CommentItem from './CommentItem';
 
 class CommentInput extends React.Component {
     render(){
