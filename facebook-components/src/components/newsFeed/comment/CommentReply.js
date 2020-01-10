@@ -145,14 +145,13 @@ class CommentReply extends React.Component {
         const { 
             handleChange, 
             handleKeyPress, 
-            onEdit,
-            onChange,
-            onRemove,
-            onLike, 
-            onReply,
+            handleEdit,
+            isEdited,
+            handleRemove,
+            toggleLike, 
             onBlurHandle, 
             onFocusHandle,
-            onCommentSet,
+            toggleCommentSet,
             handleEditCancel,
             handleEditEsc 
         } = this;
@@ -162,12 +161,11 @@ class CommentReply extends React.Component {
                 <CommentReplyItem
                 {...recomment}
                 key={recomment.id}
-                onCommentSet={onCommentSet}
-                onEdit={onEdit}
-                onChange={onChange}
-                onRemove={onRemove}
-                onLike={onLike}
-                onReply={onReply}
+                onCommentSet={toggleCommentSet}
+                onEdit={handleEdit}
+                onChange={isEdited}
+                onRemove={handleRemove}
+                onLike={toggleLike}
                 onBlurHandle={onBlurHandle}
                 onFocusHandle={onFocusHandle}
                 handleEditCancel={handleEditCancel}

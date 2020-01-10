@@ -1,5 +1,4 @@
 import React from 'react';
-import CommentItem from './CommentItem';
 
 class CommentInput extends React.Component {
     render(){
@@ -20,8 +19,6 @@ class CommentInput extends React.Component {
                     value={input}
                     onChange={handleChange}
                     onKeyPress={handleKeyPress}
-
-
                     />
                     <div className="attachBox">
                         <a className="attachIconLink attachIcon" />
