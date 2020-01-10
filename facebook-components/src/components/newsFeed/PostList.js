@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import PostForm from "./PostForm";
-import MyPost from "./MyPost"
+import MyPost from "./MyPost";
 import "./PostList.css";
-
 
 class PostList extends Component {
   id = 0;
@@ -13,18 +12,21 @@ class PostList extends Component {
       totalPosts: []
     };
   }
-  createUniquePostID() {
-    const allIDs = [];
-    const ID = window.crypto.getRandomValues(new Uint32Array(5));
-    const checkSingularity = allIDs.map(x => x === ID)
-    allIDs.push(ID);
-    // if(checkSingularity.length === 1){
-    //   /* excute function recursively? */
-    //   allIDs.
-    // } else {
-    //   return ID
-    // }
-  }
+  // createUniquePostID() {
+  //   /* id를 관리하는 state을 params로 받아서 관리해야함 함수실행시 allIDs 가 리셋됨*/
+  //   const allIDs = [];
+  //   // const IdArrays = window.crypto.getRandomValues(new Uint32Array(10));
+  //   const IdArrays = [0,1,2];
+  //   const ID = IdArrays[Math.floor(Math.random() * IdArrays.length)]
+  //   const checkSingularity = allIDs.map(x => x === ID);
+  //   const numberofAllIds = allIDs.push(ID);
+  //   console.log(allIDs)
+  //
+  //   if (checkSingularity.length === 1) {
+  //     console.log("regenerate Id")
+  //     return createUniquePostID();
+  //   } else return ID;
+  // }
   getPostData() {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then(response => response.json())
@@ -53,41 +55,37 @@ class PostList extends Component {
 
   handleEdit = id => {
     const { postItems } = this.state;
-    const chosenIndex = postItems.findIndex(
-      i => i.id === id
-    )
+    const chosenIndex = postItems.findIndex(i => i.id === id);
     postItems[chosenIndex].edit = true;
     this.setState({
       postItems: postItems
-    })
-  }
+    });
+  };
   isEdited = (value, id) => {
-    const {postItems} = this.state;
-    const chosenIndex = postItems.findIndex(
-      i => i.id === id
-    )
+    const { postItems } = this.state;
+    const chosenIndex = postItems.findIndex(i => i.id === id);
     postItems[chosenIndex].edit = false;
     postItems[chosenIndex].message = value;
     this.setState({
       postItems: postItems
-    })
-  }
-
+    });
+  };
 
   render() {
-    const { postItems } = this.state
+    const { postItems } = this.state;
     return (
       <div className="postList-wrap">
         <PostForm userInputProps={this.userInput} />
-        {this.state.postItems
-          .map(post =>
+        <div className="postlist">
+          {this.state.postItems.map(post => (
             <MyPost
               {...post}
               key={postItems.id}
               onEdit={this.handleEdit}
               onChange={this.isEdited}
-              />)
-          .reverse()}
+            />
+          ))}
+        </div>
       </div>
     );
   }
