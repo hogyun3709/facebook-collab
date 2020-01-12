@@ -1,11 +1,7 @@
-.postlist-postform-on {
-  margin-top: 360px;
+.postwrap-on {
+  margin-top: 358px;
 }
-.content {
-    padding: 12px;
-    word-break: break-all;
-}
-.postlist {
+.postList-wrap {
   display: flex;
   flex-direction: column-reverse;
 }

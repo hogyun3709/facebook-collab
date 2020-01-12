@@ -1,7 +1,6 @@
 /* CommentForm.css */
 .commentWrapper {
     position: relative;
-    width: 500px;
     padding: 4px 0 0;
 }
 .commentListWrapper {
@@ -9,7 +8,7 @@
 }
 .commentBox {
     height: 44px;
-    padding: 2px 12px 8px;
+    padding: 8px 12px;
 }
 .commentEditBox {
     height: 52px;

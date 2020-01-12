@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, BrowserRouter as Router } from "react-router-dom";
-import './Username.css';
+import './UserName.css';
 
 class Username extends React.Component{
     constructor(props){

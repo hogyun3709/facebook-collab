@@ -3,9 +3,7 @@ import CommentForm from './CommentForm';
 
 const CommentIndex = () => {
     return(
-        <div>
-            <CommentForm />
-        </div>
+        <CommentForm />
     )
 }
 export default CommentIndex;

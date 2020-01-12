@@ -1,0 +1,19 @@
+/* MyPost.css */
+
+/* .content {
+    padding: 12px;
+    word-break: break-all;
+} */
+.postList {
+    margin-top: 12px;
+    border: 1px solid #dddfe2;
+    border-radius: 5px;
+    background: #fff;
+  }
+.postList-userIco {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgb(194, 195, 199);
+    border-radius: 50%;
+}
