@@ -74,7 +74,7 @@ class PostList extends Component {
   render() {
     const { postItems } = this.state;
     return (
-      <div className="postList-wrap">
+      <div className="postList-wrap postlist-postform-on">
         <PostForm userInputProps={this.userInput} />
         <div className="postlist">
           {this.state.postItems.map(post => (

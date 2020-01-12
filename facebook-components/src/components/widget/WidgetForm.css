@@ -43,6 +43,7 @@
 /* widget listbox */
 .widgetItemWrap {
     min-height: 307px;
+    background: #fff;
 }
 .widgetItemClose {
     height: 0;
