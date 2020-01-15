@@ -10,6 +10,7 @@ import Account from "./components/header/account/Account";
 import Notice from "./components/header/notice/Notice";
 import NewsFeed from "./components/newsFeed/NewsFeedIndex";
 import WidgetIndex from "./components/widget/WidgetIndex";
+import ChatBoard from "./components/chat/ChatBoard";
 
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
       <div className="contents-wrap">
         <div className="newsFeed-wrap">
           <NewsFeed />
+        </div>
+        <div>
+          <ChatBoard/>
         </div>
       </div>
       <div className="widget-wrap">
