@@ -15,7 +15,7 @@ class ChatApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = { messages: [] };
-    this.sendHandler = this.sendHandler.bind(this);
+    // this.sendHandler = this.sendHandler.bind(this);
 
     // Connect to the server
     this.socket = io(config.api, { query: `username=${props.username}` }).connect();
@@ -26,7 +26,7 @@ class ChatApp extends React.Component {
     });
   }
 
-  sendHandler(message) {
+  sendHandler = (message) => {
     const messageObject = {
       username: this.props.username,
       message

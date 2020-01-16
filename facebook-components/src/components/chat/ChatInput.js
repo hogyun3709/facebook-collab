@@ -10,7 +10,7 @@ class ChatInput extends React.Component {
     this.textChangeHandler = this.textChangeHandler.bind(this);
   }
 
-  submitHandler(event) {
+  submitHandler = (event) => {
     // Stop the form from refreshing the page on submit
     event.preventDefault();
 
@@ -21,7 +21,7 @@ class ChatInput extends React.Component {
     this.props.onSend(this.state.chatInput);
   }
 
-  textChangeHandler(event)  {
+  textChangeHandler = (event) => {
     this.setState({ chatInput: event.target.value });
   }
 

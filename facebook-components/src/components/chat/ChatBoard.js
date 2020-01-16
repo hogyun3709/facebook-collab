@@ -7,15 +7,15 @@ class ChatBoard extends Component {
     this.state = { username: '' };
 
     // Bind 'this' to event handlers. React ES6 does not do this by default
-    this.usernameChangeHandler = this.usernameChangeHandler.bind(this);
-    this.usernameSubmitHandler = this.usernameSubmitHandler.bind(this);
+    // this.usernameChangeHandler = this.usernameChangeHandler.bind(this);
+    // this.usernameSubmitHandler = this.usernameSubmitHandler.bind(this);
   }
 
-  usernameChangeHandler(event) {
+  usernameChangeHandler = (event) => {
     this.setState({ username: event.target.value });
   }
 
-  usernameSubmitHandler(event) {
+  usernameSubmitHandler = (event) => {
     event.preventDefault();
     this.setState({ submitted: true, username: this.state.username });
   }
