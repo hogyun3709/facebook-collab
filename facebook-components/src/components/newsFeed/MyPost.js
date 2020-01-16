@@ -10,20 +10,31 @@ class MyPost extends Component {
     const { id, message, edit, onEdit, onChange, post } = this.props;
     return (
       <li className="postList">
-        <div className="postList-content">
+        <div className="postList-list">
           <div className="postList-title">
-            <div className="postList-user">
-              <div className="postList-userIco">
+            <div className="postList-info">
+              <div className="postList-info-userIco">
                 <UserIco />
               </div>
-              <UserName />
-              {/* <TimeAgo /> */}
-              <span className="">전체보기/나만보기</span>
+              <div className="postList-info-box">
+                <div className="postList-info-userName">
+                  <UserName />
+                </div>
+                <div className="postList-info-timer">
+                  {/* <TimeAgo /> */}
+                </div>
+                <div className="postList-info-set">전체보기/나만보기</div>
+              </div>
             </div>
-            <div className="postList-set-btn">
+            <div className="postList-info-set-box">
+              <button type="button" className="postList-set-btn"></button>
               <ul className="postList-set-box">
-                <li className="postList-set-list">게시물 삭제</li>
-                <li className="postList-set-list">개사물 수정</li>
+                <li className="postList-set-list">
+                  <button type="button" className="postList-set-list-btn">게시물 삭제</button>
+                </li>
+                <li className="postList-set-list">
+                  <button type="button" className="postList-set-list-btn">게시물 수정</button>
+                </li>
               </ul>
             </div>
           </div>
@@ -42,19 +53,23 @@ class MyPost extends Component {
                 {message}
               </div>
             )}
-            <button 
+            {/* <button 
               className=""
               onClick={
                 (e) => onEdit(id)
             }>
               게시물 수정
-            </button>
+            </button> */}
           </div>
         </div>
-        <div className="postList-btn">
-          <button className="postList-btn-list">좋아요</button>
-          <button className="postList-btn-list">댓글</button>
-        </div>
+        <ul className="postList-btn">
+          <li className="postList-btn-list">
+            <button type="button" className="postList-btn-list-txt">좋아요</button>
+          </li>
+          <li className="postList-btn-list">
+            <button type="button" className="postList-btn-list-txt">댓글</button>
+          </li>
+        </ul>
         <CommentIndex />
       </li>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, BrowserRouter as Router } from "react-router-dom";
-import Username from './Username';
+import UserName from './UserName';
 import UserIco from './UserIco';
 import './Account.css';
 
@@ -50,7 +50,9 @@ class Account extends React.Component{
                     <div className="user-img">
                         <UserIco />
                     </div>
-                    <Username />
+                    <div className="user-name">
+                        <UserName />
+                    </div>
                 </Link>
                 <ul className="account-menu">
                     {listItem}

@@ -30,7 +30,7 @@ class CommentReply extends React.Component {
                     like: false,
                     likeNum: 1,
                     setComment: false,
-                    editing: false
+                    replyEditing: false
                 })
             })
         }
@@ -70,7 +70,7 @@ class CommentReply extends React.Component {
         const selectedIndex = recomments.findIndex(
             i => i.id === id
         )
-        recomments[selectedIndex].editing = true;
+        recomments[selectedIndex].replyEditing = true;
         recomments[selectedIndex].setComment = false;
         this.setState({
             recomments: recomments
@@ -84,7 +84,7 @@ class CommentReply extends React.Component {
         )
         //console.log('cancel');
         console.log('selectedIndex: ' + selectedIndex);
-        recomments[selectedIndex].editing = false;
+        recomments[selectedIndex].replyEditing = false;
         this.setState({
             recomments: recomments
         });
@@ -102,7 +102,7 @@ class CommentReply extends React.Component {
         const selectedIndex = recomments.findIndex(
             i => i.id === id
         )
-        recomments[selectedIndex].editing = false;
+        recomments[selectedIndex].replyEditing = false;
         recomments[selectedIndex].text = value;
         this.setState({
             recomments: recomments
@@ -128,6 +128,11 @@ class CommentReply extends React.Component {
             recomments: recomments
         });
     }
+    
+    handleEdit = (e, id) => {
+        //console.log('Enter');
+        this.props.onChange(e.target.value, id);
+}
 
     render(){
         const { input, recomments } = this.state;
@@ -143,7 +148,7 @@ class CommentReply extends React.Component {
             onFocusHandle,
             onCommentSet,
             handleEditCancel,
-            handleEditEsc 
+            handleEditEsc
         } = this;
 
         const commentReplyItem = recomments.map(
@@ -175,6 +180,7 @@ class CommentReply extends React.Component {
                 handleChange={handleChange}
                 handleKeyPress={handleKeyPress}
                 />
+                {/* <div className="commentNum">댓글 {countRecomment}개</div> */}
             </React.Fragment>
         );
     }

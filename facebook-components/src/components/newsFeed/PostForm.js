@@ -10,13 +10,30 @@ class PostForm extends Component {
         {
           message: ""
         }
-      ]
+      ],
+      feedScope : false,
+      storyScope : false,
+      submit: false
+      // form: [
+      //   {
+      //   feedScope : false,
+      //   storyScope : false,
+      //   submit: false
+      //   }
+      // ]
     };
+    this.timeOutId = null
   }
 
   handleUserInput = e => {
+    const { submit } = this.state;
+    // if (e.target.value == "") {
+    //     return true;
+    // }
+    // submit: true
     this.setState({
-      post: { message: e.target.value }
+      post: { message: e.target.value },
+      submit: true
     });
   };
 
@@ -30,7 +47,47 @@ class PostForm extends Component {
     });
   };
 
+  feedToggle = () => {
+    const { feedScope } = this.state;
+    this.setState({
+      feedScope: !feedScope,
+      storyScope: false
+    });
+  };
+
+  storyToggle = () => {
+    const { storyScope } = this.state;
+    this.setState({
+      storyScope: !storyScope,
+      feedScope: false
+    })
+  }
+
+  onBlurToggle = () => {
+    // this.timeOutId = setTimeout(()=>{
+    //   this.setState({
+    //     storyScope: false,
+    //     feedScope: false
+    //   })
+    // })
+  }
+
+  onFocusHandle = () => {
+    // clearTimeout(this.timeOutId);
+  }
+
+  // onSubmit = () => {
+  //   const { post, submit } = this.state;
+  //   if (post.messa) {
+  //     this.setState({
+  //       submit: true
+  //     });
+  //   }
+  // }
+    
   render() {
+    const { feedScope, storyScope, submit } = this.state;
+    const { feedToggle, storyToggle, onBlurToggle, onFocusHandle, onSubmit } = this;
     return (
       <React.Fragment>
         <div className="postform-on-bg"></div>
@@ -38,13 +95,9 @@ class PostForm extends Component {
           <div className="postform">
             <div className="postform-title">
               <label for="postform-input">게시물 만들기</label>
-              <button type="button" className="postform-close">닫기</button>
+              {/* <button type="button" className="postform-close">닫기</button> */}
             </div>
             <div className="postform-textarea">
-              {/* <Link 
-                to="/User"
-                className="postform-userIco"
-              > */}
               <span className="postform-userIco">
                 <UserIco />
               </span>
@@ -55,6 +108,7 @@ class PostForm extends Component {
                 placeholder="EunJi님, 무슨 생각을 하고 계신가요?"
                 value={this.state.post.message}
                 onChange={this.handleUserInput}
+                // onFocus={()=>onSubmit()}
               />
             </div>
           </div>
@@ -76,58 +130,95 @@ class PostForm extends Component {
             <ul className="postform-opt">
               <li className="postform-opt-list">
                 <input  type="checkbox" id="postform-checkbox-feed" className="postform-opt-checkbox"/>
-                <label for="postform-checkbox-feed" className="postform-opt-list-select" tabindex="0">
+                <label for="postform-checkbox-feed" className="postform-opt-list-select" 
+                // tabindex="0"
+                >
                   <span className="postform-opt-list-name">뉴스피드</span>
                 </label>
                 <div className="postform-opt-box">
-                  <button type="button" className="postform-opt-box-selected">전체 공개</button>
-                    <div className="postform-opt-box-opacity">
+                  <button 
+                    type="button" 
+                    className={feedScope?"postform-opt-box-selected selected-on":"postform-opt-box-selected"}
+                    onClick={()=>feedToggle()}
+                    >
+                      전체 공개
+                  </button>
+                  {
+                    feedScope&&
+                    (<div className="postform-opt-box-opacity">
                       <ul className="postform-opt-box-list">
-                        <li className="postform-opt-box-item">
-                          <em className="postform-opt-box-title">전체 공개</em>
+                        <li 
+                          className="postform-opt-box-item"
+                          onFocus={()=>onFocusHandle()}
+                        >
+                          <em className="postform-opt-box-item-title">전체 공개</em>
                           <br/>
                           Facebook 내외의 모든 사람
                         </li>
-                        <li className="postform-opt-box-item">
-                          <em className="postform-opt-box-title">친구만</em>
+                        <li 
+                          className="postform-opt-box-item"
+                          onFocus={()=>onFocusHandle()}
+                        >
+                          <em className="postform-opt-box-item-title">친구만</em>
                           <br/>
                           회원님의 Facebook 친구
                         </li>
-                        <li className="postform-opt-box-item">
-                          <em className="postform-opt-box-title">나만 보기</em>
+                        <li 
+                          className="postform-opt-box-item"
+                          onFocus={()=>onFocusHandle()}
+                        >
+                          <em className="postform-opt-box-item-title">나만 보기</em>
                           <br/>
                           나만보기
                         </li>
                       </ul>
-                    </div>
+                    </div>)
+                  }
                 </div>
               </li>
               <li className="postform-opt-list">
                 <input id="postform-checkbox-story" className="postform-opt-checkbox" type="checkbox"/>
-                  <label for="postform-checkbox-story" className="postform-opt-list-select" tabindex="0">
+                  <label for="postform-checkbox-story" className="postform-opt-list-select" 
+                  // tabindex="0"
+                  >
                     <span className="postform-opt-list-name">내 스토리</span>
                   </label>
                 <div className="postform-opt-box">
-                  <button type="button" className="postform-opt-box-selected">전체 공개</button>
-                  <ul className="postform-opt-box-list">
-                    <li className="postform-opt-box-item">
-                      <em className="postform-opt-box-title">전체 공개</em>
-                      <br/>
-                      Facebook 내외의 모든 사람
-                    </li>
-                    <li className="postform-opt-box-item">
-                      <em className="postform-opt-box-title">나만 보기</em>
-                      <br/>
-                      나만보기
-                    </li>
-                  </ul>
+                  <button 
+                    type="button" 
+                    className={storyScope?"postform-opt-box-selected selected-on":"postform-opt-box-selected"}
+                    onClick={()=>storyToggle()}
+                    onBlur={()=>onBlurToggle()}
+                    >
+                      전체 공개
+                  </button>
+                  {
+                    storyScope &&
+                    (<ul className="postform-opt-box-list">
+                      <li 
+                        className="postform-opt-box-item"
+                        onFocus={()=>onFocusHandle()}
+                      >
+                        <em className="postform-opt-box-item-title">전체 공개</em>
+                        <br/>
+                        Facebook 내외의 모든 사람
+                      </li>
+                      <li 
+                        className="postform-opt-box-item"
+                        onFocus={()=>onFocusHandle()}
+                      >
+                        <em className="postform-opt-box-item-title">나만 보기</em>
+                        <br/>
+                        나만보기
+                      </li>
+                    </ul>)
+                  }
                 </div>
               </li>
             </ul>
             <button
-              // disabled={?none:disabled}
-              // className={?postform-submit:postform-submit postform-submit-off}
-              className="postform-submit"
+              disabled={submit?"":"disabled"}
+              className={submit?"postform-submit":"postform-submit postform-submit-off"}
               onClick={this.onSubmit}
             >
                 게시

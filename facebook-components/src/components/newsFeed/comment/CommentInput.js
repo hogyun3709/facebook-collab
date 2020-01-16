@@ -1,16 +1,22 @@
 import React from 'react';
+import UserIco from '../../header/account/UserIco'
+import './CommentInput.css';
 
 class CommentInput extends React.Component {
     render(){
         const {
+            id,
             input,
             handleChange,
-            handleKeyPress
+            handleKeyPress,
+            replyEditing
         } = this.props;
         
         return(
-            <div className="commentBox clear">
-                <div className="commentUserInfo" />
+            <div className={replyEditing?'replyCommentBox':'commentBox clear'}>
+                <div className={replyEditing?"replyCommentUserInfo":"commentUserInfo"}>
+                    <UserIco />
+                </div>
                 <div className="commentBar">
                     <input
                     className="commentInput"

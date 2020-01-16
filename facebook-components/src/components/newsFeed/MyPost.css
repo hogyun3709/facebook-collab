@@ -1,19 +1,143 @@
 /* MyPost.css */
 
-/* .content {
-    padding: 12px;
-    word-break: break-all;
-} */
 .postList {
     margin-top: 12px;
     border: 1px solid #dddfe2;
     border-radius: 5px;
     background: #fff;
   }
-.postList-userIco {
+.postList-list {
+    margin: 12px 12px 0;
+    border-bottom: 1px solid #dddfe2;
+}
+.postList-title {
+    display: flex;
+    justify-content: space-between;
+}
+.postList-info {
+    display: flex;
+    align-items: flex-start;
+}
+.postList-info-userIco {
     display: inline-block;
     width: 40px;
     height: 40px;
     border: 1px solid rgb(194, 195, 199);
     border-radius: 50%;
+}
+.postList-info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding-left: 10px;
+}
+.postList-info-userName {
+    color: #385898;
+    font-size: 14px;
+    line-height: 1.3;
+}
+.postList-info-timer {
+    color: #616700;
+}
+.postList-info-set {
+    /* 오른쪽 정렬 추가 */
+    color: #616770;
+    font-size: 12px;
+}
+.postList-info-set-box {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+    opacity: .7;
+}
+.postList-info-set-box:hover {
+    opacity: 1;
+}
+.postList-set-btn {
+    align-self: flex-end;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: url(../../images/ico_post_2.png) no-repeat 0 -230px/38px;
+}
+.postList-set-box {
+    position: absolute;
+    top: calc(100% - 2px);
+    right: -6px;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+    z-index: 1;
+}
+.postList-set-list {
+    padding: 0 12px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    color: #1d2129;
+    font-size: 12px;
+    line-height: 24px;
+    white-space: nowrap;
+}
+.postList-set-list:nth-child(1):hover {
+    border-radius: 2px 2px 0 0;
+}
+.postList-set-list:nth-child(2):hover {
+    border-radius: 0 0 2px 2px;
+}
+.postList-set-list:hover {
+    background: #4267B2;
+    border-top: 1px solid #29487d;
+    border-bottom: 1px solid #29487d;
+}
+.postList-set-list:hover .postList-set-list-btn {
+    color: #fff;
+}
+.postList-set-list-btn {
+    border: none;
+    background: transparent;
+}
+.postList-content {
+    padding: 15px 0 20px;
+    font-size: 14px;
+}
+.postList-btn {
+    display: flex;
+    padding: 4px 12px;
+    border-bottom: 1px solid #dddfe2;
+}
+.postList-btn-list {
+    position: relative;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    transform: scale(1);
+    transition: all .3s;
+}
+.postList-btn-list:hover {
+    border-radius: 3px;
+    background: #f5f6f7;
+}
+.postList-btn-list:active {
+    transform: scale(.95);
+}
+.postList-btn-list-txt {
+    width: 100%;
+    padding-left: 28px;
+    border: none;
+    background: rgba(0,0,0,0);
+    color: #606770;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 32px;
+    background: url(../../images/ico_post_2.png) no-repeat 0/38px;
+}
+.postList-btn-list:nth-child(1) .postList-btn-list-txt {
+    background-position: 85px -340px;
+}
+.postList-btn-list:nth-child(2) .postList-btn-list-txt {
+    background-position: 92px -368px;
 }
