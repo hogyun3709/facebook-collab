@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link, BrowserRouter as Router } from "react-router-dom";
 import UserIco from '../header/account/UserIco';
 import "./PostFom.css";
 class PostForm extends Component {
@@ -101,7 +100,6 @@ class PostForm extends Component {
               <span className="postform-userIco">
                 <UserIco />
               </span>
-              {/* </Link> */}
               <textarea
                 id="postform-input"
                 className="postform-input postform-input-on"

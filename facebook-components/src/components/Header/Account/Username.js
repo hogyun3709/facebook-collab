@@ -11,11 +11,13 @@ class UserName extends React.Component{
     };
     render(){
         return(
-            <Link
-            to="/User"
-            className="username">
-                {this.state.name}
-            </Link>
+            <Router>
+                <Link
+                to="/User"
+                className="username">
+                    {this.state.name}
+                </Link>
+            </Router>
         );
     }
 }
