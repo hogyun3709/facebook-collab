@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserIco from '../header/account/UserIco';
+import PostIput from './PostIput';
 import "./PostFom.css";
 class PostForm extends Component {
   constructor(props) {
@@ -24,8 +24,8 @@ class PostForm extends Component {
     this.timeOutId = null
   }
 
-  handleUserInput = e => {
-    const { submit } = this.state;
+  handleChange = e => {
+    const { post } = this.state;
     // if (e.target.value == "") {
     //     return true;
     // }
@@ -63,16 +63,16 @@ class PostForm extends Component {
   }
 
   onBlurToggle = () => {
-    // this.timeOutId = setTimeout(()=>{
-    //   this.setState({
-    //     storyScope: false,
-    //     feedScope: false
-    //   })
-    // })
+    this.timeOutId = setTimeout(()=>{
+      this.setState({
+        storyScope: false,
+        feedScope: false
+      })
+    })
   }
 
   onFocusHandle = () => {
-    // clearTimeout(this.timeOutId);
+    clearTimeout(this.timeOutId);
   }
 
   // onSubmit = () => {
@@ -85,45 +85,16 @@ class PostForm extends Component {
   // }
     
   render() {
-    const { feedScope, storyScope, submit } = this.state;
-    const { feedToggle, storyToggle, onBlurToggle, onFocusHandle, onSubmit } = this;
+    const { post, feedScope, storyScope, submit } = this.state;
+    const { handleChange, feedToggle, storyToggle, onBlurToggle, onFocusHandle, onSubmit } = this;
     return (
       <React.Fragment>
-        <div className="postform-on-bg"></div>
+        {/* <div className="postform-on-bg"></div> */}
         <div className="postform-wrap postform-on">
-          <div className="postform">
-            <div className="postform-title">
-              <label for="postform-input">게시물 만들기</label>
-              {/* <button type="button" className="postform-close">닫기</button> */}
-            </div>
-            <div className="postform-textarea">
-              <span className="postform-userIco">
-                <UserIco />
-              </span>
-              <textarea
-                id="postform-input"
-                className="postform-input postform-input-on"
-                placeholder="EunJi님, 무슨 생각을 하고 계신가요?"
-                value={this.state.post.message}
-                onChange={this.handleUserInput}
-                // onFocus={()=>onSubmit()}
-              />
-            </div>
-          </div>
-          <div className="postform-items">
-            <button type="button" className="postform-item">
-              사진/동영상
-            </button>
-            <button type="button" className="postform-item">
-              친구 태그하기
-            </button>
-            <button type="button" className="postform-item">
-              기분/활동
-            </button>
-            <button type="button" className="postform-item">
-              더보기
-            </button>
-          </div>
+          <PostIput
+            message={post.message}
+            handleChange={handleChange}
+          />
           <div className="postform-opts">
             <ul className="postform-opt">
               <li className="postform-opt-list">
@@ -138,6 +109,7 @@ class PostForm extends Component {
                     type="button" 
                     className={feedScope?"postform-opt-box-selected selected-on":"postform-opt-box-selected"}
                     onClick={()=>feedToggle()}
+                    onBlur={()=>onBlurToggle()}
                     >
                       전체 공개
                   </button>
@@ -148,6 +120,7 @@ class PostForm extends Component {
                         <li 
                           className="postform-opt-box-item"
                           onFocus={()=>onFocusHandle()}
+                          tabindex="0"
                         >
                           <em className="postform-opt-box-item-title">전체 공개</em>
                           <br/>
@@ -156,6 +129,7 @@ class PostForm extends Component {
                         <li 
                           className="postform-opt-box-item"
                           onFocus={()=>onFocusHandle()}
+                          tabindex="0"
                         >
                           <em className="postform-opt-box-item-title">친구만</em>
                           <br/>
@@ -164,6 +138,7 @@ class PostForm extends Component {
                         <li 
                           className="postform-opt-box-item"
                           onFocus={()=>onFocusHandle()}
+                          tabindex="0"
                         >
                           <em className="postform-opt-box-item-title">나만 보기</em>
                           <br/>
@@ -196,6 +171,7 @@ class PostForm extends Component {
                       <li 
                         className="postform-opt-box-item"
                         onFocus={()=>onFocusHandle()}
+                        tabindex="0"
                       >
                         <em className="postform-opt-box-item-title">전체 공개</em>
                         <br/>
@@ -204,6 +180,7 @@ class PostForm extends Component {
                       <li 
                         className="postform-opt-box-item"
                         onFocus={()=>onFocusHandle()}
+                        tabindex="0"
                       >
                         <em className="postform-opt-box-item-title">나만 보기</em>
                         <br/>

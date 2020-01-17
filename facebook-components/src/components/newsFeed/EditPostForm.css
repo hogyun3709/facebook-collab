@@ -1,0 +1,46 @@
+/* EditPostForm.css */
+
+/* background */
+.postform-on-bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding: 0 25%;
+    background: rgba(0,0,0,.5);
+    z-index: 9998;
+}
+/* popover */
+.editpost {
+    position: relative;
+    width: 502px;
+    top: 30%;
+    left: 50%;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 2px 26px rgba(0, 0, 0, .3), 0 0 0 1px rgba(0, 0, 0, .1);
+    transform: translateX(-50%);
+    z-index: 9999;
+}
+.editpost-bottom {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+    border-top: 1px solid #dddfe2;
+    /* box-shadow: */
+}
+.editpost-button {
+    padding: 0 16px;
+    border: 1px solid #4267b2;
+    border-radius: 2px;
+    background: #4267b2;
+    color: #fff;
+    font-size: 12px;
+    line-height: 24px;
+    transition: all .4s;
+}
+.editpost-button:hover {
+    border: 1px solid #365899;
+    background: #365899;
+}

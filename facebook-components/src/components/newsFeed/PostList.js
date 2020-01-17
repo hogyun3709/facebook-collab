@@ -11,6 +11,7 @@ class PostList extends Component {
       postItems: [],
       totalPosts: []
     };
+    this.timeOutId = null;
   }
   // createUniquePostID() {
   //   /* id를 관리하는 state을 params로 받아서 관리해야함 함수실행시 allIDs 가 리셋됨*/
@@ -48,7 +49,8 @@ class PostList extends Component {
         /* this.id 의 존재는 뭔가.. */
         id: this.id++,
         message: messageObj.message,
-        edit: false
+        setPost: false,
+        edit: false,
       })
     });
   };
@@ -71,7 +73,32 @@ class PostList extends Component {
     });
   };
 
+  setPostToggle = id => {
+    const { postItems } = this.state;
+    const chosenIndex = postItems.findIndex(i => i.id === id);
+    postItems[chosenIndex].setPost = !postItems[chosenIndex].setPost;
+    this.setState({
+      postItems: postItems
+    });
+  };
 
+  onBlurHandle = id => {
+    const { postItems } = this.state;
+    const chosenIndex = postItems.findIndex(i => i.id === id);
+    this.timeOutId = setTimeout(() => {
+      postItems[chosenIndex].setPost = false;
+      this.setState({
+        postItems: postItems
+      });
+    })
+  }
+
+  onFocusHandle = id => {
+    const { postItems } = this.state;
+    const chosenIndex = postItems.findIndex(i => i.id === id);
+    clearTimeout(this.timeOutId);
+  }
+  
   render() {
     const { postItems } = this.state;
     return (
@@ -86,6 +113,9 @@ class PostList extends Component {
               key={postItems.id}
               onEdit={this.handleEdit}
               onChange={this.isEdited}
+              setPostToggle={this.setPostToggle}
+              onBlurHandle={this.onBlurHandle}
+              onFocusHandle={this.onFocusHandle}
             />
           ))}
         </ul>

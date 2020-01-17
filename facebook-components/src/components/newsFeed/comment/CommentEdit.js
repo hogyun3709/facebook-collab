@@ -12,16 +12,12 @@ class CommentEdit extends React.Component {
     };
 
     handleChange = (e) => {
-        //console.log('keyPress');
         this.setState({
             input: e.target.value
         });
-        console.log(this.state.input)
     }
 
-
     handleEdit = (e, id) => {
-            //console.log('Enter');
             this.props.onChange(e.target.value, id);
     }
 

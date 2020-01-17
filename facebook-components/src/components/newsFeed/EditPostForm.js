@@ -1,39 +1,50 @@
 import React, { Component } from "react";
+import PostIput from "./PostIput";
+import './EditPostForm.css';
 
 class EditPostForm extends Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
-      editMessage: this.props.message
-    }
+      editmessage: this.props.message
+    };
   }
+
   handleChange = e => {
     this.setState({
       editMessage: e.target.value
     })
-    console.log(this.state.editMessage)
   }
   handleEdit = (e, id) => {
     this.props.onChange(e.target.value, id)
   }
-  render(){
-    const { editMessage } = this.state;
-    const { id } = this.props
-    return(
-      <div>
-        <label>Post</label>
-        <input
-          type="text"
-          value={editMessage}
-          onChange={(e) => this.handleChange(e)}
-          />
-        <button onClick={(e) => this.handleEdit(e, id)}>수정</button>
-      </div>
 
-    )
+  render(){
+    const { editmessage } = this.state;
+    const { edit } = this.props;
+    const { handleChange } = this;
+    // const { id } = this.props
+    return(
+      <div className="editpost-wrap">
+        <div className="postform-on-bg">
+          <div className="editpost">
+            <PostIput
+            edit={edit}
+            editmessage={editmessage}
+            handleChange={handleChange}
+            />
+            <div className="editpost-bottom">
+              <button
+              className="editpost-button"
+                // onClick={()=>{수정하기()}}
+              >
+                저장
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
-
-
-
 export default EditPostForm;
