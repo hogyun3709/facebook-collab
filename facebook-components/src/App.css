@@ -8,9 +8,6 @@ html, body {
     background: #e9ebee;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
 }
-body {
-    margin-top: 43px;
-}
 ol,ul,li,p,h1,h2,h3,h4,h5,h6 {
     padding: 0;
     margin: 0;
@@ -48,7 +45,7 @@ a {
     height: 43px;
     background: #4267b2;
     border-bottom: 1px solid #3a5381;
-    z-index: 9999;
+    z-index: 9996;
 }
 .App-header {
     display: flex;
@@ -74,14 +71,13 @@ a {
     justify-content: center;
     width: 1012px;
     min-width: 1012px;
-    outline: 1px solid #999;
+    margin-top: 43px;
+    /* outline: 1px solid #999; */
 }
 /* main content e */
 /* newsFeed s */
 .newsFeed-wrap {
     width: 502px;
-    border: 1px solid #dddfe2;
-    background: #fff;
 }
 /* newsFeed e */
 /* widget-wrap s */
@@ -91,6 +87,6 @@ a {
     right: 30px;
     bottom: 0;
     border-radius: 4px;
-    background: #fff;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,.3);
+    z-index: 9995;
 }

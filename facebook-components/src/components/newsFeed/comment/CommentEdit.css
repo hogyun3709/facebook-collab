@@ -1,0 +1,21 @@
+/* CommentEdit.css */
+
+.commentEditCancelBox {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    padding: 2px 0 0 0;
+    color: #385898;
+    font-size: 11px;
+}
+.commentEditCancel:hover {
+    text-decoration: underline;
+}
+.commentEditCancelInfo {
+    display: none;
+    color: #90949C;
+}
+.commentEditInput:focus ~ .commentEditCancelBox .commentEditCancelInfo {
+    display: inline-block;
+
+}

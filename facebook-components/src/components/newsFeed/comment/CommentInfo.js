@@ -2,7 +2,7 @@ import React from 'react';
 import CommentReply from './CommentReply';
 import TimeAgo from 'react-timeago';
 
-const CommentText = ({ id, date, like, onLike, onReply }) => {
+const CommentInfo = ({ id, date, like, onLike, onReply }) => {
     return(
         <div className="iteminfoBox" >
             <a
@@ -29,4 +29,4 @@ const CommentText = ({ id, date, like, onLike, onReply }) => {
         </div>
     );
 }
-export default CommentText;
+export default CommentInfo;

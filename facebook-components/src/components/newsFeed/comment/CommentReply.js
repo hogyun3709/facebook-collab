@@ -30,7 +30,7 @@ class CommentReply extends React.Component {
                     like: false,
                     likeNum: 1,
                     setComment: false,
-                    editing: false
+                    replyEditing: false
                 })
             })
         }
@@ -70,7 +70,7 @@ class CommentReply extends React.Component {
         const selectedIndex = recomments.findIndex(
             i => i.id === id
         )
-        recomments[selectedIndex].editing = true;
+        recomments[selectedIndex].replyEditing = true;
         recomments[selectedIndex].setComment = false;
         this.setState({
             recomments: recomments
@@ -84,7 +84,7 @@ class CommentReply extends React.Component {
         )
         //console.log('cancel');
         console.log('selectedIndex: ' + selectedIndex);
-        recomments[selectedIndex].editing = false;
+        recomments[selectedIndex].replyEditing = false;
         this.setState({
             recomments: recomments
         });
@@ -97,23 +97,12 @@ class CommentReply extends React.Component {
         }
     }
 
-    // handleUpdate = (id, comment) => {
-    //     const { recomments } = this.state;
-    //     this.setState({
-    //         recomments: recomments.map(
-    //             data => data.id === id ?
-    //             {...data, ...comment} // 새 객체에 기존값과 전달받은 data를 덮어씀
-    //             : data // 기존값 그대로 유지
-    //         )
-    //     });
-    // }
-
     isEdited = (value, id) => {
         const { recomments } = this.state;
         const selectedIndex = recomments.findIndex(
             i => i.id === id
         )
-        recomments[selectedIndex].editing = false;
+        recomments[selectedIndex].replyEditing = false;
         recomments[selectedIndex].text = value;
         this.setState({
             recomments: recomments
@@ -139,6 +128,11 @@ class CommentReply extends React.Component {
             recomments: recomments
         });
     }
+    
+    handleEdit = (e, id) => {
+        //console.log('Enter');
+        this.props.onChange(e.target.value, id);
+}
 
     render(){
         const { input, recomments } = this.state;
@@ -148,13 +142,13 @@ class CommentReply extends React.Component {
             onEdit,
             onChange,
             onRemove,
-            onLike, 
+            toggleLike, 
             onReply,
             onBlurHandle, 
             onFocusHandle,
             onCommentSet,
             handleEditCancel,
-            handleEditEsc 
+            handleEditEsc
         } = this;
 
         const commentReplyItem = recomments.map(
@@ -166,7 +160,7 @@ class CommentReply extends React.Component {
                 onEdit={onEdit}
                 onChange={onChange}
                 onRemove={onRemove}
-                onLike={onLike}
+                onLikes={toggleLike}
                 onReply={onReply}
                 onBlurHandle={onBlurHandle}
                 onFocusHandle={onFocusHandle}
@@ -186,6 +180,7 @@ class CommentReply extends React.Component {
                 handleChange={handleChange}
                 handleKeyPress={handleKeyPress}
                 />
+                {/* <div className="commentNum">댓글 {countRecomment}개</div> */}
             </React.Fragment>
         );
     }

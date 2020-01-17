@@ -1,9 +1,8 @@
-.content {
-    padding: 12px;
-    word-break: break-all;
+.postwrap-on {
+  /* margin-top: 358px; */
+  margin-top: 318px;
 }
-
-.postlist {
+.postList-wrap {
   display: flex;
   flex-direction: column-reverse;
 }

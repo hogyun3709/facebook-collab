@@ -36,7 +36,7 @@ class CommentForm extends React.Component {
                     editing: false
                 })
             });
-            console.log(comments);
+            // console.log(comments);
         }
     }
 
@@ -158,6 +158,13 @@ class CommentForm extends React.Component {
         // console.log(comments[selectedIndex].reply);
     }
 
+    CountComment = () => {
+        const { comments } = this.state;
+        return(
+            comments.length
+        );
+    }
+
     render(){
         const { input, comments } = this.state;
         const { 
@@ -173,7 +180,8 @@ class CommentForm extends React.Component {
             handleUpdate,
             handleRemove,
             handleEditCancel,
-            handleEditEsc
+            handleEditEsc,
+            CountComment
         } = this;
 
         const commentItem = comments.map(
@@ -206,7 +214,7 @@ class CommentForm extends React.Component {
                 handleChange={handleChange}
                 handleKeyPress={handleKeyPress}
                 />
-                <div className="commentNum">댓글 {comments.length}개</div>
+                <div className="commentNum">댓글 {CountComment()}개</div>
             </div>
         );
     }

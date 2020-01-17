@@ -1,5 +1,7 @@
 import React from 'react';
-import './CommentForm.css';
+import UserIco from '../../header/account/UserIco';
+import CommentInput from './CommentInput';
+import './CommentEdit.css';
 
 class CommentEdit extends React.Component {
     constructor(props){
@@ -29,7 +31,9 @@ class CommentEdit extends React.Component {
         const { handleChange, handleEdit } = this;
         return(
             <div className="commentBox commentEditBox clear">
-                <div className="commentUserInfo" />
+                <div className="commentUserInfo">
+                    <UserIco />
+                </div>
                 <div className="commentBar">
                     <input
                     className="commentInput commentEditInput"

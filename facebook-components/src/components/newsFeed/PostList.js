@@ -71,12 +71,15 @@ class PostList extends Component {
     });
   };
 
+
   render() {
     const { postItems } = this.state;
     return (
-      <div className="postList-wrap">
-        <PostForm userInputProps={this.userInput} />
-        <div className="postlist">
+      <div className="postwrap postwrap-on">
+        <PostForm 
+          userInputProps={this.userInput} 
+          />
+        <ul className="postList-wrap">
           {this.state.postItems.map(post => (
             <MyPost
               {...post}
@@ -85,7 +88,7 @@ class PostList extends Component {
               onChange={this.isEdited}
             />
           ))}
-        </div>
+        </ul>
       </div>
     );
   }
