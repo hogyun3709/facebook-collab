@@ -1,0 +1,89 @@
+/* SideMenuIndex.css */
+
+.sidemenu {
+    width: 186px;
+    padding: 12px 12px 0 0;
+}
+.sidemenu:nth-of-type(2) {
+    padding-top: 3px;
+}
+.sidemenu-list {
+    padding: 0 5px;
+    border: 1px solid transparent;
+    line-height: 30px;
+    font-size: 13px;
+    font-weight: normal;
+    transition: all .3s;
+}
+.sidemenu-list:hover,
+.sidemenu-on {
+    border: 1px solid #dddfe2;
+    border-radius: 2px;
+    background: #f5f6f7;
+}
+.sidemenu-link {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    padding-left: 28px;
+    color: #1d2129;
+    line-height: 30px;
+}
+.sidemenu-link::before {
+    content:'';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    left: 0;
+    background: url(../../images/ico_nav.png) no-repeat 0/20px;
+}
+.sidemenu-gnb:nth-child(1) {
+    margin-bottom: 10px;
+}
+.sidemenu-gnb:nth-child(1) .sidemenu-link {
+    padding: 0;
+}
+.sidemenu-gnb:nth-child(1) .sidemenu-link::before {
+    background: none;
+}
+.sidemenu-gnb:nth-child(2) .sidemenu-link::before {
+    background-position: 0 -237px;
+}
+.sidemenu-gnb:nth-child(3) .sidemenu-link::before {
+    background-position: 0 -259px;
+}
+.sidmenu-snb-title {
+    padding: 13px 0 0 7px;
+    color: #616770;
+    font-size: 13px;
+    font-weight: bold;
+}
+.sidemenu-snb:nth-child(1) .sidemenu-link::before {
+    background-position: 0 -104px;
+}
+.sidemenu-snb:nth-child(2) .sidemenu-link::before {
+    background-position: 0 -168px;
+}
+.sidemenu-snb:nth-child(3) .sidemenu-link::before {
+    background-position: 0 -213PX;
+}
+.sidemenu-snb:nth-child(4) .sidemenu-link::before {
+    background-position: 0 -42px;
+}
+.sidemenu-snb:nth-child(5) .sidemenu-link::before {
+    background-position: 0 -305px;
+}
+.sidemenu-snb:nth-child(6) .sidemenu-link::before {
+    background-position: 0 -62px;
+}
+.sidemenu-snb:nth-child(7) .sidemenu-link::before {
+    background-position: 0 -347px;
+}
+.sidemenu-userico {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}

@@ -51,6 +51,7 @@ class PostList extends Component {
         message: messageObj.message,
         setPost: false,
         edit: false,
+        like: false
       })
     });
   };
@@ -98,6 +99,15 @@ class PostList extends Component {
     const chosenIndex = postItems.findIndex(i => i.id === id);
     clearTimeout(this.timeOutId);
   }
+
+  toggleLike = id => {
+    const { postItems } = this.state;
+    const chosenIndex = postItems.findIndex(i => i.id === id);
+    postItems[chosenIndex].like = !postItems[chosenIndex].like;
+    this.setState({
+      postItems: postItems
+    });
+  }
   
   render() {
     const { postItems } = this.state;
@@ -116,6 +126,7 @@ class PostList extends Component {
               setPostToggle={this.setPostToggle}
               onBlurHandle={this.onBlurHandle}
               onFocusHandle={this.onFocusHandle}
+              toggleLike={this.toggleLike}
             />
           ))}
         </ul>

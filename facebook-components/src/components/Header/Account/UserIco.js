@@ -13,7 +13,11 @@ class UserIco extends React.Component {
 
     render(){
         return (
-            <img className="userIco" src={userIco} alt="profileImg" />
+            <img 
+            className="userIco" 
+            src={userIco} 
+            alt="profileImg" 
+            />
         );
     }
 

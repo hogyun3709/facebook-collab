@@ -36,6 +36,7 @@ const CommentItem = ({ id, name, text, like, likeNum, reply, date, setComment, e
                 id={id}
                 date={date}
                 reply={reply}
+                like={like}
                 onLike={onLike}
                 onReply={onReply}
             />

@@ -8,14 +8,15 @@ import Account from "./components/header/account/Account";
 // import Friends from "./components/header/menu/Friends";
 // import Create from "./components/header/menu/Create";
 import Notice from "./components/header/notice/Notice";
+import SideMenuIndex from "./components/sideMenu/SideMenuIndex";
 import NewsFeed from "./components/newsFeed/NewsFeedIndex";
 import WidgetIndex from "./components/widget/WidgetIndex";
 
 
 function App() {
   return (
-    <div className="App-container">
-      <Router className="App">
+    <Router className="App">
+      <div className="App-container">
         <header className="App-header-wrap">
           <div className="App-header">
             <div className="App-header-left">
@@ -31,16 +32,19 @@ function App() {
         <Route path="/User" component={User} />
         <Route path="/Friends" component={Friends} />
         <Route path="/Create" component={Create} /> */}
-      </Router>
-      <div className="contents-wrap">
-        <div className="newsFeed-wrap">
-          <NewsFeed />
+        <div className="contents-wrap">
+          <nav className="gnb-wrap">
+            <SideMenuIndex />
+          </nav>
+          <div className="newsFeed-wrap">
+            <NewsFeed />
+          </div>
         </div>
-      </div>
-      <div className="widget-wrap">
-        <WidgetIndex />
-      </div>
-    </div>
+        <div className="widget-wrap">
+          <WidgetIndex />
+        </div>
+     </div>
+    </Router>
   );
 }
 export default App;

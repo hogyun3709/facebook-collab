@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PostIput from "./PostIput";
+import PostInput from "./PostInput";
 import './EditPostForm.css';
 
 class EditPostForm extends Component {
@@ -28,11 +28,13 @@ class EditPostForm extends Component {
       <div className="editpost-wrap">
         <div className="postform-on-bg">
           <div className="editpost">
-            <PostIput
+            <PostInput
             edit={edit}
             editmessage={editmessage}
             handleChange={handleChange}
-            />
+            >
+              게시물 수정
+            </PostInput>
             <div className="editpost-bottom">
               <button
               className="editpost-button"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import UserIco from '../header/account/UserIco';
 
 class PostInput extends React.Component {
@@ -7,13 +7,15 @@ class PostInput extends React.Component {
     }
     
     render(){
-        const { edit, message, editmessage, handleChange } = this.props;
+        const { edit, message, editmessage, handleChange, children } = this.props;
         return(
         <React.Fragment>
             <div className="postform">
                 <div className="postform-title">
-                <label for="postform-input">게시물 만들기</label>
-                <button type="button" className="postform-close">닫기</button>
+                    <label for="postform-input">
+                        {children}
+                    </label>
+                    <button type="button" className="postform-close">닫기</button>
                 </div>
                 <div className="postform-textarea">
                 <span className="postform-userIco">

@@ -26,6 +26,7 @@
 .postform-title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 8px;
   border-bottom: 1px solid #dddfe2;
   border-radius: 5px 5px 0 0;
@@ -58,6 +59,7 @@
   outline: none;
   color: #4b4f56;
   font-size: 14px;
+  resize: none;
 }
 .postform-input::placeholder {
   color: #999;
@@ -67,12 +69,28 @@
   padding-bottom: 40px;
   font-size: 23px;
   font-weight: normal;
+  resize: none;
 } */
 .postform-close {
+  position: relative;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
   border: none;
-  background: rgba(0,0,0,0) url() no-repeat;
-  /* color: transparent; */
+  background: transparent url(../../images/ico_post_2.png) no-repeat -19px -293px/34px;
+  color: transparent;
+  letter-spacing: -10px;
 }
+/* .postform-close:after {
+  content:'';
+  position: relative;
+  width: 12px;
+  height: 12px;
+  top: 0;
+  left: 0;
+  border: 1px solid red;
+  background: url(../../images/ico_post_2.png) no-repeat -21px -328px/38px;
+} */
 
 /* PostForm items UI */
 .postform-items {
@@ -368,11 +386,14 @@
   font-weight: bold;
   line-height: 28px;
   transform: scale(1);
-  transition: all .3s;
+  transition: all .2s;
   cursor: pointer;
 }
 .postform-submit:active {
   transform: scale(.98);
+}
+.postform-submit-on:hover {
+  background: #4c70b3;
 }
 .postform-submit-off {
   opacity: 0.4;

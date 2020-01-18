@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, BrowserRouter as Router } from "react-router-dom";
-import './UserName.css';
+// import { Link, BrowserRouter as Router } from "react-router-dom";
 
 class UserName extends React.Component{
     constructor(props){
@@ -11,13 +10,15 @@ class UserName extends React.Component{
     };
     render(){
         return(
-            <Router>
-                <Link
-                to="/User"
-                className="username">
-                    {this.state.name}
-                </Link>
-            </Router>
+            // <Router>
+            //     <Link
+            //     to="/User"
+            //     className="username">
+                    <span>
+                        {this.state.name}
+                    </span>
+            //     </Link>
+            // </Router>
         );
     }
 }
