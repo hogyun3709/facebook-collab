@@ -7,7 +7,7 @@ class PostInput extends React.Component {
     }
     
     render(){
-        const { edit, message, editmessage, handleChange, children } = this.props;
+        const { edit, message, editmessage, handleChange, children, handleCloseModal, showModal } = this.props;
         return(
         <React.Fragment>
             <div className="postform">
@@ -15,7 +15,13 @@ class PostInput extends React.Component {
                     <label for="postform-input">
                         {children}
                     </label>
-                    <button type="button" className="postform-close">닫기</button>
+                    <button
+                        type="button"
+                        className="postform-close"
+                        onClick={()=>handleCloseModal()}
+                    >
+                        닫기
+                    </button>
                 </div>
                 <div className="postform-textarea">
                 <span className="postform-userIco">
@@ -23,7 +29,7 @@ class PostInput extends React.Component {
                 </span>
                 <textarea
                     id="postform-input"
-                    className="postform-input postform-input-on"
+                    className={showModal?"postform-input postform-input-on":"postform-input"}
                     placeholder="EunJi님, 무슨 생각을 하고 계신가요?"
                     value={edit?editmessage:message}
                     // value={message}

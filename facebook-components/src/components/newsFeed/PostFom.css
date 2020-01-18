@@ -1,27 +1,39 @@
 /* PostForm.css */
 
-/* PostForm background */
-/* .postform-on-bg {
+.postform-modal {
+  overflow: hidden;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 20%;
+  margin-left: 186px;
+  width: 502px;
+  outline: none;
+  border-radius: 5px;
+  background: #fff;
+}
+@media screen and (min-width: 1012px) {
+  .postform-modal {
+    margin: 0;
+    left: calc((100vw - 1012px) / 2 + 186px);
+  }
+}
+.postform-overlay {
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(0,0,0,.5);
-  z-index: 9997;
-} */
+}
 /* PostForm input UI */
 .postform-wrap {
+  overflow: hidden;
+  position: relative;
   width: 502px;
   margin: 12px 0 0;
   border: 1px solid #dddfe2;
   border-radius: 5px;
   background: #fff;
-  z-index: 9995;
-}
-.postform-on {
-  position: absolute;
-  top: 43px;
+  /* z-index: 9995; */
 }
 .postform-title {
   display: flex;
@@ -29,7 +41,6 @@
   align-items: center;
   padding: 0 8px;
   border-bottom: 1px solid #dddfe2;
-  border-radius: 5px 5px 0 0;
   background: #f5f6f7;
   color: #4b4f56;
   font-size: 12px;
@@ -64,13 +75,12 @@
 .postform-input::placeholder {
   color: #999;
 }
-/* .postform-input-on {
+.postform-input-on {
   padding-top: 20px;
   padding-bottom: 40px;
   font-size: 23px;
-  font-weight: normal;
   resize: none;
-} */
+}
 .postform-close {
   position: relative;
   display: inline-block;
@@ -81,16 +91,6 @@
   color: transparent;
   letter-spacing: -10px;
 }
-/* .postform-close:after {
-  content:'';
-  position: relative;
-  width: 12px;
-  height: 12px;
-  top: 0;
-  left: 0;
-  border: 1px solid red;
-  background: url(../../images/ico_post_2.png) no-repeat -21px -328px/38px;
-} */
 
 /* PostForm items UI */
 .postform-items {
@@ -144,7 +144,6 @@
 }
 .postform-opts {
   padding: 0 12px 10px;
-  border-radius: 0 0 5px 5px;
   border-top: 1px solid #dddfe2;
   background: #f5f6f7;
 }
@@ -158,7 +157,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 5px;
   font-size: 13px;
   font-weight: bold;
   line-height: 44px;
@@ -170,9 +168,6 @@
   position: relative;
   flex: 1;
   cursor: pointer;
-}
-.postform-opt-list:nth-child(1) .postform-opt-list-select {
-
 }
 .postform-opt-list-select::before {
   content:'';
@@ -323,7 +318,7 @@
 .postform-opt-box-item {
   /* width: 200px; */
   position: relative;
-  z-index: 1000;
+  /* z-index: 1000; */
   padding: 10px 0 10px 35px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;

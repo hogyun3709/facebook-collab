@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal';
 import PostInput from './PostInput';
 import PostInputOn from './PostInputOn';
 import "./PostFom.css";
@@ -13,7 +14,8 @@ class PostForm extends Component {
       ],
       feedScope : false,
       storyScope : false,
-      submit: false
+      submit: false,
+      showModal: false
       // form: [
       //   {
       //   feedScope : false,
@@ -45,6 +47,7 @@ class PostForm extends Component {
         message: ""
       }
     });
+    this.handleCloseModal()
   };
 
   feedToggle = () => {
@@ -75,28 +78,58 @@ class PostForm extends Component {
   onFocusHandle = () => {
     clearTimeout(this.timeOutId);
   }
+
+  handleOpenModal = () => {
+    this.setState({
+      showModal: true
+    });
+  }
+
+  handleCloseModal = () => {
+    this.setState({
+      showModal: false
+    });
+  }
     
   render() {
-    const { post, feedScope, storyScope, submit } = this.state;
-    const { handleChange, feedToggle, storyToggle, onBlurToggle, onFocusHandle, onSubmit } = this;
+    const { post, feedScope, storyScope, submit, showModal } = this.state;
+    const { handleChange, feedToggle, storyToggle, onBlurToggle, onFocusHandle, onSubmit, handleOpenModal, handleCloseModal } = this;
     return (
-        <div className="postform-wrap postform-on">
-          <PostInput
-            message={post.message}
-            handleChange={handleChange}
+        <div className="postform-wrap">
+          <div 
+          className="test"
+          onClick={handleOpenModal}>
+            <PostInput>
+              게시물만들기
+            </PostInput>
+          </div>
+          <Modal
+            className="postform-modal"
+            overlayClassName="postform-overlay"
+            isOpen={showModal}
+            contentLabel="onRequestClose"
+            onRequestClose={handleCloseModal}
           >
-            게시물만들기
-          </PostInput>
-          {/* <PostInputOn 
-            feedToggle={feedToggle}
-            onBlurToggle={onBlurToggle}
-            onFocusHandle={onFocusHandle}
-            storyToggle={storyToggle}
-            onSubmit={onSubmit}
-            submit={submit}
-            feedScope={feedScope}
-            storyScope={storyScope}
-          /> */}
+              <PostInput
+                message={post.message}
+                showModal={showModal}
+                handleChange={handleChange}
+                handleCloseModal={handleCloseModal}
+              >
+                게시물만들기
+              </PostInput>
+              <PostInputOn 
+                feedToggle={feedToggle}
+                onBlurToggle={onBlurToggle}
+                onFocusHandle={onFocusHandle}
+                storyToggle={storyToggle}
+                onSubmit={onSubmit}
+                submit={submit}
+                feedScope={feedScope}
+                storyScope={storyScope}
+                handleCloseModal={handleCloseModal}
+              />
+          </Modal>
         </div>
     );
   }
