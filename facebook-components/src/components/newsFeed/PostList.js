@@ -52,6 +52,7 @@ class PostList extends Component {
         setPost: false,
         edit: false,
         like: false
+        // focusReply: false
       })
     });
   };
@@ -108,6 +109,15 @@ class PostList extends Component {
       postItems: postItems
     });
   }
+
+  // autoFocusToggle = (id) => {
+  //   const { postItems } = this.state;
+  //   const chosenIndex = postItems.findIndex(i => i.id === id);
+  //   postItems[chosenIndex].focusReply = true;
+  //   this.setState({
+  //     postItems: postItems
+  //   });
+  // }
   
   render() {
     const { postItems } = this.state;
@@ -127,6 +137,7 @@ class PostList extends Component {
               onBlurHandle={this.onBlurHandle}
               onFocusHandle={this.onFocusHandle}
               toggleLike={this.toggleLike}
+              // autoFocusToggle={this.autoFocusToggle}
             />
           ))}
         </ul>

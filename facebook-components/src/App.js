@@ -11,6 +11,7 @@ import Notice from "./components/header/notice/Notice";
 import SideMenuIndex from "./components/sideMenu/SideMenuIndex";
 import NewsFeed from "./components/newsFeed/NewsFeedIndex";
 import WidgetIndex from "./components/widget/WidgetIndex";
+import Footer from "./components/footer/Footer";
 
 
 function App() {
@@ -32,16 +33,19 @@ function App() {
         <Route path="/User" component={User} />
         <Route path="/Friends" component={Friends} />
         <Route path="/Create" component={Create} /> */}
+        <div className="widget-wrap">
+          <WidgetIndex />
+        </div>
         <div className="contents-wrap">
           <nav className="gnb-wrap">
             <SideMenuIndex />
           </nav>
-          <div className="newsFeed-wrap">
+          <main className="newsFeed-wrap">
             <NewsFeed />
-          </div>
-        </div>
-        <div className="widget-wrap">
-          <WidgetIndex />
+          </main>
+          <footer className="footer-wrap">
+            <Footer />
+          </footer>
         </div>
      </div>
     </Router>

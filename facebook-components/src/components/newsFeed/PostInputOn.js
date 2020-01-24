@@ -44,15 +44,6 @@ class PostInputOn extends React.Component {
                             onFocus={()=>onFocusHandle()}
                             tabindex="0"
                             >
-                            <em className="postform-opt-box-item-title">친구만</em>
-                            <br/>
-                            회원님의 Facebook 친구
-                            </li>
-                            <li 
-                            className="postform-opt-box-item"
-                            onFocus={()=>onFocusHandle()}
-                            tabindex="0"
-                            >
                             <em className="postform-opt-box-item-title">나만 보기</em>
                             <br/>
                             나만보기

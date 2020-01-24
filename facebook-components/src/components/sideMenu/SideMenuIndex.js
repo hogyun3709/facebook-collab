@@ -14,8 +14,8 @@ class SideMenuIndex extends React.Component {
 
     render(){
         return(
-            <React.Fragment>
-                <ul className="sidemenu">
+            <div className="sidemenu">
+                <ul className="sidemenu-box">
                     <li className="sidemenu-list sidemenu-gnb">
                         <Link
                         to="/"
@@ -47,7 +47,7 @@ class SideMenuIndex extends React.Component {
                     </li>
                 </ul>
                 <h3  className="sidmenu-snb-title">둘러보기</h3>
-                <ul className="sidemenu">
+                <ul className="sidemenu-box">
                     <li className="sidemenu-list sidemenu-snb">
                         <Link
                         to="/"
@@ -105,7 +105,7 @@ class SideMenuIndex extends React.Component {
                         </Link>
                     </li>
                 </ul>
-            </React.Fragment>
+            </div>
         );
     }
 }

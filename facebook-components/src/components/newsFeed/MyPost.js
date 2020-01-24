@@ -7,7 +7,7 @@ import './MyPost.css';
 
 class MyPost extends Component {
   render() {
-    const { id, message, edit, like, onEdit, onChange, post, setPost, setPostToggle, onBlurHandle, onFocusHandle, toggleLike } = this.props;
+    const { id, message, edit, like, onEdit, onChange, post, setPost, setPostToggle, onBlurHandle, onFocusHandle, toggleLike, autoFocusToggle } = this.props;
     return (
       <li className="postList">
         <div className="postList-list">
@@ -80,7 +80,13 @@ class MyPost extends Component {
             </button>
           </li>
           <li className="postList-btn-list">
-            <button type="button" className="postList-btn-list-txt">댓글</button>
+            <button 
+            type="button"
+            className="postList-btn-list-txt"
+            // onClick={()=>autoFocusToggle(id)}
+            >
+              댓글
+            </button>
           </li>
         </ul>
         <CommentIndex />

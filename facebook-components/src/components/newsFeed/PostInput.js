@@ -15,6 +15,8 @@ class PostInput extends React.Component {
                     <label for="postform-input">
                         {children}
                     </label>
+                    {
+                    showModal&&
                     <button
                         type="button"
                         className="postform-close"
@@ -22,6 +24,7 @@ class PostInput extends React.Component {
                     >
                         닫기
                     </button>
+                    }
                 </div>
                 <div className="postform-textarea">
                 <span className="postform-userIco">
@@ -30,26 +33,25 @@ class PostInput extends React.Component {
                 <textarea
                     id="postform-input"
                     className={showModal?"postform-input postform-input-on":"postform-input"}
+                    // autoFocus={showModal?true:false}
                     placeholder="EunJi님, 무슨 생각을 하고 계신가요?"
                     value={edit?editmessage:message}
-                    // value={message}
                     onChange={(e)=>handleChange(e)}
-                    // onFocus={()=>onSubmit()}
                 />
                 </div>
             </div>
             <div className="postform-items">
                 <button type="button" className="postform-item">
-                사진/동영상
+                    사진/동영상
                 </button>
                 <button type="button" className="postform-item">
-                친구 태그하기
+                    친구 태그하기
                 </button>
                 <button type="button" className="postform-item">
-                기분/활동
+                    기분/활동
                 </button>
                 <button type="button" className="postform-item">
-                더보기
+                    더보기
                 </button>
             </div>
         </React.Fragment>
