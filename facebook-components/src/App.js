@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
+import SignIn from "./components/signIn/SignIn";
 import SearchBar from "./components/header/searchBar/SearchBarIndex";
 import Account from "./components/header/account/Account";
 // import Home from "./components/header/menu/Home";
@@ -17,7 +18,11 @@ import Footer from "./components/footer/Footer";
 function App() {
   return (
     <Router className="App">
-      <div className="App-container">
+      {/* <Route path="/signin" component={SignIn}/> */}
+      <div className="signin-wrap">
+        <Route path="/" component={SignIn}/>
+      </div>
+      {/* <div className="App-container">
         <header className="App-header-wrap">
           <div className="App-header">
             <div className="App-header-left">
@@ -28,12 +33,12 @@ function App() {
               <Route path="/" component={Notice} />
             </div>
           </div>
-        </header>
+        </header> */}
         {/* <Route exact path="/" component={Home} />
         <Route path="/User" component={User} />
         <Route path="/Friends" component={Friends} />
         <Route path="/Create" component={Create} /> */}
-        <div className="widget-wrap">
+        {/* <div className="widget-wrap">
           <WidgetIndex />
         </div>
         <div className="contents-wrap">
@@ -47,7 +52,7 @@ function App() {
             <Footer />
           </footer>
         </div>
-     </div>
+     </div> */}
     </Router>
   );
 }
