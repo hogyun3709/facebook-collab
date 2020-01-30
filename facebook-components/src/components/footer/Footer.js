@@ -5,7 +5,7 @@ class Footer extends React.Component {
 
     render(){
         return(
-            <div className="footer">
+            <div className="main-footer">
                 <ul className="footer-list">
                     <li className="footer-item">개인정보처리방침</li>
                     <li className="footer-item">이용 약관</li>

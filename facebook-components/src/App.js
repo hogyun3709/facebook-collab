@@ -19,9 +19,7 @@ function App() {
   return (
     <Router className="App">
       {/* <Route path="/signin" component={SignIn}/> */}
-      <div className="signin-wrap">
-        <Route path="/" component={SignIn}/>
-      </div>
+      <Route path="/" component={SignIn}/>
       {/* <div className="App-container">
         <header className="App-header-wrap">
           <div className="App-header">

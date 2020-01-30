@@ -1,0 +1,105 @@
+/* SignIn.scss */
+
+// header
+.signin {
+    
+    &__header {
+        width: 100%;
+        border-bottom: 1px solid #133783;
+        background: #3b5998;
+        
+        &__inbox {
+            display: flex;
+            justify-content: space-between;
+            width: 1000px;
+            padding: 13px 10px 0;
+            margin: 0 auto;
+        }
+    }
+
+    &__main {
+
+        &__inbox {
+            width: 1000px;
+            padding: 20px 10px;
+            margin: 0 auto;
+        }
+    }
+
+    &__footer {
+
+        &__inbox {
+            width: 1000px;
+            padding: 20px 10px;
+            margin: 0 auto;
+        }
+    }
+}
+
+.header {
+    
+    &__left {
+        width: 170px;
+        height: 33px;
+    }
+}
+
+.logo {
+
+    &__img {
+        display: inline-block;
+        width: 100%;
+        margin-top: 17px;
+    }
+}
+
+.login {
+    &__form {
+        display: flex;
+        align-items: flex-end;
+        color: #fff;
+        font-size: 12px;
+        
+        &__label {
+            display: inline-block;
+            margin-right: 17px;
+
+            &__input {
+                display: block;
+                width: 152px;
+                height: 26px;
+                padding: 3px 3px 4px;
+                margin: 4px 0 0;
+                border: 1px solid #1d2a5b;
+                background: #e8f0fe;
+            }
+        }
+            
+        &__submit {
+            padding: 2px 6px;
+            text-align: center;
+            line-height: 20px;
+            border: 1px solid #29487d;
+            border-radius: 2px;
+            background: #4267b2;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        &__submit:hover {
+            border: 1px solid #29487d;
+            background: #365899;
+        }
+    }
+
+    &__searchId {
+        display: inline-block;
+        margin: 5px 0;
+        color: #9cb4d8;
+        font-size: 12px;
+    }
+
+    &__searchId:hover {
+        text-decoration: underline;
+    }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
-import './SignIn.css';
+import { Link } from 'react-router-dom';
+import Logo from '../../images/logo.png';
+import './css/SignIn.css';
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -28,50 +29,50 @@ class SignIn extends React.Component {
     render(){
 
         return(
-            <React.Fragment>
-                <header>
-                    <div className="header">
+            <div className="signin">
+                <header className="signin__header">
+                    <div className="signin__header__inbox header">
                         <h2 className="header__left">
                             <Link 
-                                className="header__logo"
                                 to="/"
+                                className="header__left__logo logo"
                             >
-                                <img className="header__logo__img" src="" alt="페이스북 로고"/>
+                                <img className="logo__img" src={Logo} alt="페이스북 로고"/>
                             </Link>
                         </h2>
                         <div className="header__right">
-                            <form className="signin">
-                                <label>
-                                    이메일 또는 휴대폰
-                                    <input 
-                                        className="signin__id"
-                                        type="email" 
-                                    />
-                                </label>
-                                <label>
-                                    비밀번호
-                                    <input 
-                                        className="signin__pw"
-                                        type="password" 
-                                    />
-                                </label>
-                                <link 
-                                    to="/"
-                                    className="signin__search"
-                                >
-                                    {/* <span>계정을 잊으셨나요?</span> */}
-                                </link>
-                                <buttom
-                                    className="signin__submit"
-                                >
-                                    로그인
-                                </buttom>
-                            </form>
+                            <div className="login">
+                                <form className="login__form">
+                                    <label className="login__form__label">
+                                        이메일 또는 휴대폰
+                                        <input 
+                                            className="login__form__label__input"
+                                            type="email" 
+                                        />
+                                    </label>
+                                    <label className="login__form__label">
+                                        비밀번호
+                                        <input 
+                                            className="login__form__label__input"
+                                            type="password" 
+                                        />
+                                    </label>
+                                    <button
+                                        type="submit"
+                                        className="login__form__submit"
+                                    >
+                                        로그인
+                                    </button>
+                                </form>
+                                <a href="#a" className="login__searchId">
+                                    계정을 잊으셨나요?
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </header>
-                <main>
-                    <div className="main">
+                <main className="signin__main">
+                    <div className="signin__main__inbox">
                         <h3 className="main__left">
                             최근 로그인 기록
                         </h3>
@@ -190,15 +191,17 @@ class SignIn extends React.Component {
                         </div>
                     </div>
                 </main>
-                <footer className="footer">
-                    <div className="footer__top">
-                        뭘 적을까
-                    </div>
-                    <div className="footer__bottom">
-                        Facebook © 2020
+                <footer className="signin__footer">
+                    <div className="signin__footer__inbox footer">
+                        <div className="footer__top">
+                            뭘 적을까
+                        </div>
+                        <div className="footer__bottom">
+                            Facebook © 2020
+                        </div>
                     </div>
                 </footer>
-            </React.Fragment>
+            </div>
         );
     }
 }
