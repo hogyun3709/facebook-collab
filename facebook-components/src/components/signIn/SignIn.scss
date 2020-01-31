@@ -154,7 +154,7 @@
             margin-right: 20px;
             background: #fff;
             display: inline-block;
-            border: 1px solid #bdc7d8;
+            border: 5px solid transparent;
             border-radius: 7px;
             transition: all .2s ease-out;
             cursor: pointer;
@@ -164,7 +164,8 @@
             }
         }
         &__ico:hover {
-            box-shadow: 0px 2px 5px 3px rgba(0,0,0,.1);
+            border: 5px solid transparent;
+            box-shadow: 0px 2px 7px 5px rgba(0,0,0,.1);
         }
         &__name {
             color: #4b4f56;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../images/logo.png';
-import Profile from '../../images/profile.png';
-import UserIco from '../header/account/UserIco';
+import Profile1 from '../../images/profile1.png';
+import Profile2 from '../../images/profile2.png';
 import UserName from '../header/account/UserName';
 import './css/SignIn.css';
 
@@ -85,13 +85,13 @@ class SignIn extends React.Component {
                             </h3>
                             <div className="signup__log">
                                 <span className="signup__log__ico">
-                                    <img src={Profile} alt="프로필"/>
+                                    <img src={Profile1} alt="프로필"/>
                                     <span className="signup__log__name">
                                         <UserName />
                                     </span>
                                 </span>
                                 <span className="signup__log__ico">
-                                    <img src={Profile} alt="프로필"/>
+                                    <img src={Profile2} alt="프로필"/>
                                     <span className="signup__log__name">
                                         Hokyun
                                     </span>
