@@ -7,7 +7,6 @@
 html, body {
     padding: 0;
     margin: 0;
-    background: #e9ebee;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
 }
 ol,ul,li,p,h1,h2,h3,h4,h5,h6 {
@@ -33,6 +32,7 @@ a {
 .App-container {
     display: flex;
     justify-content: center;
+    background: #e9ebee;
 }
 /* header */
 .App-header-wrap {
