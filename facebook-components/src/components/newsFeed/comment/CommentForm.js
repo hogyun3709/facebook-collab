@@ -154,7 +154,6 @@ class CommentForm extends React.Component {
         this.setState({
             comments: comments
         });
-        // console.log(comments[selectedIndex].reply);
     }
 
     CountComment = () => {

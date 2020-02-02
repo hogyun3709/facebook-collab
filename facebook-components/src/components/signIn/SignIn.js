@@ -47,7 +47,7 @@ class SignIn extends React.Component {
                             <div className="login">
                                 <form className="login__form">
                                     <label className="login__form__label">
-                                        이메일 또는 휴대폰
+                                        아이디 또는 휴대폰
                                         <input 
                                             className="login__form__label__input"
                                             type="email" 
@@ -126,7 +126,7 @@ class SignIn extends React.Component {
                                         <input 
                                             className="input__signup input__signup-m"
                                             type="email" 
-                                            placeholder="휴대폰 번호 또는 이메일"
+                                            placeholder="휴대폰 번호 또는 아이디"
                                         />
                                     </label>
                                     <label>
