@@ -14,7 +14,8 @@ class UserName extends React.Component{
             <Router>
                 <Link
                 to="/User"
-                className="username">
+                className="username"
+                >
                     {this.state.name}
                 </Link>
             </Router>
