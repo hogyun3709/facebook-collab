@@ -9,7 +9,6 @@ const CommentInfo = ({ id, date, like, onLike, onReply }) => {
             <a
                 href="#a"
                 className={like?"liked iteminfo":"unliked iteminfo"}
-                className="unliked iteminfo"
                 onClick={(e) => 
                     {e.stopPropagation()
                     onLike(id)}

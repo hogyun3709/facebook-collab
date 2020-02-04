@@ -58,7 +58,7 @@ toggleDropdown = () => {
                 <h1 className="logo">
                     <Link
                     className="logoImg"
-                    to="/"
+                    to="/home"
                     />
                 </h1>
                 <div class="searchform-wrap">

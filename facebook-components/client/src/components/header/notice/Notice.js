@@ -20,7 +20,7 @@ class Notice extends React.Component{
                         title: '메세지',
                         menu: ['새 그룹','새 메세지'],
                         btn: 'Messenger에서 모두 보기',
-                        show: false
+                        show: false,
                     },
                     {
                         id: 2,

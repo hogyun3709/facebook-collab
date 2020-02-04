@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Link, BrowserRouter as Router } from "react-router-dom";
 
 class UserName extends React.Component{
     constructor(props){
@@ -12,7 +12,7 @@ class UserName extends React.Component{
         return(
             <Router>
                 <Link
-                to="/User"
+                to="/user"
                 className="username"
                 >
                     {this.state.name}
