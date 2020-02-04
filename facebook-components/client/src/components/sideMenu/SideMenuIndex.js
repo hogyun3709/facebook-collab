@@ -18,7 +18,7 @@ class SideMenuIndex extends React.Component {
                 <ul className="sidemenu-box">
                     <li className="sidemenu-list sidemenu-gnb">
                         <Link
-                        to="/"
+                        to="/home"
                         className="sidemenu-link"
                         >
                             <span className="sidemenu-userico">
@@ -31,7 +31,7 @@ class SideMenuIndex extends React.Component {
                     </li>
                     <li className="sidemenu-list sidemenu-gnb sidemenu-on">
                         <Link
-                        to="/"
+                        to="/home"
                         className="sidemenu-link"
                         >
                             뉴스피드
@@ -39,7 +39,7 @@ class SideMenuIndex extends React.Component {
                     </li>
                     <li className="sidemenu-list sidemenu-gnb">
                         <Link
-                        to="/"
+                        to="/home"
                         className="sidemenu-link"
                         >
                             메신저
@@ -50,7 +50,7 @@ class SideMenuIndex extends React.Component {
                 <ul className="sidemenu-box">
                     <li className="sidemenu-list sidemenu-snb">
                         <Link
-                        to="/"
+                        to="/home"
                         className="sidemenu-link"
                         >
                             이벤트
@@ -58,7 +58,7 @@ class SideMenuIndex extends React.Component {
                     </li>
                     <li className="sidemenu-list sidemenu-snb">
                         <Link
-                        to="/"
+                        to="/home"
                         className="sidemenu-link"
                         >
                             기부 캠페인
@@ -66,7 +66,7 @@ class SideMenuIndex extends React.Component {
                     </li>
                     <li className="sidemenu-list sidemenu-snb">
                         <Link
-                        to="/"
+                        to="/home"
                         className="sidemenu-link"
                         >
                             친구 리스트
@@ -74,7 +74,7 @@ class SideMenuIndex extends React.Component {
                     </li>
                     <li className="sidemenu-list sidemenu-snb">
                         <Link
-                        to="/"
+                        to="/home"
                         className="sidemenu-link"
                         >
                             게임
@@ -82,7 +82,7 @@ class SideMenuIndex extends React.Component {
                     </li>
                     <li className="sidemenu-list sidemenu-snb">
                         <Link
-                        to="/"
+                        to="/home"
                         className="sidemenu-link"
                         >
                             날씨
@@ -90,7 +90,7 @@ class SideMenuIndex extends React.Component {
                     </li>
                     <li className="sidemenu-list sidemenu-snb">
                         <Link
-                        to="/"
+                        to="/home"
                         className="sidemenu-link"
                         >
                             저장
@@ -98,7 +98,7 @@ class SideMenuIndex extends React.Component {
                     </li>
                     <li className="sidemenu-list sidemenu-snb">
                         <Link
-                        to="/"
+                        to="/home"
                         className="sidemenu-link"
                         >
                             쿠폰

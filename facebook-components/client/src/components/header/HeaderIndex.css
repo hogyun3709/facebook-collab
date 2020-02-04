@@ -1,0 +1,31 @@
+/* HeaderIndex.css */
+
+.App-header-wrap {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 43px;
+    background: #4267b2;
+    border-bottom: 1px solid #3a5381;
+    z-index: 9996;
+}
+.App-header {
+    display: flex;
+    width: 1012px;
+    height: 100%;
+}
+.App-header_left {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: flex-start;
+}
+.App-header_right {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-end;
+}

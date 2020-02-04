@@ -45,7 +45,7 @@ class Account extends React.Component{
         return(
             <div className="account-wrap">
                 <Link
-                to="/User"
+                to="/user"
                 className="user-wrap">
                     <div className="user-img">
                         <UserIco />

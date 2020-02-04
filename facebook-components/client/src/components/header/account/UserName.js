@@ -12,7 +12,7 @@ class UserName extends React.Component{
         return(
             <Router>
                 <Link
-                to="/User"
+                to="/user"
                 className="username"
                 >
                     {this.state.name}
