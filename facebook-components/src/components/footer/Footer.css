@@ -1,0 +1,35 @@
+/* Footer.css */
+
+.footer {
+    position: fixed;
+    top: 55px;
+    color: #90949c;
+    font-size: 13px;
+}
+.footer-list {
+    display: flex;
+}
+.footer-item {
+    position: relative;
+    margin-right: 11px;
+    cursor: pointer;
+}
+.footer-item:first-child {
+    font-weight: bold;
+}
+.footer-item:hover {
+    text-decoration: underline;
+}
+.footer-item + .footer-item::before {
+    content:'';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    top: 7px;
+    left: -6.5px;
+    border-radius: 50%;
+    background: #90949c;
+}
+.footer-info {
+    color: #616770;
+}

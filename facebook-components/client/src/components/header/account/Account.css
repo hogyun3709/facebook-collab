@@ -24,6 +24,7 @@
 }
 .user-name {
     height: 27px;
+    font-weight: bold;
     line-height: 25px;
 }
 .account-menu {

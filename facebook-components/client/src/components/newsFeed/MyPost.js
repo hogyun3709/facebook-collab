@@ -7,7 +7,7 @@ import './MyPost.css';
 
 class MyPost extends Component {
   render() {
-    const { id, message, edit, onEdit, onChange, post } = this.props;
+    const { id, message, edit, like, onEdit, onChange, post, setPost, setPostToggle, onBlurHandle, onFocusHandle, toggleLike, autoFocusToggle } = this.props;
     return (
       <li className="postList">
         <div className="postList-list">
@@ -27,50 +27,80 @@ class MyPost extends Component {
               </div>
             </div>
             <div className="postList-info-set-box">
-              <button type="button" className="postList-set-btn"></button>
-              <ul className="postList-set-box">
-                <li className="postList-set-list">
-                  <button type="button" className="postList-set-list-btn">게시물 삭제</button>
-                </li>
-                <li className="postList-set-list">
-                  <button type="button" className="postList-set-list-btn">게시물 수정</button>
-                </li>
-              </ul>
+              <button 
+                type="button" 
+                className="postList-set-btn"
+                onClick={()=>setPostToggle(id)}
+                onBlur={()=>onBlurHandle(id)}
+              />
+              {
+              setPost&&
+                <ul className="postList-set-box">
+                  <li className="postList-set-list">
+                    <button 
+                    type="button" 
+                    className="postList-set-list-btn"
+                    onFocus={()=>onFocusHandle(id)}
+                    onClick={()=>onEdit(id)}
+                    >
+                      게시물 수정
+                    </button>
+                  </li>
+                  <li className="postList-set-list">
+                    <button 
+                      type="button"
+                      className="postList-set-list-btn"
+                      onFocus={()=>onFocusHandle(id)}
+                      >
+                        게시물 삭제
+                      </button>
+                  </li>
+                </ul>
+              }
             </div>
           </div>
           <div className="postList-content">
-            {edit ? 
-            (
-              <div className="postList-content-edit">
-                <EditPostForm 
-                  id={id} 
-                  message={message} 
-                  onChange={onChange}
-                />
-              </div>
-            ) : (
-              <div className="">
-                {message}
-              </div>
-            )}
-            {/* <button 
-              className=""
-              onClick={
-                (e) => onEdit(id)
-            }>
-              게시물 수정
-            </button> */}
+            {message}
           </div>
+          {
+            like&&
+            <div className="postlist-like">
+              <UserName />
+            </div>
+          }
         </div>
         <ul className="postList-btn">
           <li className="postList-btn-list">
-            <button type="button" className="postList-btn-list-txt">좋아요</button>
+            <button 
+              type="button" 
+              className="postList-btn-list-txt"
+              onClick={()=>toggleLike(id)}
+            >
+              좋아요
+            </button>
           </li>
           <li className="postList-btn-list">
-            <button type="button" className="postList-btn-list-txt">댓글</button>
+            <button 
+            type="button"
+            className="postList-btn-list-txt"
+            // onClick={()=>autoFocusToggle(id)}
+            >
+              댓글
+            </button>
           </li>
         </ul>
         <CommentIndex />
+        {
+          edit&&
+          <div className="postList-content-edit">
+            <EditPostForm 
+              id={id} 
+              setPost={setPost}
+              message={message} 
+              onChange={onChange}
+            />
+          </div>
+        }
       </li>
     );
   }

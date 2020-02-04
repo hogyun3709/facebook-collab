@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentReply from './CommentReply';
+import './CommentItem.css';
 import TimeAgo from 'react-timeago';
 
 const CommentInfo = ({ id, date, like, onLike, onReply }) => {
@@ -7,7 +8,8 @@ const CommentInfo = ({ id, date, like, onLike, onReply }) => {
         <div className="iteminfoBox" >
             <a
                 href="#a"
-                className={like?'liked iteminfo':'unliked iteminfo'}
+                className={like?"liked iteminfo":"unliked iteminfo"}
+                className="unliked iteminfo"
                 onClick={(e) => 
                     {e.stopPropagation()
                     onLike(id)}

@@ -1,31 +1,44 @@
 /* PostForm.css */
 
-/* PostForm background */
-/* .postform-on-bg {
+/* PostForm modal UI */
+.postform-modal {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 20%;
+  margin-left: 198px;
+  width: 502px;
+  outline: none;
+  border-radius: 5px;
+  background: #fff;
+}
+@media screen and (min-width: 1012px) {
+  .postform-modal {
+    margin: 0;
+    left: calc((100vw - 1012px) / 2 + 198px);
+  }
+}
+.postform-overlay {
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(0,0,0,.5);
-  z-index: 9997;
-} */
-/* PostForm input UI */
+  z-index: 9996;
+}
+/* PostForm UI */
 .postform-wrap {
+  overflow: hidden;
+  position: relative;
   width: 502px;
-  margin: 12px 0 0;
+  margin-top: 12px;
   border: 1px solid #dddfe2;
   border-radius: 5px;
   background: #fff;
-  z-index: 9995;
-}
-.postform-on {
-  position: absolute;
-  top: 43px;
 }
 .postform-title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 8px;
   border-bottom: 1px solid #dddfe2;
   border-radius: 5px 5px 0 0;
@@ -52,29 +65,35 @@
 .postform-input {
   flex: 1;
   width: 488px;
-  /* height: 71px; */
   padding: 26px 48px 13px 12px;
   border: none;
   outline: none;
   color: #4b4f56;
   font-size: 14px;
+  resize: none;
 }
 .postform-input::placeholder {
   color: #999;
 }
-/* .postform-input-on {
+.postform-input-on {
   padding-top: 20px;
   padding-bottom: 40px;
   font-size: 23px;
-  font-weight: normal;
-} */
+  resize: none;
+}
 .postform-close {
+  position: relative;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  padding: 0;
   border: none;
-  background: rgba(0,0,0,0) url() no-repeat;
-  /* color: transparent; */
+  background: transparent url(../../images/ico_post_2.png) no-repeat -19px -293px/34px;
+  color: transparent;
+  letter-spacing: -10px;
 }
 
-/* PostForm items UI */
+/* PostForm item menu UI */
 .postform-items {
   display: flex;
   border-top: 1px solid #e9ebee;
@@ -124,10 +143,12 @@
   left: 17px;
   background-position: 0 -229px;
 }
+
+/* PostForm item opt UI */
 .postform-opts {
   padding: 0 12px 10px;
-  border-radius: 0 0 5px 5px;
   border-top: 1px solid #dddfe2;
+  border-radius: 0 0 5px 5px;
   background: #f5f6f7;
 }
 .postform-opt {
@@ -140,7 +161,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 5px;
   font-size: 13px;
   font-weight: bold;
   line-height: 44px;
@@ -152,9 +172,6 @@
   position: relative;
   flex: 1;
   cursor: pointer;
-}
-.postform-opt-list:nth-child(1) .postform-opt-list-select {
-
 }
 .postform-opt-list-select::before {
   content:'';
@@ -169,9 +186,9 @@
 }
 .postform-opt-checkbox:checked + .postform-opt-list-select::before {
   border: 2px solid #4e79c9;
-  background: #4e79c9 url(../../images/ico_post_2.png) no-repeat 3px -323px/38px;
+  background: #4e79c9 url(../../images/ico_post_2.png) no-repeat 3px -324px/38px;
 }
-.postform-opt-list:nth-child(1) .postform-opt-list-select::after {
+.postform-opt-list-select::after {
   content:'';
   position: absolute;
   width: 38px;
@@ -180,18 +197,14 @@
   top: 2px;
   border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 50%;
+}
+.postform-opt-list:nth-child(1) .postform-opt-list-select::after {
   background: #fff url(../../images/ico_post_1.png) no-repeat 11px 11px;
 }
 .postform-opt-list:nth-child(2) .postform-opt-list-select::after {
-  content:'';
-  position: absolute;
-  width: 38px;
-  height: 38px;
-  left: 40px;
-  top: 2px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  background: url(../../images/profile.png) no-repeat -1px -1px/40px;
+  width: 36px;
+  height: 36px;
+  background: url(../../images/profile.png) no-repeat -2px -1px/40px;
 }
 .postform-opt-checkbox {
   display: none;
@@ -263,35 +276,36 @@
   width: 20px;
   height: 20px;
   top: 1px;
+  background: url(../../images/ico_post_2.png) no-repeat 0/38px;
+}
+.postform-opt-box-selected::after {
+  height: 18px;
 }
 .postform-opt-box-selected::before {
   left: 5px;
-  background: url(../../images/ico_post_2.png) no-repeat 0 -253px/38px;
+  background-position: 0 -252px;
 }
 .postform-opt-box-selected::after {
   right: 0px;
-  background: url(../../images/ico_post_2.png) no-repeat 0 -309px/38px;
+  background-position: 0 -309px;
 }
 .selected-on::before {
-  background: url(../../images/ico_post_2.png) no-repeat -19px -253px/38px;
+  background-position: -19px -252px;
 }
 .selected-on::after {
-  background: url(../../images/ico_post_2.png) no-repeat -19px -309px/38px;
+  background-position: -19px -309px;
 }
 .postform-opt-box-list {
   position: absolute;
+  width: 200px;
   top: calc(100% - 10px);
   right: 15px;
-  width: 200px;
-  /* padding: 1px; */
-  /* border: 1px solid rgba(107, 107, 107, .5); */
-  box-sizing: border-box;
   border-radius: 4px 0 4px 4px;
   background: #f5f6f7;
   box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-  z-index: 999;
+  z-index: 1;
 }
-.postform-opt-box-list:before {
+.postform-opt-box-list::before {
   content:'';
   position: absolute;
   width: 100%;
@@ -300,12 +314,9 @@
   top: -1px;
   border: 1px solid rgba(158, 158, 158, 0.3);
   border-radius: 4px 0 4px 4px;
-  z-index: 998;
 }
 .postform-opt-box-item {
-  /* width: 200px; */
   position: relative;
-  z-index: 1000;
   padding: 10px 0 10px 35px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
@@ -313,29 +324,6 @@
   font-size: 11px;
   line-height: 1;
   cursor: pointer;
-}
-.postform-opt-box-item:before {
-  content:'';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 4px;
-  left: 10px;
-}
-.postform-opt-box-item:nth-child(1)::before {
-  background: url(../../images/ico_post_2.png) no-repeat 0 -251px/38px;
-}
-.postform-opt-box-item:nth-child(2)::before {
-  background: url(../../images/ico_post_2.png) no-repeat 0 -289px/38px;
-}
-.postform-opt-box-item-title {
-  display: inline-block;
-  padding-bottom: 10px;
-  color: #1d2129;
-  font-size: 13px;
-  font-weight: bold;
-  font-style: normal;
-  line-height: 1;
 }
 .postform-opt-box-item:hover {
   background: #4267B2;
@@ -346,17 +334,41 @@
 .postform-opt-box-item:nth-child(1):hover {
   border-radius: 3px 0 0 0;
 }
-.postform-opt-box-item:nth-child(3):hover {
+.postform-opt-box-item:nth-child(2):hover {
   border-radius: 0 0 3px 3px;
+}
+.postform-opt-box-item::before {
+  content:'';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 4px;
+  left: 10px;
+  background: url(../../images/ico_post_2.png) no-repeat 0/38px;
+}
+.postform-opt-box-item:nth-child(1)::before {
+  background-position: 0 -251px;
+}
+.postform-opt-box-item:nth-child(2)::before {
+  background-position: 0 -289px;
+}
+.postform-opt-box-item:nth-child(1):hover::before {
+  background-position: -20px -251px;
+}
+.postform-opt-box-item:nth-child(2):hover::before {
+  background-position: -20px -289px;
+}
+.postform-opt-box-item-title {
+  display: inline-block;
+  padding-bottom: 10px;
+  color: #1d2129;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1;
 }
 .postform-opt-box-item:hover .postform-opt-box-item-title {
   color: #fff;
-}
-.postform-opt-box-item:nth-child(1):hover::before {
-  background: url(../../images/ico_post_2.png) no-repeat -20px -251px/38px;
-}
-.postform-opt-box-item:nth-child(2):hover::before {
-  background: url(../../images/ico_post_2.png) no-repeat -20px -289px/38px;
 }
 .postform-submit {
   width: 100%;
@@ -368,16 +380,16 @@
   font-weight: bold;
   line-height: 28px;
   transform: scale(1);
-  transition: all .3s;
+  transition: all .2s;
   cursor: pointer;
 }
 .postform-submit:active {
   transform: scale(.98);
 }
+.postform-submit-on:hover {
+  background: #4c70b3;
+}
 .postform-submit-off {
   opacity: 0.4;
   cursor: default;
-}
-.postform-input:focus .postform-submit {
-  background: #4e79c9;
 }

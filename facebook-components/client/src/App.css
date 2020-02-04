@@ -1,5 +1,7 @@
-/* reset code s */
-* {
+/* App.css */
+
+/* reset code */
+* { 
     box-sizing: border-box;
 }
 html, body {
@@ -27,14 +29,12 @@ a {
     display: block;
     clear: both;
 }
-/* reset code e */
-/* layout code s */
+/* layout */
 .App-container {
     display: flex;
     justify-content: center;
 }
-/* layout code e */
-/* header s */
+/* header */
 .App-header-wrap {
     display: flex;
     position: fixed;
@@ -64,24 +64,27 @@ a {
     align-items: center;
     justify-content: flex-end;
 }
-/* header e */
-/* main content s */
+/* main content */
 .contents-wrap {
     display: flex;
+    /* justify-content: flex-start; */
     flex-direction: column;
     justify-content: center;
     width: 1012px;
-    min-width: 1012px;
-    margin-top: 43px;
-    /* outline: 1px solid #999; */
+    margin: 43px 0 24px;
 }
-/* main content e */
-/* newsFeed s */
+/* newsFeed */
 .newsFeed-wrap {
     width: 502px;
+    margin-left: 198px;
 }
-/* newsFeed e */
-/* widget-wrap s */
+/* footer */
+.footer-wrap {
+    width: 100%;
+    margin-left: 12px;
+    white-space: nowrap;;
+}
+/* widget */
 .widget-wrap {
     position: fixed;
     width: 208px;
