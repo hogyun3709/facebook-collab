@@ -13,13 +13,13 @@ import SideMenuIndex from "./components/sideMenu/SideMenuIndex";
 import NewsFeed from "./components/newsFeed/NewsFeedIndex";
 import WidgetIndex from "./components/widget/WidgetIndex";
 import Footer from "./components/footer/Footer";
-// import ChatBoard from "./components/chat/ChatBoard";
+import ChatBoard from "./components/chat/ChatBoard";
 
 function App() {
   return (
     <div>
       <Router>
-        <Route path="/" component={SignIn} />
+        {/* <Route path="/" component={SignIn} /> */}
         <header className="App-header-wrap">
           <div className="App-header">
             <div className="App-header_left">
@@ -38,15 +38,15 @@ function App() {
           <main className="newsFeed-wrap">
             <NewsFeed />
           </main>
-          {/* <div>
-            <ChatBoard/>
-          </div> */}
           <div className="widget-wrap">
             <WidgetIndex />
           </div>
           <footer className="footer-wrap">
             <Footer />
           </footer>
+        </div>
+        <div className="chat-wrap">
+          <ChatBoard/>
         </div>
         {/* <Route exact path="/" component={Home} />
         <Route path="/User" component={User} />

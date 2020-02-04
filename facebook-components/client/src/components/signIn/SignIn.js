@@ -4,7 +4,7 @@ import Logo from '../../images/logo.png';
 import Profile1 from '../../images/profile1.png';
 import Profile2 from '../../images/profile2.png';
 import UserName from '../header/account/UserName';
-import './SignIn.scss';
+// import './SignIn.scss';
 
 class SignIn extends React.Component {
     constructor(props) {
