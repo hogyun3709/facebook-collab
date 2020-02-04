@@ -1,0 +1,8 @@
+.postwrap-on {
+  /* margin-top: 358px; */
+  margin-top: 318px;
+}
+.postList-wrap {
+  display: flex;
+  flex-direction: column-reverse;
+}

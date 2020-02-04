@@ -1,0 +1,51 @@
+/* Acount.css */
+
+.account-wrap {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 12px;
+}
+.user-wrap {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    margin: 0 0 0 10px;
+    padding: 0 10px 0 3px;
+}
+.user-wrap:hover {
+    border-radius: 5px;
+    background: #425e9b;
+}
+.user-img {
+    width: 23px;
+    height: 23px;
+    margin: 0 6px 0 0;
+}
+.user-name {
+    height: 27px;
+    line-height: 25px;
+}
+.account-menu {
+    display: flex;
+}
+.account-menu-link {
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    line-height: 25px;
+    padding: 0 12px 3px;
+}
+.account-menu-link::before {
+    content:"";
+    position: absolute;
+    width: 1px;
+    height: 16px;
+    left: -1px;
+    top: 5px;
+    background: #425e9b;
+}
+.account-menu-link:hover {
+    border-radius: 5px;
+    background: #425e9b;
+}

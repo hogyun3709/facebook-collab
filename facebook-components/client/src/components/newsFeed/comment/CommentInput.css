@@ -1,0 +1,106 @@
+/* CommentInput.css */
+
+.commentBox {
+    display: flex;
+    height: 44px;
+    padding: 4px 12px 0;
+}
+.replyCommentBox {
+    display: flex;
+    height: 44px;
+    padding: 4px 0 4px 12px;
+}
+.commentEditBox {
+    height: 52px;
+    padding-bottom: 4px; 
+}
+.commentUserInfo {
+    width: 32px;
+    height: 32px;
+    margin-right: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+/* .replyCommentUserInfo {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+} */
+.commentBar {
+    display: flex;
+    flex: 1;
+    position: relative;
+    height: 32px;
+    border: 1px solid #ccd0d5;
+    border-radius: 16px;
+    background: #e9ebee;
+}
+.commentInput {
+    flex: 1;
+    height: 100%;
+    padding: 8px 12px;
+    color: #8d949e;
+    border: none;
+    outline: none;
+    background: transparent;
+    line-height: 16px;
+}
+.commentNum {
+    position: absolute;
+    top: -75px;
+    right: 12px;
+    color: #606770;
+    font-size: 13px;
+}
+.attachBox {
+    width: 112px;
+    height: 100%;
+    margin: 0 12px 0 0;
+}
+.attachIconLink {
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin: 8px 6px;
+    background: url(../../../images/feed_icons.png) no-repeat 0 / 64px;
+}
+.attachIcon {
+    background-position: -17px -277px;
+}
+.attachFile {
+    background-position: -17px -260px;
+}
+.attachGIF {
+    background-position: -17px -294px;
+}
+.attachSticker {
+    background-position: -17px -328px;
+}
+
+.attachIcon:hover {
+    background-position: 0 -277px;
+}
+.attachFile:hover {
+    background-position: 0 -260px;
+}
+.attachGIF:hover {
+    background-position: 0 -294px;
+}
+.attachSticker:hover {
+    background-position: 0 -328px;
+}
+
+.attachIcon:focus {
+    background-position: -68px -277px;
+}
+.attachFile:focus {
+    background-position: -68px -260px;
+}
+.attachGIF:focus {
+    background-position: -68px -294px;
+}
+.attachSticker:focus {
+    background-position: -68px -328px;
+}

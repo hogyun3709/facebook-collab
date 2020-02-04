@@ -1,0 +1,93 @@
+/* reset code s */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    background: #e9ebee;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+}
+ol,ul,li,p,h1,h2,h3,h4,h5,h6 {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.clear {
+    display: block;
+    clear: both;
+}
+.clear::after {
+    content:'';
+    display: block;
+    clear: both;
+}
+/* reset code e */
+/* layout code s */
+.App-container {
+    display: flex;
+    justify-content: center;
+}
+/* layout code e */
+/* header s */
+.App-header-wrap {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 43px;
+    background: #4267b2;
+    border-bottom: 1px solid #3a5381;
+    z-index: 9996;
+}
+.App-header {
+    display: flex;
+    width: 1012px;
+    height: 100%;
+}
+.App-header-left {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: flex-start;
+}
+.App-header-right {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-end;
+}
+/* header e */
+/* main content s */
+.contents-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1012px;
+    min-width: 1012px;
+    margin-top: 43px;
+    /* outline: 1px solid #999; */
+}
+/* main content e */
+/* newsFeed s */
+.newsFeed-wrap {
+    width: 502px;
+}
+/* newsFeed e */
+/* widget-wrap s */
+.widget-wrap {
+    position: fixed;
+    width: 208px;
+    right: 30px;
+    bottom: 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.3);
+    z-index: 9995;
+}
