@@ -146,7 +146,7 @@ class CommentReply extends React.Component {
             onReply,
             onBlurHandle, 
             onFocusHandle,
-            onCommentSet,
+            toggleCommentSet,
             handleEditCancel,
             handleEditEsc
         } = this;
@@ -156,7 +156,7 @@ class CommentReply extends React.Component {
                 <CommentReplyItem
                 {...recomment}
                 key={recomment.id}
-                onCommentSet={onCommentSet}
+                onCommentSet={toggleCommentSet}
                 onEdit={onEdit}
                 onChange={onChange}
                 onRemove={onRemove}
