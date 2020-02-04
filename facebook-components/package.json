@@ -1,5 +1,6 @@
 {
   "name": "facebook-components",
+<<<<<<< HEAD
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,25 +12,20 @@
     "react-scripts": "^3.3.0",
     "react-timeago": "^4.4.0"
   },
+=======
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+>>>>>>> 1f62def4201b148c9284d1593e4a5dfccffb3144
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm run start --prefix client",
+    "server": "npm run start --prefix server",
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.0.2"
   }
 }

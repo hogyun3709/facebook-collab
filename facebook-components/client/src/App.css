@@ -67,7 +67,9 @@ a {
 /* main content */
 .contents-wrap {
     display: flex;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
+    flex-direction: column;
+    justify-content: center;
     width: 1012px;
     margin: 43px 0 24px;
 }

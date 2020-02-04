@@ -11,8 +11,12 @@ import Notice from "./components/header/notice/Notice";
 import SideMenuIndex from "./components/sideMenu/SideMenuIndex";
 import NewsFeed from "./components/newsFeed/NewsFeedIndex";
 import WidgetIndex from "./components/widget/WidgetIndex";
+<<<<<<< HEAD:facebook-components/src/App.js
 import Footer from "./components/footer/Footer";
 
+=======
+import ChatBoard from "./components/chat/ChatBoard";
+>>>>>>> 1f62def4201b148c9284d1593e4a5dfccffb3144:facebook-components/client/src/App.js
 
 function App() {
   return (
@@ -33,8 +37,18 @@ function App() {
         <Route path="/User" component={User} />
         <Route path="/Friends" component={Friends} />
         <Route path="/Create" component={Create} /> */}
+<<<<<<< HEAD:facebook-components/src/App.js
         <div className="widget-wrap">
           <WidgetIndex />
+=======
+      </Router>
+      <div className="contents-wrap">
+        <div className="newsFeed-wrap">
+          <NewsFeed/>
+        </div>
+        <div>
+          <ChatBoard/>
+>>>>>>> 1f62def4201b148c9284d1593e4a5dfccffb3144:facebook-components/client/src/App.js
         </div>
         <div className="contents-wrap">
           <nav className="gnb-wrap">

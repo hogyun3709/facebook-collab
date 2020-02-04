@@ -10,6 +10,7 @@ class UserName extends React.Component{
     };
     render(){
         return(
+<<<<<<< HEAD:facebook-components/src/components/Header/Account/Username.js
             // <Router>
             //     <Link
             //     to="/User"
@@ -19,6 +20,16 @@ class UserName extends React.Component{
                     </span>
             //     </Link>
             // </Router>
+=======
+            <Router>
+                <Link
+                to="/User"
+                className="username"
+                >
+                    {this.state.name}
+                </Link>
+            </Router>
+>>>>>>> 1f62def4201b148c9284d1593e4a5dfccffb3144:facebook-components/client/src/components/header/account/UserName.js
         );
     }
 }
