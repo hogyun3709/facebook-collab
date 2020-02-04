@@ -12,7 +12,6 @@ import NewsFeed from "./components/newsFeed/NewsFeedIndex";
 import WidgetIndex from "./components/widget/WidgetIndex";
 import ChatBoard from "./components/chat/ChatBoard";
 
-
 function App() {
   return (
     <div className="App-container">
@@ -35,7 +34,7 @@ function App() {
       </Router>
       <div className="contents-wrap">
         <div className="newsFeed-wrap">
-          <NewsFeed />
+          <NewsFeed/>
         </div>
         <div>
           <ChatBoard/>
