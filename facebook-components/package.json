@@ -1,22 +1,8 @@
 {
   "name": "facebook-components",
-<<<<<<< HEAD
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.12.0",
-    "react-dev-utils": "^9.1.0",
-    "react-dom": "^16.12.0",
-    "react-modal": "^3.11.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.3.0",
-    "react-timeago": "^4.4.0"
-  },
-=======
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
->>>>>>> 1f62def4201b148c9284d1593e4a5dfccffb3144
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm run start --prefix client",
