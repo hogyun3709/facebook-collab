@@ -1,1 +1,0 @@
-/* Shows every messages from users */
