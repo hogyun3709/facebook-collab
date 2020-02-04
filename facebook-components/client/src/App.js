@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
+import SignIn from "./components/signIn/SignIn";
 import SearchBar from "./components/header/searchBar/SearchBarIndex";
 import Account from "./components/header/account/Account";
 // import Home from "./components/header/menu/Home";
@@ -18,6 +19,7 @@ function App() {
   return (
     <div>
       <Router>
+        <Route path="/" component={SignIn} />
         <header className="App-header-wrap">
           <div className="App-header">
             <div className="App-header_left">
